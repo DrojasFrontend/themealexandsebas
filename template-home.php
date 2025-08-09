@@ -43,7 +43,7 @@ get_header();
         </div>
     </section>
 
-    <section class="customSectionWedding position-relative z-1">
+    <section class="customSectionWedding position-relative z-1" id="wedding">
         <img class="customSectionWedding__img position-absolute w-100 h-100 top-0 start-0 object-fit-cover object-position-bottom" src="<?php echo THEME_IMG; ?>bg-wedding.webp" alt="Icon Start">
         <div class="container">
             <div class="row">
@@ -119,7 +119,7 @@ get_header();
         </div>
     </section>
 
-    <section class="customSectionEvents position-relative z-1">
+    <section class="customSectionEvents position-relative z-1" id="events">
         <?php if(wp_is_mobile()): ?>
             <img class="customSectionWedding__img position-absolute w-100 h-100 top-0 start-0 object-fit-cover object-position-bottom" src="<?php echo THEME_IMG; ?>bg-events-mobile.webp" alt="Background Events Mobile">
         <?php else: ?>
@@ -181,7 +181,7 @@ get_header();
         <div class="py-xl-5"></div>
     </section>
 
-    <section class="customSectionWedding position-relative z-1">
+    <section class="customSectionWedding position-relative z-1" id="rsvp">
         <img class="customSectionWedding__img position-absolute w-100 h-100 top-0 start-0 object-fit-cover object-position-bottom" src="<?php echo THEME_IMG; ?>bg-rsvp.webp" alt="Background R.S.V.P.">
         <div class="container-fluid gx-0 h-100 position-relative z-1 bg-blue-100">
             <div class="row gx-0 h-100">
@@ -239,7 +239,7 @@ get_header();
         </div>
     </section>
 
-    <section class="customSectionCartagena position-relative z-1">
+    <section class="customSectionCartagena position-relative z-1" id="cartagena">
         <img class="customSectionWedding__img position-absolute w-100 h-100 top-0 start-0 object-fit-cover object-position-bottom" src="<?php echo THEME_IMG; ?>bg-cartagena.webp" alt="Background Cartagena">
         <div class="container-fluid gx-0 h-100 position-relative z-1 bg-blue-100">
             <div class="row gx-0 h-100">

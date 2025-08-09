@@ -549,7 +549,7 @@ $places = [
 
 
     <?php foreach ($places as $key => $category) { ?>
-        <section class="customSectionCartagenaPlace position-relative">
+        <section class="customSectionCartagenaPlace position-relative" id="<?php echo $category['id']; ?>">
             <?php if (!empty($category['info'])) : ?>
                 <div class="position-absolute top-0 start-0 w-100 h-100 bg-white-100" style="z-index: -1;">
                     <div class="container-fluid gx-0 h-100">
