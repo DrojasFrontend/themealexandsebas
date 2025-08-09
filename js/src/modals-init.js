@@ -3,13 +3,28 @@ import { Modal } from 'bootstrap';
 export function initModals() {
     // Obtener variables del PHP (se agregan via wp_localize_script)
     const usuarioAutenticado = window.modalData?.usuarioAutenticado || false;
-    const idiomaSeleccionado = window.modalData?.idiomaSeleccionado || false;
+    let idiomaSeleccionado = window.modalData?.idiomaSeleccionado || false;
     const errorPassword = window.modalData?.errorPassword || false;
+    
+    // Verificar también localStorage como respaldo
+    const idiomaEnLocalStorage = localStorage.getItem('idioma_seleccionado') === 'true';
+    if (idiomaEnLocalStorage && !idiomaSeleccionado) {
+        idiomaSeleccionado = true;
+        // Sincronizar con PHP sesión de forma asíncrona
+        fetch(window.location.href, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'idioma_seleccionado=1'
+        }).catch(() => {});
+    }
     
     // Debug: verificar estados
     console.log('Estados modales:', {
         usuarioAutenticado,
         idiomaSeleccionado,
+        idiomaEnLocalStorage,
         errorPassword,
         modalData: window.modalData
     });
@@ -37,15 +52,20 @@ export function initModals() {
             // Manejar selección de idioma - dejar que TranslatePress maneje el cambio
             document.querySelectorAll('.idioma-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
-                    // NO prevenir default - dejar que funcione el enlace normal de TranslatePress
-                    // Marcar idioma como seleccionado en sesión
+                    // Marcar idioma como seleccionado en localStorage antes de que TranslatePress redirija
+                    localStorage.setItem('idioma_seleccionado', 'true');
+                    
+                    // También enviar a sesión PHP de forma asíncrona
                     fetch(window.location.href, {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/x-www-form-urlencoded',
                         },
                         body: 'idioma_seleccionado=1'
+                    }).catch(() => {
+                        // Si falla el fetch, localStorage se mantiene como respaldo
                     });
+                    
                     // El enlace redirigirá normalmente con TranslatePress
                 });
             });
