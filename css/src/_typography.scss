@@ -1,0 +1,122 @@
+@font-face {
+    font-family: 'Belianty Elesha';
+    src: url('../../font/belianty/BeliantyElesha.woff2') format('woff2'),
+        url('../../font/belianty/BeliantyElesha.woff') format('woff'),
+        url('../../font/belianty/BeliantyElesha.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.font-titulo {
+    font-family: 'Belianty Elesha', sans-serif;
+}
+
+.line-height-0 {
+    line-height: 20px !important;
+
+    @media only screen and (min-width: 1200px) {
+        line-height: 34px !important;
+    }
+}
+
+.fs-1-lg {
+    font-size: 96px !important;
+}
+
+.fs-2-lg {
+    font-size: 48px !important;
+}
+
+.fs-2-md {
+    font-size: 40px !important;
+}
+
+.fs-3 {
+    font-size: 32px !important;
+}
+
+.fs-4 {
+    font-size: 28px !important;
+}
+
+.fs-6 {
+    font-size: 20px !important;
+}
+
+.fs-6-md {
+    font-size: 18px !important;
+}
+
+.fs-p-md {
+    font-size: 14px !important;
+}
+
+.fs-p-xxl {
+    font-size: 12px !important;
+}
+
+@media only screen and (min-width: 1200px) {
+    .fs-xl-lg-1 {
+        font-size: 128px !important;
+    }
+
+    .fs-xl-md-1 {
+        font-size: 96px !important;
+    }
+
+    .fs-xl-sm-1 {
+        font-size: 72px !important;
+    }
+
+    .fs-xl-2 {
+        font-size: 54px !important;
+    }
+
+    .fs-xl-lg-2 {
+        font-size: 48px !important;
+    }
+
+    .fs-xl-md-2 {
+        font-size: 40px !important;
+    }
+
+    .fs-xl-lg-2 {
+        font-size: 36px !important;
+    }
+
+    .fs-xl-3 {
+        font-size: 32px !important;
+    }
+
+    .fs-xl-4 {
+        font-size: 28px !important;
+    }
+
+    .fs-xl-5 {
+        font-size: 24px !important;
+    }
+
+    .fs-xl-6 {
+        font-size: 20px !important;
+    }
+
+    .fs-xl-p {
+        font-size: 16px !important;
+    }
+
+    .fs-p-small {
+        font-size: 12px !important;
+    }
+
+    .letter-spacing-16 {
+        letter-spacing: 1.6px;
+    }
+}
+
+
+.border-right {
+    @media only screen and (min-width: 1200px) {
+        border-right: 1px solid var(--bs-white);
+    }
+}

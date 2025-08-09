@@ -1,0 +1,53 @@
+.btn {
+    font-family: "beloved-sans", sans-serif !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max-content;
+    padding: 16px 20px 10px 20px;
+    font-size: 12px;
+    font-style: normal;
+    border-radius: 50px;
+    font-weight: 700;
+    line-height: 16px;
+    letter-spacing: 0;
+
+    @media only screen and (min-width: 1200px) {
+        padding: 13px 25px 7px 25px;
+        font-size: 20px;
+    }
+
+    &-primary {
+        background-color: var(--bs-secondary-100);
+        color: #fff;
+
+        &-lg {
+            min-width: 190px;
+            height: 47px;
+            padding: 13px 25px 7px 25px;
+
+            @media only screen and (min-width: 1200px) {
+                min-width: 290px;
+                height: 60px;
+            }
+        }
+    }
+
+    &-secondary {
+        background-color: var(--bs-red);
+        color: var(--bs-white);
+    }
+
+    &-small {
+        min-width: 150px;
+        height: 50px;
+        padding: 10px 20px;
+        -webkit-text-stroke-width: 0.3px;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: normal;
+        letter-spacing: 1.6px;
+        border: 1px solid var(--bs-primary);
+        color: var(--bs-primary);
+    }
+}

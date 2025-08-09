@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Belianty Elesha';
+    src: url('BeliantyElesha.woff2') format('woff2'),
+        url('BeliantyElesha.woff') format('woff'),
+        url('BeliantyElesha.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
