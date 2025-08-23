@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage.woff2') format('woff2'),
+        url('MADEMirage.woff') format('woff'),
+        url('MADEMirage.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage-Medium.woff2') format('woff2'),
+        url('MADEMirage-Medium.woff') format('woff'),
+        url('MADEMirage-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage-Bold.woff2') format('woff2'),
+        url('MADEMirage-Bold.woff') format('woff'),
+        url('MADEMirage-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage-Black.woff2') format('woff2'),
+        url('MADEMirage-Black.woff') format('woff'),
+        url('MADEMirage-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('MADEMirage-Thin.woff2') format('woff2'),
+        url('MADEMirage-Thin.woff') format('woff'),
+        url('MADEMirage-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+

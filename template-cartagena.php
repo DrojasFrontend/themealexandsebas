@@ -14,36 +14,20 @@ $places = [
     "info" => true,
     "places" => [
         [
-            "name" => "Hotel San <br> Agustín",
-            "address" => "Calle de la Universidad # 36 - 44",
+            "name" => "Hotel <br> CASA SAN AGUSTÍN",
+            "address" => "Please use the code <strong>GMARHAU</strong> under 'Promo Code' to reserve within our room block. This code will be valid from March 26-29. <br> <br> Calle de la Univ. # 36 - 44",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 (605) 6810000",
             "link" => "https://hotelcasasanagustin.com",
             "image" => THEME_IMG . 'places-cartagena/hoteles-7.png',
         ],
         [
-            "name" => "Sofitel Legend <br> Santa Clara",
-            "address" => "Calle Del Torno # 39 - 29",
-            "city" => "Cartagena, Colombia",
-            "phone" => "+57 (605) 6504700",
-            "link" => "https://www.sofitellegendsantaclara.com/es/",
-            "image" => THEME_IMG . 'places-cartagena/hoteles-1.png',
-        ],
-        [
             "name" => "Bastion Luxury <br> Hotel",
-            "address" => "Calle del Sargento # 6 - 87",
+            "address" => "Please use the code <strong>'AS2026'</strong> to receive a discount when booking. This code will be valid from March 25-29. <br><br> Calle del Sargento # 6 - 87",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 (605) 6424100",
             "link" => "https://en.bastionluxuryhotel.com",
             "image" => THEME_IMG . 'places-cartagena/hoteles-5.png',
-        ],
-        [
-            "name" => "Voila <br> By Huespedia",
-            "address" => "Calle de las Carretas # 34 - 85",
-            "city" => "Cartagena, Colombia",
-            "phone" => "+57 300 9121453",
-            "link" => "https://www.hotelvoila.com",
-            "image" => THEME_IMG . 'places-cartagena/hoteles-13.png',
         ],
         [
             "name" => "NACAR HOTEL, <br> BY HILTON",
@@ -61,6 +45,31 @@ $places = [
             "link" => "https://www.cincoquintas.com/es",
             "image" => THEME_IMG . 'places-cartagena/hoteles-0.png',
         ],
+        [
+            "name" => "Voila <br> By Huespedia",
+            "address" => "Calle de las Carretas # 34 - 85",
+            "city" => "Cartagena, Colombia",
+            "phone" => "+57 300 9121453",
+            "link" => "https://www.hotelvoila.com",
+            "image" => THEME_IMG . 'places-cartagena/hoteles-13.png',
+        ],
+        [
+            "name" => "Sofitel Legend <br> Santa Clara",
+            "address" => "Calle Del Torno # 39 - 29",
+            "city" => "Cartagena, Colombia",
+            "phone" => "+57 (605) 6504700",
+            "link" => "https://www.sofitellegendsantaclara.com/es/",
+            "image" => THEME_IMG . 'places-cartagena/hoteles-1.png',
+        ],
+        [
+            "name" => "Hotel San <br> Agustín",
+            "address" => "Calle de la Universidad # 36 - 44",
+            "city" => "Cartagena, Colombia",
+            "phone" => "+57 (605) 6810000",
+            "link" => "https://hotelcasasanagustin.com",
+            "image" => THEME_IMG . 'places-cartagena/hoteles-7.png',
+        ],
+       
     ],
   ],
   "restaurants" => [
@@ -517,7 +526,7 @@ $places = [
                 <div class="col-12 col-xl-9 mx-auto px-xl-0 px-3">
                     <div class="position-relative customSectionBox rounded-4 text-center py-5 shadow-1">
                         <div class="col-12 col-xl-9 mx-auto text-start px-xl-0 px-3">
-                            <h2 class="font-titulo fs-xl-md-1 fs-2-md text-center">Travel Info</h2>
+                            <h2 class="font-titulo fs-xl-md-1 fs-2-md text-center uppercase">Travel Info</h2>
                             <div class="py-xl-3"></div>
                             <!-- <div class="d-flex align-items-center py-3 gap-3">
                                 <div class="icon">
@@ -527,17 +536,23 @@ $places = [
                             </div> -->
                             <!-- <div class="line line--full mb-4"></div> -->
                             <div class="bg-yellow-100 mb-xl-5">
-                                <h2 class="fs-xl-5 fw-bold text-primary letter-spacing-24 uppercase">Passports</h2>
-                                <p class="fs-xl-p fs-p-xxl text-gray-200 mb-4 fw-bold text-secondary" style="line-height: 1.4">Don't forget your passports! Please double check <br class="d-none d-xl-block"> the expiration date.</p>
-                                <h2 class="fs-xl-5 fw-bold text-primary letter-spacing-24 uppercase">CheckMig</h2>
-                                <p class="fs-xl-p fs-p-xxl text-gray-200 mb-4 fw-bold text-secondary" style="line-height: 1.4">Please complete the immigration registration form 48 hours before your trip, as the airline requires proof of completion to check-in. Complete the same step to return to the US. <a href="https://apps.migracioncolombia.gov.co/pre-registro" style="text-decoration: underline;" target="blank">Click Here</a></p>
-                                <h2 class="fs-xl-5 fw-bold text-primary letter-spacing-24 uppercase">RAFAEL NUÑEZ - INTERNATIONAL AIRPORT</h2>
-                                <p class="fs-xl-p fs-p-xxl text-gray-200 mb-4 fw-bold text-secondary" style="line-height: 1.4">Flight to Cartagena on the Caribbean coast.  Latam, Delta, American Airlines, United, Copa Airlines  and Avianca operate direct flights to the Rafael Nuñez Airport. The airport is a short 10-minutes taxi journey to the old town. There are authorized taxi services 24 hours. The rate to Getsemaní costs about $14.000 cop. To the hotel zone of the Historic Center (Ciudad Amurallada) about $14.000 cop and to the Bocagrande zone it costs $20.000 cop. Normally $1 USD is equivalent to $4.500 cop. </p>
-                                <h2 class="fs-xl-5 fw-bold text-primary letter-spacing-24 uppercase">SECURITY IN CARTAGENA</h2>
-                                <p class="fs-xl-p fs-p-xxl text-gray-200 mb-4 fw-bold text-secondary" style="line-height: 1.4">Cartagena is a beautiful and safe destination for our celebration. The city is known for its welcoming atmosphere, and we want you to feel at ease as you join us for this special occasion. With a strong focus on tourism and hospitality, Cartagena offers a secure environment for all visitors. From the historic streets to the scenic beaches, we’re excited to share this incredible city with you, and we’re confident you'll feel right at home!</p>
-                                <h2 class="fs-xl-5 fw-bold text-primary letter-spacing-24 uppercase">GARTAGENANNY</h2>
-                                <p class="fs-xl-p fs-p-xxl text-gray-200 text-secondary fw-bold" style="line-height: 1.4">For guests who may require it, here’s a trusted local nanny service to help with childcare. Please feel free to reach out to arrange childcare during the celebration. Special rates are available using the code MARYCUETER.</p>
-                                <p class="fs-xl-p fs-p-xxl text-gray-200 text-secondary fw-bold" style="line-height: 1.4">Lili Rueda: +57 318 6294974</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">Passports</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">Please do not forget your passports! <br class="d-none d-xl-block"> Make sure to carefully check the expiration date.</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CheckMig</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">Please complete the migration registration form 48 hours before your trip, as the airline requires proof of completion in order to check in. Repeat this same step for your return <a href="https://apps.migracioncolombia.gov.co/pre-registro" style="text-decoration: underline;" target="blank">Click Here</a></p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">INTERNATIONAL AIRPORT</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Several major airlines such as Latam, Delta, American Airlines, United, Aeroméxico, Copa Airlines, and Avianca offer direct flights to Rafael Núñez International Airport in Cartagena, on Colombia’s Caribbean coast. The best way to get from the airport to the walled city is by taxi or Uber. The ride takes approximately 10 to 15 minutes.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">Authorized taxis are available 24 hours a day and operate with fixed fares, paid in cash: around 14,000 COP to Getsemaní, up to 18,000 COP to the hotel area in the historic center (Walled City), and approximately 30,000 COP to Bocagrande. In general, 1 USD equals about 4,100 COP. Since taxis do not always accept card payments, Uber is often a more convenient alternative</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">SAFETY IN CARTAGENA</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Cartagena is a vibrant and welcoming city, highly appreciated by travelers from around the world. The most visited areas, such as the Historic Center, Getsemaní, and Bocagrande, are perfect for walking, enjoying the architecture, and experiencing local life. To make your stay even more comfortable, we recommend using reliable transportation (such as taxis requested from your hotel or through apps), carrying only what is necessary for your outings, and choosing well-lit streets at night.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">With these simple suggestions, you can fully enjoy the charm and tranquility of this Caribbean destination.</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">WEATHER</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">March in Cartagena offers warm and sunny days, with temperatures around 31 °C (88 °F) and pleasant evenings of about 26 °C (79 °F). Rainfall is minimal during this season, and the sea remains a delightful 27–28 °C (81–82 °F), perfect for enjoying both the city and the beach.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">We recommend packing light and breathable clothing for exploring the city during the day, along with a hat, sunglasses, and sunscreen to protect yourself from the Caribbean sun. For events, light and elegant fabrics will be the best choice. Staying hydrated is essential in this warm climate, and for evenings outdoors, it may be comfortable to bring an additional light layer.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary fw-bold" style="line-height: 1.4">Please note that the church and wedding venue are air-conditioned.</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CARTAGENANNY</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 text-secondary" style="line-height: 1.4">For guests who may need it, we are pleased to share a trusted local nanny service to assist with childcare. Please feel free to get in touch to coordinate the service during the celebration. Special rates are available using the code “MARYCUETER.”</p>
+                                <p class="fs-xl-6 fs-p-xxl text-gray-200 text-secondary" style="line-height: 1.4">Contact: Lili Rueda — +57 318 6294974</p>
                             </div>
                         </div>
                     </div>
@@ -577,21 +592,14 @@ $places = [
                             <div class="py-5"></div>
                             <div class="py-xl-5"></div>
                             <div class=" <?php echo !empty($category['info']) ? 'customSectionBox rounded-4 shadow-1 p-xl-5 px-3 py-5 mb-xl-0 mb-5' : ''; ?>">
-                                <h2 class="font-titulo fs-xl-md-1 fs-2-lg text-center mb-3"><?php echo $category['title']; ?></h2>
+                                <h2 class="font-titulo fs-xl-md-1 fs-2-lg text-center mb-3 uppercase"><?php echo $category['title']; ?></h2>
                                 <?php if (!empty($category['info'])) : ?>
                                     <div class="row">
                                         <div class="col-12 px-4">
                                             <p class="fs-xl-p fs-p-xxl text-gray mb-3" style="line-height: 1.4">
-                                                We welcome you to stay at any of the beautiful hotels or colonial homes in Cartagena has to offer. The bride and groom will be staying at the HOTEL’S NAME for the guests who would like to join them.
+                                            We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. The bride and groom will be staying at Hotel Casa San Agustin, for those guests who wish to lodge there as well.
                                             </p>
-                                            <h2 class="fs-xl-5 fw-bold">HOTEL CASA SAN AGUSTIN</h2>
-                                            <p class="fs-xl-p fs-p-xxl text-gray mb-3" style="line-height: 1.4">
-                                                Please use the code GMARHAU under "Promo Code" to reserve within our room block. This code will be valid from March 26-29.
-                                            </p>
-                                            <h2 class="fs-xl-5 fw-bold">HOTEL CASA SAN AGUSTIN</h2>
-                                            <p class="fs-xl-p fs-p-xxl text-gray mb-3" style="line-height: 1.4">
-                                                Please use the code "AS2026" to receive a discount when booking. You can also book via this link: <a href="https://www.ghlhoteles.com/es/ofertas/tarifa-especial-para-asistentes-AS2026/?cp=AS2026" target="_blank" style="text-decoration: underline;">CLICK HERE</a> This code will be valid from March 25-29. 
-                                            </p>
+                                            
                                         </div>
                                     </div>
                                 <?php endif; ?>
@@ -617,7 +625,7 @@ $places = [
                                     </div>
                                 <?php endfor; ?>
                             <?php endif; ?>
-                            <h2 class="position-absolute top-0 start-0 font-titulo fs-xl-md-1 fs-2-lg w-100 h-100 text-center d-flex justify-content-center align-items-center mb-3 z-1"><?php echo $category['title']; ?></h2>
+                            <h2 class="position-absolute top-0 start-0 font-titulo fs-xl-md-1 fs-2-lg w-100 h-100 text-center d-flex justify-content-center align-items-center mb-3 z-1 uppercase"><?php echo $category['title']; ?></h2>
                         </div>
                     </div>
                 </div>
@@ -632,14 +640,16 @@ $places = [
                                     <div class="bg-white-200 p-3">
                                         <?php if ($place['image']) : ?>
                                             <img class="w-100" src="<?php echo $place['image']; ?>" alt="">
-                                            <h2 class="fs-xl-5 fw-bold" style="line-height: 1.2"><?php echo $place['name']; ?></h2>
-                                            <span class="line line--small m-0 mt-2 mb-3"></span>
-                                            <p class="fs-xl-p fw-bold text-gray" style="line-height: 1.2"><?php echo $place['address']; ?></p>
-                                            <p class="fs-xl-p fw-bold text-gray mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
-                                            <p class="fs-xl-5 fw-bold mb-3" style="line-height: 1.2"><?php echo $place['phone']; ?></p>
-                                            <a class="btn btn-small rounded-0" href="<?php echo $place['link']; ?>" target="_blank">
-                                                View
-                                            </a>
+                                            <div class="p-2">
+                                                <h2 class="fs-xl-5 uppercase" style="line-height: 1.2"><?php echo $place['name']; ?></h2>
+                                                <span class="line line--small m-0 mt-2 mb-3"></span>
+                                                <p class="fs-xl-6 text-gray" style="line-height: 1.2"><?php echo $place['address']; ?></p>
+                                                <p class="fs-xl-6 text-gray mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
+                                                <p class="fs-xl-6 text-gray mb-3" style="line-height: 1.2">Phone:<?php echo $place['phone']; ?></p>
+                                                <a class="btn btn-small rounded-0 text-gray" href="<?php echo $place['link']; ?>" target="_blank">
+                                                    Click here
+                                                </a>
+                                            </div>
                                         <?php endif?>
                                     </div>
                                 </div>

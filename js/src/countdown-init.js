@@ -12,20 +12,20 @@ export const initCountdown = (targetDate, containerId) => {
     container.innerHTML = `
         <div class="countdown">
             <div class="d-flex flex-column text-center text-primary text-secondary">
-                <span class="font-titulo fs-xl-lg-1 fs-1-lg" id="${containerId}-days">00</span>
-                <label class="text-uppercase fw-bold">days</label>
+                <span class="font-base fs-xl-lg-1 fs-1-lg" id="${containerId}-days">00</span>
+                <label class="font-base fs-xl-5 text-uppercase fw-bold">days</label>
             </div>
             <div class="d-flex flex-column text-center text-primary text-secondary">
-                <span class="font-titulo fs-xl-lg-1 fs-1-lg" id="${containerId}-hours">00</span>
-                <label class="text-uppercase fw-bold">hours</label>
+                <span class="font-base fs-xl-lg-1 fs-1-lg" id="${containerId}-hours">00</span>
+                <label class="font-base fs-xl-5 text-uppercase fw-bold">hours</label>
             </div>
             <div class="d-flex flex-column text-center text-primary text-secondary">
-                <span class="font-titulo fs-xl-lg-1 fs-1-lg" id="${containerId}-minutes">00</span>
-                <label class="text-uppercase fw-bold">minutes</label>
+                <span class="font-base fs-xl-lg-1 fs-1-lg" id="${containerId}-minutes">00</span>
+                <label class="font-base fs-xl-5 text-uppercase fw-bold">minutes</label>
             </div>
             <div class="d-flex flex-column text-center text-primary text-secondary">
-                <span class="font-titulo fs-xl-lg-1 fs-1-lg" id="${containerId}-seconds">00</span>
-                <label class="text-uppercase fw-bold">seconds</label>
+                <span class="font-base fs-xl-lg-1 fs-1-lg" id="${containerId}-seconds">00</span>
+                <label class="font-base fs-xl-5 text-uppercase fw-bold">seconds</label>
             </div>
         </div>
     `;

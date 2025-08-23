@@ -1,15 +1,69 @@
 @font-face {
-    font-family: 'Belianty Elesha';
-    src: url('../../font/belianty/BeliantyElesha.woff2') format('woff2'),
-        url('../../font/belianty/BeliantyElesha.woff') format('woff'),
-        url('../../font/belianty/BeliantyElesha.ttf') format('truetype');
+    font-family: 'HV Philosykos';
+    src: url('../../font/philosykos/HVPhilosykos-Regular.woff2') format('woff2'),
+        url('../../font/philosykos/HVPhilosykos-Regular.woff') format('woff'),
+        url('../../font/philosykos/HVPhilosykos-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('../../font/mirage/MADEMirage.woff2') format('woff2'),
+        url('../../font/mirage/MADEMirage.woff') format('woff'),
+        url('../../font/mirage/MADEMirage.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('../../font/mirage/MADEMirage-Medium.woff2') format('woff2'),
+        url('../../font/mirage/MADEMirage-Medium.woff') format('woff'),
+        url('../../font/mirage/MADEMirage-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('../../font/mirage/MADEMirage-Bold.woff2') format('woff2'),
+        url('../../font/mirage/MADEMirage-Bold.woff') format('woff'),
+        url('../../font/mirage/MADEMirage-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('../../font/mirage/MADEMirage-Black.woff2') format('woff2'),
+        url('../../font/mirage/MADEMirage-Black.woff') format('woff'),
+        url('../../font/mirage/MADEMirage-Black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'MADE Mirage';
+    src: url('../../font/mirage/MADEMirage-Thin.woff2') format('woff2'),
+        url('../../font/mirage/MADEMirage-Thin.woff') format('woff'),
+        url('../../font/mirage/MADEMirage-Thin.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
 .font-titulo {
-    font-family: 'Belianty Elesha', sans-serif;
+    font-family: 'HV Philosykos', sans-serif;
+}
+
+.font-base {
+    font-family: var(--bs-font-family-base) !important;
 }
 
 .line-height-0 {
@@ -21,7 +75,7 @@
 }
 
 .fs-1-lg {
-    font-size: 96px !important;
+    font-size: 76px !important;
 }
 
 .fs-2-lg {
@@ -29,7 +83,7 @@
 }
 
 .fs-2-md {
-    font-size: 40px !important;
+    font-size: 44px !important;
 }
 
 .fs-3 {
@@ -56,13 +110,25 @@
     font-size: 12px !important;
 }
 
+.fs-p-lg {
+    font-size: 14px !important;
+}
+
+.letter-spacing-2 {
+    letter-spacing: 2px;
+}
+
+.letter-spacing-8 {
+    letter-spacing: 8px;
+}
+
 @media only screen and (min-width: 1200px) {
     .fs-xl-lg-1 {
-        font-size: 128px !important;
+        font-size: 150px !important;
     }
 
     .fs-xl-md-1 {
-        font-size: 96px !important;
+        font-size: 86px !important;
     }
 
     .fs-xl-sm-1 {
@@ -79,10 +145,6 @@
 
     .fs-xl-md-2 {
         font-size: 40px !important;
-    }
-
-    .fs-xl-lg-2 {
-        font-size: 36px !important;
     }
 
     .fs-xl-3 {
@@ -105,17 +167,37 @@
         font-size: 16px !important;
     }
 
+    .fs-p-lg {
+        font-size: 14px !important;
+    }
+
     .fs-p-small {
         font-size: 12px !important;
     }
 
-    .letter-spacing-16 {
+    .letter-xl-spacing-16 {
         letter-spacing: 1.6px;
+    }
+
+    .letter-xl-spacing-22 {
+        letter-spacing: 2.2px;
+    }
+
+    .letter-xl-spacing-4 {
+        letter-spacing: 4px;
+    }
+
+    .letter-xl-spacing-86 {
+        letter-spacing: 8.6px;
+    }
+
+    .letter-xl-spacing-96 {
+        letter-spacing: 9.6px;
     }
 }
 
 
-.border-right {
+.custom-border-end {
     @media only screen and (min-width: 1200px) {
         border-right: 1px solid var(--bs-white);
     }

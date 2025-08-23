@@ -155,9 +155,8 @@ table {
 }
 
 :root {
-    --bs-font-family-base: "utile-display", sans-serif;
+    --bs-font-family-base: "MADE Mirage", sans-serif;
     --bs-font-family-secondary: "Poppins", sans-serif;
-    --bs-font-family-heartaffairsscriptdemo: "HeartAffairsScriptDemo", serif;
 
     --bs-primary: #B8724C;
     --bs-secondary: #858B70;
@@ -173,10 +172,16 @@ table {
     --bs-gray: #606060;
 
     --bs-border-radius: 40px;
-    --bs-border-radius-xl: 40px
+    --bs-border-radius-xl: 40px;
+
+
+    --bs-border-width: 1px !important;
+    --bs-border-style: solid;
+    --bs-border-color: var(--bs-secondary);
 }
 
 body {
+    font-family: var(--bs-font-family-base);
     margin: 0;
     padding: 0;
     color: var(--bs-primary);
@@ -308,43 +313,51 @@ header {
 
             .start {
                 display: block;
-                height: 30px;
+                height: 14px;
                 background-repeat: round;
+                background-image: url(../../images/icon-start-mobile.svg);
+
+                @media only screen and (min-width: 1200px) {
+                    background-image: url(../../images/icon-start.svg);
+                    height: 30px;
+                }
 
                 &__top {
                     max-width: calc(100% + 40px);
-                    background-image: url(../../images/icon-start.svg);
                     background-position: left;
                 }
 
                 &__bottom {
                     max-width: calc(100% + 40px);
-                    background-image: url(../../images/icon-start.svg);
                     background-position: left;
                 }
 
                 &__left {
-                    top: 47px;
-                    left: 24px;
-                    width: 28px;
+                    top: 24px;
+                    left: 22px;
+                    width: 20px;
                     height: 100%;
-                    max-height: calc(100% - 100px);
-                    background-image: url(../../images/icon-start.svg);
+                    max-height: calc(100% - 50px);
 
                     @media only screen and (min-width: 1200px) {
+                        top: 47px;
+                        left: 47px;
+                        width: 28px;
                         max-height: calc(100% - 123px);
                     }
                 }
 
                 &__right {
-                    top: 47px;
-                    right: 24px;
-                    width: 28px;
+                    top: 24px;
+                    right: 22px;
+                    width: 20px;
                     height: 100%;
-                    max-height: calc(100% - 100px);
-                    background-image: url(../../images/icon-start.svg);
+                    max-height: calc(100% - 50px);
 
                     @media only screen and (min-width: 1200px) {
+                        top: 47px;
+                        right: 47px;
+                        width: 28px;
                         max-height: calc(100% - 123px);
                     }
                 }
@@ -352,8 +365,12 @@ header {
         }
 
         &SaveDate {
-            height: 550px;
+            height: 500px;
             margin-top: -50px;
+
+            @media only screen and (min-width: 1200px) {
+                height: 600px;
+            }
         }
 
         &Events {
@@ -393,7 +410,7 @@ header {
                 width: 40px;
 
                 @media only screen and (min-width: 1200px) {
-                    width: auto;
+                    width: 70px;
                 }
             }
 
@@ -435,7 +452,7 @@ header {
             margin-top: -50px;
         }
 
-        
+
 
     }
 
@@ -460,8 +477,13 @@ header {
         border-bottom: 1px solid var(--bs-secondary);
     }
 
+    &--medium {
+        width: 70%;
+    }
+
     &--left {
         margin: 0;
+        border-bottom: 1px solid var(--bs-secondary);
     }
 }
 
@@ -612,36 +634,42 @@ input::placeholder,
 textarea::placeholder {
     font-family: var(--bs-font-family-base);
     letter-spacing: 1.6px;
+    color: var(--bs-secondary);
 }
 
 input::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
     font-family: var(--bs-font-family-base);
     letter-spacing: 1.6px;
+    color: var(--bs-secondary);
 }
 
 input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
     font-family: var(--bs-font-family-base);
     letter-spacing: 1.6px;
+    color: var(--bs-secondary);
 }
 
 input::-ms-input-placeholder,
 textarea::-ms-input-placeholder {
     font-family: var(--bs-font-family-base);
     letter-spacing: 1.6px;
+    color: var(--bs-secondary);
 }
 
 input::-moz-placeholder,
 textarea::-moz-placeholder {
     font-family: var(--bs-font-family-base);
     letter-spacing: 1.6px;
+    color: var(--bs-secondary);
 }
 
 input:-moz-placeholder,
 textarea:-moz-placeholder {
     font-family: var(--bs-font-family-base);
     letter-spacing: 1.6px;
+    color: var(--bs-secondary);
 }
 
 input[type="tel"],
@@ -657,7 +685,7 @@ input[type="tel"],
 textarea {
     font-family: var(--bs-font-family-base);
     font-size: 16px;
-    color: var(--bs-primary);
+    color: var(--bs-secondary);
     border: 1px solid;
     ;
 }
@@ -745,5 +773,40 @@ textarea {
 .-mt-10 {
     @media only screen and (min-width: 1200px) {
         margin-top: -100px;
+    }
+}
+
+.stroke-1 {
+    -webkit-text-stroke-width: 0.5px;
+
+    @media only screen and (min-width: 1200px) {
+        -webkit-text-stroke-width: 1px;
+    }
+}
+
+.border-end:after {
+    content: "";
+    display: none;
+    width: 2px;
+    height: 90%;
+    background-color: var(--bs-secondary);
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @media only screen and (min-width: 1200px) {
+        display: block;
+    }
+}
+
+.language {
+    width: 80px;
+    border-radius: 10px;
+    border: 1px solid #fff;
+    letter-spacing: 1.4px;
+
+    &-active {
+        background-color: #fff;
+        color: var(--bs-primary);
     }
 }

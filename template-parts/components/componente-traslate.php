@@ -10,18 +10,18 @@
 ?>
 
 <div class="d-inline-block pt-1 ps-lg-4">
-    <div class="w-auto d-flex flex-row-reverse align-items-center gap-lg-2 gap-1">
+    <div class="w-auto d-flex flex-xl-column-reverse flex-row-reverse align-items-center gap-lg-2 gap-1 text-white fs-p-lg">
         <?php foreach ($idiomas as $codigo => $datos): ?>
             <?php if ($codigo === $TRP_LANGUAGE): ?>
-                <span class="language-active">
-                    <img src="<?php echo $datos['bandera']; ?>" alt="<?php echo $datos['nombre']; ?>" class="flag-icon me-1" width="30" height="20">
-                    <!-- <?php echo $datos['nombre']; ?> -->
+                <span class="language language-active px-2 p-1 text-center">
+                    <!-- <img src="<?php echo $datos['bandera']; ?>" alt="<?php echo $datos['nombre']; ?>" class="flag-icon me-1" width="30" height="20"> -->
+                    <?php echo $datos['nombre']; ?>
                 </span>
             <?php else: ?>
                 
-                <a class="" href="<?php echo $url_converter->get_url_for_language($codigo); ?>" class="language-inactive">
-                    <img src="<?php echo $datos['bandera']; ?>" alt="<?php echo $datos['nombre']; ?>" class="flag-icon me-1" width="30" height="20">
-                    <!-- <?php echo $datos['nombre']; ?> -->
+                <a class="language px-2 py-1 text-center" href="<?php echo $url_converter->get_url_for_language($codigo); ?>" class="language-inactive">
+                    <!-- <img src="<?php echo $datos['bandera']; ?>" alt="<?php echo $datos['nombre']; ?>" class="flag-icon me-1" width="30" height="20"> -->
+                    <?php echo $datos['nombre']; ?>
                 </a>
             <?php endif; ?>
         <?php endforeach; ?>

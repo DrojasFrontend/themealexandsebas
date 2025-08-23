@@ -51,9 +51,11 @@ $placesCartagena = [
                                         <div class="swiper-slide">
                                             <div class="bg-white-200 p-3 pb-4">
                                                 <img class="w-100 d-block mb-2" src="<?php echo THEME_IMG; ?>places-cartagena/<?php echo $place["img"]; ?>" alt="Home 1">
-                                                <p class="fs-xl-p fs-6-md text-orange text-uppercase text-start"><?php echo $place["name"]; ?></p>
-                                                <span class="line line--small line--left mb-3"></span>
-                                                <p class="text-gray text-start" style="line-height: 1.2;"><?php echo $place["copy"]; ?></p>
+                                                <div class="p-2">
+                                                    <p class="fs-xl-5 text-secondary text-uppercase text-start mb-2"><?php echo $place["name"]; ?></p>
+                                                    <span class="line line--small line--left mb-3"></span>
+                                                    <p class="text-secondary fs-xl-6 fs-p-md text-start"><?php echo $place["copy"]; ?></p>
+                                                </div>
                                             </div>
                                         </div>
                                     <?php } ?>

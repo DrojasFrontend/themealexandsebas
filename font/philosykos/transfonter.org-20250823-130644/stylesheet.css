@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'HV Philosykos';
+    src: url('HVPhilosykos-Regular.woff2') format('woff2'),
+        url('HVPhilosykos-Regular.woff') format('woff'),
+        url('HVPhilosykos-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

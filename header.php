@@ -4,10 +4,9 @@ if (!session_id()) {
     session_start();
 }
 
-// Verificar si el usuario ya está autenticado - variables globales para uso en JS
-global $usuario_autenticado, $idioma_seleccionado, $error_password;
+// Verificar si el usuario ya está autenticado
+global $usuario_autenticado, $error_password;
 $usuario_autenticado = isset($_SESSION['usuario_autenticado']) && $_SESSION['usuario_autenticado'] === true;
-$idioma_seleccionado = isset($_SESSION['idioma_seleccionado']) && $_SESSION['idioma_seleccionado'] === true;
 $error_password = false;
 
 // Procesar formulario de contraseña
@@ -26,12 +25,6 @@ if (isset($_POST['password_access'])) {
 } else {
     // Verificar si hay error previo en sesión
     $error_password = isset($_SESSION['error_password']) ? $_SESSION['error_password'] : false;
-}
-
-// Procesar selección de idioma
-if (isset($_POST['idioma_seleccionado'])) {
-    $_SESSION['idioma_seleccionado'] = true;
-    $idioma_seleccionado = true;
 }
 ?>
 <!DOCTYPE html>
@@ -57,95 +50,73 @@ if (isset($_POST['idioma_seleccionado'])) {
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="https://use.typekit.net/viz6yyn.css">
-  <!-- Beloved Sans -->
-  <link rel="stylesheet" href="https://use.typekit.net/htx8tqg.css">
-
-  <style>
-    body {
-      font-family: "beloved-sans", sans-serif !important;
-      font-weight: 700;
-      font-style: normal;
-    }
-  </style>
-  
   <!-- wordpress header includes -->
   <?php wp_head(); ?>
+
+  <!-- Estilos para modal por encima del header -->
+  <style>
+    /* Modal con z-index alto para aparecer sobre el header */
+    #modalPassword {
+      z-index: 9999 !important;
+    }
+    
+    /* Backdrop del modal menos opaco para ver el menú detrás */
+    #modalPassword + .modal-backdrop,
+    .modal-backdrop.show {
+      z-index: 9998 !important;
+      background-color: rgba(0, 0, 0, 0.3) !important; /* Menos opaco */
+    }
+    
+    /* Header con z-index menor */
+    header {
+      z-index: 1000 !important;
+    }
+    
+    /* Menú móvil con z-index intermedio */
+    .customHeaderMobile {
+      z-index: 1001 !important;
+    }
+  </style>
 
 </head>
 <body <?php body_class(); ?>>
 
-<!-- Modal de Selección de Idioma -->
-<div class="modal fade" id="modalIdioma" tabindex="-1" aria-labelledby="modalIdiomaLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="customSectionBox modal-content p-xl-5 p-3 rounded-4">
-            <div class="modal-header border-0">
-                <h2 class="font-titulo fs-xl-2 fs-4 text-primary w-100 text-center" id="modalIdiomaLabel">Language / Idioma</h5>
-            </div>
-            <div class="modal-body text-center">
-              <div class="text-center mb-4">
-                <p class="fs-xl-5 text-secondary fw-bold" style="line-height: 1.4">Select your preferred language</p>
-                <p class="fs-xl-5 text-secondary fw-bold" style="line-height: 1.4">Selecciona el idioma</p>
-                <p class="fs-xl-5 text-secondary fw-bold" style="line-height: 1.4">de tu preferencia</p>
-              </div>
-                <div class="d-flex justify-content-center gap-4">
-                        <?php 
-                            global $TRP_LANGUAGE;
-                            $trp = TRP_Translate_Press::get_trp_instance();
-                            $url_converter = $trp->get_component('url_converter');
 
-                            $idiomas = array(
-                              'en_US' => array('nombre' => 'English', 'bandera' => get_template_directory_uri() . '/images/en.svg'),
-                              'es_CO' => array('nombre' => 'Español', 'bandera' => get_template_directory_uri() . '/images/co.svg')
-                            );
-                            
-                            foreach ($idiomas as $codigo => $datos): 
-                        ?>
-                            <a href="<?php echo $url_converter->get_url_for_language($codigo); ?>" 
-                               class="btn btn-primary idioma-btn"
-                               data-idioma="<?php echo $codigo; ?>">
-                                <span class="fw-bold"><?php echo $datos['nombre']; ?></span>
-                            </a>
-                        <?php endforeach; ?>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
 <!-- Modal de Contraseña -->
-<div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="modalPasswordLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="true">
+<div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="modalPasswordLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="false" style="z-index: 9999;">
     <div class="modal-dialog modal-dialog-centered">
         <div class="customSectionBox modal-content px-xl-5 p-3 rounded-4">
             <div class="modal-header border-0">
-                <h2 class="font-titulo fs-xl-2 fs-4 text-primary w-100 text-center" id="modalPasswordLabel">Welcome</h2>
+                <h2 class="font-titulo fs-xl-2 fs-4 text-primary w-100 text-center" id="modalPasswordLabel">WELCOME / BIENVENIDO</h2>
             </div>
             <div class="modal-body py-4">
                 <form method="POST" id="formPassword">
-                    <div class="mb-3">
-                        <label for="password_access" class="fs-xl-5 text-secondary fw-bold text-center d-block mb-3" style="line-height: 1.2">Enter here the password we send you <br class="d-none d-xl-block"> to access the website:</label>
-                        <div class="row">
+                    <div class="mb-3 text-center">
+                        <label for="password_access" class="d-block fs-xl-5 text-center text-secondary" style="line-height: 1.2">
+                          Please enter the password below.
+                          <span class="line line--medium my-3"></span>
+                        </label>
+                        <label for="password_access" class="d-block fs-xl-5 text-center text-secondary" style="line-height: 1.2">Por favor, ingrese la contraseña a continuación</label>
+                        <div class="row mt-4">
                           <div class="col-12 col-xl-5 mx-auto">
                             <input type="password" 
-                                   class="form-control bg-white rounded-0 border-0 mb-3" 
+                                   class="form-control bg-white rounded-0 border-0 mb-3 py-3 px-3" 
                                    id="password_access" 
                                    name="password_access" 
                                    required 
                                    autocomplete="off"
-                                   placeholder="PASSWORD">
+                                   placeholder="Password">
                             <?php if (isset($error_password)): ?>
                                 <div class="text-danger mt-2"><?php echo $error_password; ?></div>
                             <?php endif; ?>
                           </div>
                         </div>
                     </div>
-                    <div class="d-flex justify-content-center gap-4">
-                        <button type="submit" class="btn btn-primary border-0" id="btnAcceder">
-                            <span class="btn-text">ENTER</span>
+                    <div class="d-flex justify-content-center">
+                        <button type="submit" class="btn btn-primary btn-medium border-0" id="btnAcceder">
+                            <span class="btn-text">Enter</span>
                             <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
-                        </button>
-                        <button type="button" class="btn btn-primary border-0" id="btnCambiarIdioma">
-                          CHANGE LANGUAGE
                         </button>
                     </div>
                 </form>
@@ -154,14 +125,12 @@ if (isset($_POST['idioma_seleccionado'])) {
     </div>
 </div>
 
-
-
   <!-- Header -->
   <header class="position-fixed top-0 left-0 w-100 bg-primary">
     <div class="">
       <div class="container-fluid gx-lg0 py-xl-0 py-1">
         <div class="row gx-0 justify-content-between">
-          <div class="col-8 d-flex align-items-center d-xl-none ">
+          <div class="col-5 d-flex align-items-center d-xl-none ">
             <div class="text-center">
               <a class="d-block" href="/">
                 <h2 class="font-titulo fs-3 text-white">
@@ -176,20 +145,23 @@ if (isset($_POST['idioma_seleccionado'])) {
           </div>
           <div class="col-12 d-none d-xl-block">
             <ul class="customHeader d-none d-xl-grid gap-5 py-xl-2 py-1">
-              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#wedding">WEDDING</a></li>
-              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#events">EVENTS</a></li>
+              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-6 text-white letter-xl-spacing-22" href="/#wedding">WEDDING</a></li>
+              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-6 text-white letter-xl-spacing-22" href="/#events">EVENTS</a></li>
               <li class="d-flex justify-content-center align-items-center"><a class="font-titulo fs-3 text-white" href="/">
                 <img src="<?php echo THEME_IMG; ?>logo.svg" alt="" class="img-fluid d-block">
               </a></li>
-              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#cartagena">CARTAGENA</a></li>
+              <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-6 text-white letter-xl-spacing-22" href="/#rsvp">R.S.V.P.</a></li>
               <li class="d-flex justify-content-center align-items-center">
-                <a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#rsvp">R.S.V.P.</a>
+                <a class="fs-xl-6 text-white letter-xl-spacing-22" href="/#cartagena">CARTAGENA</a>
+                translate
+                <?php echo get_template_part('template-parts/components/componente-traslate'); ?>
               </li>
             </ul>
           </div>
-          <div class="col-4 d-flex justify-content-end align-items-center d-xl-none gap-2">
+          <div class="col-7 d-flex justify-content-end align-items-center d-xl-none gap-2">
             <div class="">
             </div>
+            <?php echo get_template_part('template-parts/components/componente-traslate'); ?>
             <button type="button" class="pt-1 border-0 bg-transparent p-0 text-white" style="width: 30px" data-toggle-menu>
               <?php get_template_part('template-parts/components/icons/icon-menu'); ?>
             </button>
@@ -208,14 +180,14 @@ if (isset($_POST['idioma_seleccionado'])) {
           <?php get_template_part('template-parts/components/icons/icon-close'); ?>
         </button>
         <ul class="customHeader d-flex flex-column justify-content-center align-items-center gap-5 py-xl-2 py-1">
-          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#wedding">WEDDING</a></li>
-          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#events">EVENTS</a></li>
+          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-6 text-white letter-xl-spacing-22 letter-spacing-2" href="/#wedding">WEDDING</a></li>
+          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-6 text-white letter-xl-spacing-22 letter-spacing-2" href="/#events">EVENTS</a></li>
           <li class="d-flex justify-content-center align-items-center"><a class="font-titulo fs-xl-3-small fs-3 text-white" href="/">
             <img src="<?php echo THEME_IMG; ?>logo.svg" alt="" class="img-fluid d-block">
           </a></li>
-          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#cartagena">CARTAGENA</a></li>
+          <li class="d-flex justify-content-center align-items-center"><a class="fs-xl-6 text-white letter-xl-spacing-22 letter-spacing-2" href="/#rsvp">R.S.V.P.</a></li>
           <li class="d-flex justify-content-center align-items-center">
-            <a class="fs-xl-5 fw-bold text-white letter-spacing-xl-4" href="/#rsvp">R.S.V.P.</a>
+            <a class="fs-xl-6 text-white letter-xl-spacing-22 letter-spacing-2" href="/#cartagena">CARTAGENA</a>
           </li>
         </ul>
       </div>
@@ -225,3 +197,64 @@ if (isset($_POST['idioma_seleccionado'])) {
   <!-- Whatsapp -->
   <?php mostrar_boton_whatsapp(); ?>
   <!-- Fin Whatsapp -->
+
+  <!-- Script para mostrar modal de contraseña automáticamente -->
+  <?php if (!$usuario_autenticado): ?>
+  <script>
+    console.log('Usuario NO autenticado - debe mostrar modal');
+    // Función para mostrar el modal
+    function mostrarModalPassword() {
+      console.log('Intentando mostrar modal de contraseña...');
+      const modalElement = document.getElementById('modalPassword');
+      
+      if (modalElement) {
+        console.log('Modal element encontrado');
+        // Verificar si Bootstrap está disponible
+        if (typeof bootstrap !== 'undefined') {
+          console.log('Bootstrap disponible, usando bootstrap.Modal');
+          const modalPassword = new bootstrap.Modal(modalElement);
+          modalPassword.show();
+        } else {
+          console.log('Bootstrap no disponible, intentando jQuery...');
+          // Fallback usando jQuery si Bootstrap no está disponible
+          if (typeof $ !== 'undefined') {
+            console.log('jQuery disponible, usando jQuery modal');
+            $('#modalPassword').modal('show');
+          } else {
+            console.log('Ni Bootstrap ni jQuery disponibles, usando CSS directo');
+            // Último recurso: mostrar usando clases CSS
+            modalElement.classList.add('show');
+            modalElement.style.display = 'block';
+            modalElement.style.zIndex = '9999';
+            document.body.classList.add('modal-open');
+            // Agregar backdrop manualmente con z-index correcto
+            const backdrop = document.createElement('div');
+            backdrop.className = 'modal-backdrop fade show';
+            backdrop.style.zIndex = '9998';
+            backdrop.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+            document.body.appendChild(backdrop);
+          }
+        }
+      } else {
+        console.error('Modal element NO encontrado!');
+      }
+    }
+
+    // Intentar mostrar el modal cuando el DOM esté listo
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', mostrarModalPassword);
+    } else {
+      // Si el DOM ya está listo, mostrar inmediatamente
+      mostrarModalPassword();
+    }
+
+    // También intentar después de que la ventana se haya cargado completamente
+    window.addEventListener('load', function() {
+      setTimeout(mostrarModalPassword, 100);
+    });
+  </script>
+  <?php else: ?>
+  <script>
+    console.log('Usuario YA autenticado - NO debe mostrar modal');
+  </script>
+  <?php endif; ?>
