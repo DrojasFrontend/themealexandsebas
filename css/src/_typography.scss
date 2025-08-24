@@ -198,7 +198,5 @@
 
 
 .custom-border-end {
-    @media only screen and (min-width: 1200px) {
-        border-right: 1px solid var(--bs-white);
-    }
+    border-right: 1px solid var(--bs-secondary);
 }

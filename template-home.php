@@ -151,8 +151,8 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
 
-                                    <p class="font-titulo fs-xl-3 text-primary line-height-0 mb-xl-4 mb-2 stroke-1">DRESS CODE</p>
-                                    <button type="button" class="btn btn-primary mx-auto mb-5 border-0" data-bs-toggle="modal" data-bs-target="#cocktail">TDB</button>
+                                    <p class="font-titulo fs-xl-3 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
+                                    <button type="button" class="btn btn-primary mx-auto border-0" data-bs-toggle="modal" data-bs-target="#cocktail">TDB</button>
                                 </div>
                                 <div class="col-12 col-xl-6">
                                     <h2 class="font-titulo fs-xl-md-2 fs-4 mb-3 letter-xl-spacing-16 text-primary uppercase stroke-1">BEACH <br> DAY</h2>
@@ -162,10 +162,11 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
 
-                                    <p class="font-titulo fs-xl-3 text-primary line-height-0 mb-xl-4 mb-2 stroke-1">DRESS CODE</p>
-                                    <button type="button" class="btn btn-primary mx-auto mb-xl-5 mb-3 border-0" data-bs-toggle="modal" data-bs-target="#casualBeachWear">TDB</button>
+                                    <p class="font-titulo fs-xl-3 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
+                                    <button type="button" class="btn btn-primary mx-auto mb-xl-0 mb-3 border-0" data-bs-toggle="modal" data-bs-target="#casualBeachWear">TDB</button>
                                 </div>
                             </div>
+                            <div class="py-xl-4 py-2"></div>
                         </div>
                         <span class="start start__bottom"></span>
                         
