@@ -20,14 +20,7 @@ export function initModals() {
         }).catch(() => {});
     }
     
-    // Debug: verificar estados
-    console.log('Estados modales:', {
-        usuarioAutenticado,
-        idiomaSeleccionado,
-        idiomaEnLocalStorage,
-        errorPassword,
-        modalData: window.modalData
-    });
+
     
     // Referencias a los modales
     const modalIdiomaElement = document.getElementById('modalIdioma');

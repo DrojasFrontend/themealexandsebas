@@ -53,38 +53,12 @@ if (isset($_POST['password_access'])) {
   <!-- wordpress header includes -->
   <?php wp_head(); ?>
 
-  <!-- Estilos para modal por encima del header -->
-  <style>
-    /* Modal con z-index alto para aparecer sobre el header */
-    #modalPassword {
-      z-index: 9999 !important;
-    }
-    
-    /* Backdrop del modal menos opaco para ver el menú detrás */
-    #modalPassword + .modal-backdrop,
-    .modal-backdrop.show {
-      z-index: 9998 !important;
-      background-color: rgba(0, 0, 0, 0.3) !important; /* Menos opaco */
-    }
-    
-    /* Header con z-index menor */
-    header {
-      z-index: 1000 !important;
-    }
-    
-    /* Menú móvil con z-index intermedio */
-    .customHeaderMobile {
-      z-index: 1001 !important;
-    }
-  </style>
-
 </head>
 <body <?php body_class(); ?>>
 
-
-
 <!-- Modal de Contraseña -->
 <div class="modal fade" id="modalPassword" tabindex="-1" aria-labelledby="modalPasswordLabel" aria-hidden="true" data-bs-backdrop="true" data-bs-keyboard="false" style="z-index: 9999;">
+  <div class="py-3"></div>
     <div class="modal-dialog modal-dialog-centered">
         <div class="customSectionBox modal-content px-xl-5 p-3 rounded-4">
             <div class="modal-header border-0">
@@ -235,8 +209,6 @@ if (isset($_POST['password_access'])) {
             document.body.appendChild(backdrop);
           }
         }
-      } else {
-        console.error('Modal element NO encontrado!');
       }
     }
 
@@ -255,6 +227,6 @@ if (isset($_POST['password_access'])) {
   </script>
   <?php else: ?>
   <script>
-    console.log('Usuario YA autenticado - NO debe mostrar modal');
+    // Usuario autenticado - no mostrar modal
   </script>
   <?php endif; ?>

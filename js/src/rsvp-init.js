@@ -8,149 +8,205 @@ let rsvpState = {
     selectedGuest: '',
     guestList: [],
     rsvpData: {
+        welcome: {},
         ceremony: {},
         reception: {},
-        welcome: {},
         brunch: {}
     }
 };
 
 // Configuración de eventos
 const rsvpEvents = [
-    { id: 'ceremony', step: 2, name: 'CEREMONY' },
-    { id: 'reception', step: 3, name: 'RECEPTION' },
-    { id: 'welcome', step: 4, name: 'WELCOME PARTY' },
-    { id: 'brunch', step: 5, name: 'FAREWELL BRUNCH' }
+    { id: 'welcome', step: 2, name: 'WELCOME PARTY' },
+    { id: 'ceremony', step: 3, name: 'WEDDING DAY - CEREMONY' },
+    { id: 'reception', step: 4, name: 'WEDDING DAY - RECEPTION' },
+    { id: 'brunch', step: 5, name: 'BEACH DAY' }
 ];
 
 // Datos de invitados (embebidos directamente)
 const invitedGuests = {
-    'Cameron Fateri': ['Cameron Fateri', 'Paula Echeverry'],
-    'Farnaz Fateri': ['Farnaz Fateri', 'Fardad Fateri'],
-    'Elika Parsa': ['Elika Parsa', 'Cami Parsa'],
-    'Sandra Echeverry': ['Sandra Echeverry', 'Cesar Echeverry', 'Junior Echeverry'],
-    'Diego Delgado': ['Diego Delgado'],
-    'Alix Niño Melo': ['Alix Niño Melo', 'Giovanni Niño', 'Samantha Niño', 'Gio Niño', 'Ricardo Melo', 'Virginia Melo'],
-    'Fanny Melo': ['Fanny Melo', 'Melissa Borda'],
-    'Jenny Blaess Borda': ['Jenny Blaess Borda', 'Jason Blaess'],
-    'Amparo Melo': ['Amparo Melo'],
-    'Jonathan Fajardo': ['Jonathan Fajardo'],
-    'Mario Fajardo': ['Mario Fajardo', 'Berlin Fajardo Vado', 'Marilyn Fajardo Vado', 'Grace Fajardo Vado'],
-    'Claudia Sandoval': ['Claudia Sandoval', 'Carlos Guerra', 'Sophia Guerra', 'Rosa Diaz de Sandoval'],
-    'Ariadna Guerra': ['Ariadna Guerra', 'Santiago Velez Gomez'],
-    'Jair Echeverry': ['Jair Echeverry', 'Luisa Echeverry', 'Catalina Echeverry'],
-    'Angela Echeverry': ['Angela Echeverry', 'Javier Sanabria', 'Maria Alejandra Sanabria Echeverry', 'Ana Maria Sanabria Echeverry'],
-    'Ricardo Melo': ['Ricardo Melo', 'Rocio Perez', 'Katy Melo'],
-    'Ricardo Andres Melo': ['Ricardo Andres Melo', 'Karen Melo'],
-    'Saira Morales': ['Saira Morales', 'Fernando Trujillo', 'Llurani Trujillo', 'Daniela Trujillo'],
-    'Melisa Herrera': ['Melisa Herrera', 'Danni Baquero'],
-    'Gloria Molano de Bayona': ['Gloria Molano de Bayona', 'Gloria Amparo Santiesteban', 'Hugo Santiesteban'],
-    'Estefania Santiesteban': ['Estefania Santiesteban', 'Victor Núñez'],
-    'Valentina Santiesteban': ['Valentina Santiesteban'],
-    'Ruth Rodriguez': ['Ruth Rodriguez', 'Hernando Rodriguez'],
-    'Cluadia Rodriguez': ['Cluadia Rodriguez'],
-    'Leonardo Rodriguez': ['Leonardo Rodriguez'],
-    'Marcela Bayona': ['Marcela Bayona'],
-    'Aura Lucia Bayona': ['Aura Lucia Bayona'],
-    'Nicolas Bayona': ['Nicolas Bayona', 'Miguel Jacobo Bayona'],
-    'Eliana Suárez Bayona': ['Eliana Suárez Bayona', 'Jose Vargas Castillo', 'Adriana Sofia Vargas Suárez'],
-    'Liliana Suárez Bayona': ['Liliana Suárez Bayona', 'Arturo Borrero', 'Daniel Arturo Borrero Suárez'],
-    'Jaime Hernando Suárez Bayona': ['Jaime Hernando Suárez Bayona', 'Angela Roja', 'Jaime Andres Suárez'],
-    'Linda Van Amerogen': ['Linda Van Amerogen', 'Ron Beij'],
-    'Cynthia Van Amerogen': ['Cynthia Van Amerogen', 'Tommy Willem'],
-    'Lucero Van Amerogen': ['Lucero Van Amerogen'],
-    'Guillermo Javier Beltran': ['Guillermo Javier Beltran', 'Liliana Molina', 'Alex Beltran', 'Monique Beltran'],
-    'Sandra Margarita Bayona': ['Sandra Margarita Bayona', 'Diego Rojas de la Cruz'],
-    'Tania Bayona': ['Tania Bayona', 'Juan Pablo Hernández'],
-    'Dayssi Bayona': ['Dayssi Bayona'],
-    'Leyla Bayona': ['Leyla Bayona', 'German Triana', 'Magdalena Triana Bayona'],
-    'Rosario Jaime Triana': ['Rosario Jaime Triana'],
-    'German Eduardo Jaime Triana': ['German Eduardo Jaime Triana'],
-    'Reynaldo Bayona': ['Reynaldo Bayona'],
-    'Ivan Dario Cuello': ['Ivan Dario Cuello', 'Laura Juliana Cuadros Amaya', 'Laura Sofia Cuello', 'Alejandro Cuello Villamil'],
-    'David Cuello': ['David Cuello', 'Natalia Cuello'],
-    'Henry Bayona': ['Henry Bayona', 'Leonor Castiblanco'],
-    'Paige McDermott': ['Paige McDermott'],
-    'Morgan Ritchie': ['Morgan Ritchie'],
-    'Isatu Malekani': ['Isatu Malekani'],
-    'Brian Gonzalez Navarro': ['Brian Gonzalez Navarro'],
-    'Sriram Rao': ['Sriram Rao', 'Simi Rao'],
-    'Thien Bui': ['Thien Bui'],
-    'Dylan Ross': ['Dylan Ross', 'Lindsey Greenlund'],
-    'Belen Salto': ['Belen Salto', 'Simon Chi'],
-    'Kayvon Dejbakhsh': ['Kayvon Dejbakhsh'],
-    'Alexander Isreb': ['Alexander Isreb', 'Rachel Ye'],
-    'Gureet Sandhu Chahal': ['Gureet Sandhu Chahal', 'Paul Chahal'],
-    'Jagmeet Arora': ['Jagmeet Arora', 'Manpreet Singh Arora'],
-    'Adi Mahadevan': ['Adi Mahadevan'],
-    'Rahul Masson': ['Rahul Masson'],
-    'Jessica Salguero': ['Jessica Salguero', 'Sandra Salguero', 'Juan Salguero'],
-    'Julia Salguero Echeverria': ['Julia Salguero Echeverria', 'Victor Echeverria'],
-    'JJessica Augilar': ['JJessica Augilar', 'Michael Everett'],
-    'Fariba Shaygan': ['Fariba Shaygan', 'Farhad Shaygan', 'Darrah Shaygan', 'Leila Shaygan'],
-    'Farhad Abdollahi': ['Farhad Abdollahi', 'Nikkisa Abdollahi', 'Darious Abdollahi', 'Aydin Abdollahi', 'Zachary Abdollahi'],
-    'Essy Amini': ['Essy Amini'],
-    'Farzad Abdollahi': ['Farzad Abdollahi'],
-    'Farideh Fateri': ['Farideh Fateri'],
-    'Fadia Saleh': ['Fadia Saleh', 'Valentina Saleh', 'Reza Saleh', 'Darian Saleh'],
-    'Ali Esfandiari': ['Ali Esfandiari', 'Shirley Esfandiari', 'Caitlyn Esfandiari', 'Caleb Esfandiari'],
-    'Cyrus Esfandiari': ['Cyrus Esfandiari'],
-    'Crystal Esfandiari': ['Crystal Esfandiari'],
-    'Farid Fateri': ['Farid Fateri', 'Monaco Fateri', 'Chance Fateri', 'Sherry Fateri'],
-    'Zahra Farjam': ['Zahra Farjam', 'Hassan Farjam', 'Babak Farjam'],
-    'Faranak Herrera': ['Faranak Herrera', 'Dan Herrera'],
-    'Azam Abdollahi': ['Azam Abdollahi', 'Nemat Abdollahi'],
-    'Bita Karabian': ['Bita Karabian', 'Cub Karabian'],
-    'Afshin Abdollahi': ['Afshin Abdollahi', 'Shirin Abdollahi'],
-    'Panteha Paknejad': ['Panteha Paknejad', 'Pouria Paknejad'],
-    'Amir Hashemian': ['Amir Hashemian', 'Masi Hashemian'],
-    'Yasi Hashemian': ['Yasi Hashemian'],
-    'Nader Hashemian': ['Nader Hashemian'],
-    'Nikki Maghsoudnia': ['Nikki Maghsoudnia', 'Mo Maghsoudnia'],
-    'Arianna Collins': ['Arianna Collins', 'Matt Collins'],
-    'Kianna Maghsoudnia': ['Kianna Maghsoudnia'],
-    'Katrina Maghsoudnia': ['Katrina Maghsoudnia'],
-    'Masheed Madani': ['Masheed Madani', 'Saeed Madani'],
-    'Farbod Miri': ['Farbod Miri', 'Paniz Miri'],
-    'Abbas Parsa': ['Abbas Parsa', 'Fariba Parsa'],
-    'Neda Roghani': ['Neda Roghani', 'Reza Roghani'],
-    'Lila Parsa': ['Lila Parsa'],
-    'Ronna Parsa': ['Ronna Parsa'],
-    'Roxanne Parsa': ['Roxanne Parsa'],
-    'Amin Bina': ['Amin Bina', 'Mariam Bina', 'Layla Bina'],
-    'Nickie Hayward': ['Nickie Hayward', 'Will Hayward'],
-    'Ferry Hedayati': ['Ferry Hedayati', 'Ghaffar Hedayati'],
-    'Bobby Hedayati': ['Bobby Hedayati', 'Mona Hedayati'],
-    'Keon Hedayati': ['Keon Hedayati'],
-    'Saeed Bastani': ['Saeed Bastani', 'Marjan Bastani'],
-    'Parisa Bastani': ['Parisa Bastani'],
-    'Melody Bastani': ['Melody Bastani'],
-    'Kami Jahanmir': ['Kami Jahanmir', 'Samira Jahanmir'],
-    'Yassi Jahanmir': ['Yassi Jahanmir'],
-    'Sanaz Banisalam': ['Sanaz Banisalam', 'Kayvon Banisalam'],
-    'Saeed Radmehr': ['Saeed Radmehr', 'Zohre Radmehr'],
-    'Samira Rezaei': ['Samira Rezaei', 'Iden Rezaei'],
-    'Nassim Fatemi': ['Nassim Fatemi', 'Faraz Fatemi'],
-    'Azita Mokhtari': ['Azita Mokhtari', 'Kamran Mokhtari'],
-    'Mojdeh Baudry': ['Mojdeh Baudry', 'Mojdeh Baudry Guest'],
-    'Said Abolhoda': ['Said Abolhoda', 'Kathy Abolhoda'],
-    'Roozbeh Houshyar': ['Roozbeh Houshyar', 'Michelle Hure'],
-    'Rafael Clouthier': ['Rafael Clouthier'],
-    'Mathias Beeck': ['Mathias Beeck'],
-    'Roya Vazin': ['Roya Vazin', 'Mo Vazin', 'Sean Vazin', 'Sherwin Vazin'],
-    'Vicky Azhir': ['Vicky Azhir', 'Ardi Azhir'],
-    'Kayvon Azhir': ['Kayvon Azhir'],
-    'Leila Miri': ['Leila Miri'],
-    'Kristen Gallub': ['Kristen Gallub'],
-    'Jenny Huang': ['Jenny Huang'],
-    'Jessica Fukushima': ['Jessica Fukushima']
+    'Migue': ['Fanny', 'Daniel'],
+    'Jordyn Horwitz': ['Jordyn Horwitz', 'Jordan Cohen'],
+    'Sabrina Zingg': ['Sabrina Zingg'],
+    'Jenna Wittich': ['Jenna Wittich'],
+    'Matthew Merrigan': ['Matthew Merrigan'],
+    'Rachel Horowitz': ['Rachel Horowitz', 'Owen Hynes'],
+    'Nur Momani': ['Nur Momani'],
+    'Kayla Bozzo': ['Kayla Bozzo', 'Brian Bozzo'],
+    'Ryan Engelhardt': ['Ryan Engelhardt'],
+    'China Copperstone': ['China Copperstone'],
+    'Ariela Waich': ['Ariela Waich', 'Isaac Waich'],
+    'Annie Cassius': ['Annie Cassius', 'Jake Kubilliun'],
+    'Alexandra Beda': ['Alexandra Beda', 'Jacky Beda'],
+    'Megan Corbett': ['Megan Corbett'],
+    'Megan Brown': ['Megan Brown'],
+    'Katherine Marra': ['Katherine Marra', 'Dylan Dove'],
+    'Brittany Berrard': ['Brittany Berrard', 'Austin Krystoff'],
+    'Julia Goldman': ['Julia Goldman', 'Drew Buzzell'],
+    'Alexandria Gomez': ['Alexandria Gomez', 'Guest'],
+    'Gabrielle Katzenelson': ['Gabrielle Katzenelson', 'Steven Cula'],
+    'Talia Dagan': ['Talia Dagan', 'Adam Dagan'],
+    'Daniela Hanono': ['Daniela Hanono', 'Gabriel Seinjet'],
+    'Magdalena Fernández': ['Magdalena Fernández', 'Jose Luis Lagoa'],
+    'Estrella Sheff': ['Estrella Sheff', 'Sam Sheff'],
+    'Lauren Staton': ['Lauren Staton'],
+    'Caroline Krystoff': ['Caroline Krystoff'],
+    'Ana Sofia Casado': ['Ana Sofia Casado'],
+    'Morgan Wolfe': ['Morgan Wolfe'],
+    'Jake Solomon': ['Jake Solomon'],
+    'Leo Tarantelli': ['Leo Tarantelli'],
+    'Lance Alboucrek': ['Lance Alboucrek'],
+    'Wallis Girona': ['Wallis Girona'],
+    'Maria Del Rosario Escobar': ['Maria Del Rosario Escobar'],
+    'Federico Duque': ['Federico Duque', 'Guillermo Argaez'],
+    'Jairo Enrique Duque': ['Jairo Enrique Duque', 'Susana Lubo'],
+    'Hector Fernando Jaramillo': ['Hector Fernando Jaramillo', 'Frida Jaramillo'],
+    'Lazaro Suarez': ['Lazaro Suarez', 'Ysen Suarez'],
+    'Monica Beltran': ['Monica Beltran'],
+    'Maria Elena Estrada': ['Maria Elena Estrada', 'Guest'],
+    'Mariela Cardona': ['Mariela Cardona', 'Guest'],
+    'Norma Garcia': ['Norma Garcia', 'Guest'],
+    'Jorge Morales': ['Jorge Morales', 'Merce Benito'],
+    'Jerry Williams': ['Jerry Williams', 'Luisa Williams'],
+    'Francois McKinnon': ['Francois McKinnon', 'Cristina McKinnon'],
+    'Isabella MckInnon': ['Isabella MckInnon'],
+    'Sergio Jaramillo': ['Sergio Jaramillo', 'Anair Millan'],
+    'Carlos Franco': ['Carlos Franco', 'Patricia Libreros'],
+    'Juan D Mejia': ['Juan D Mejia', 'Cristina Forero de Mejia'],
+    'Thibault DeCorbiere': ['Thibault DeCorbiere', 'Monica Birlain DeCorbiere'],
+    'Armando Birlain': ['Armando Birlain', 'Monica Lopez de Birlain'],
+    'Adriana Mejía': ['Adriana Mejía', 'Manuela Mejía', 'Valentina Mejía', 'Salomé Mejía'],
+    'Santiago Lopez': ['Santiago Lopez', 'Laura Jimenez'],
+    'Celmira Gavilan': ['Celmira Gavilan', 'Hector Gavilan'],
+    'Jairo Jimenez': ['Jairo Jimenez', 'Andrea Jimenez'],
+    'Alonso Restrepo': ['Alonso Restrepo', 'Margarita Leon Gomez'],
+    'Kyle Bulahan': ['Kyle Bulahan'],
+    'Jeeva Vankatesh': ['Jeeva Vankatesh'],
+    'Jeremy Koch': ['Jeremy Koch'],
+    'Aaron Bennett': ['Aaron Bennett', 'Corin Bennett'],
+    'Luke Sikinyi': ['Luke Sikinyi', 'Iman Ahmad'],
+    'Riley Baker': ['Riley Baker'],
+    'Paco Rubio': ['Paco Rubio', 'Olivia Tully'],
+    'Ahmad Usmani': ['Ahmad Usmani'],
+    'Mikey Nunbhakdi': ['Mikey Nunbhakdi'],
+    'Louis Falisse': ['Louis Falisse', 'Camille Farge'],
+    'Gabriel Gutierrez': ['Gabriel Gutierrez', 'Andrea Bruce'],
+    'Ben Yurchak': ['Ben Yurchak'],
+    'Patrick Peterson': ['Patrick Peterson', 'Kate Aseltine'],
+    'Blake Strickland': ['Blake Strickland'],
+    'Duo Zheng': ['Duo Zheng'],
+    'Dave Taylor': ['Dave Taylor'],
+    'David Sanchez': ['David Sanchez'],
+    'Chris Bond': ['Chris Bond', 'Haley Magar'],
+    'Matthew Brady': ['Matthew Brady'],
+    'Lorenzo Giordano': ['Lorenzo Giordano', 'Julia Ray'],
+    'Jose Escobar': ['Jose Escobar', 'Claudia Alvarez'],
+    'Lele Gomez': ['Lele Gomez'],
+    'Jaime Alvarez': ['Jaime Alvarez', 'Kim Alvarez', 'Sofia Alvarez', 'Olivia Alvarez'],
+    'Zach Estrada': ['Zach Estrada'],
+    'Bob Estrada': ['Bob Estrada'],
+    'Alejandro Ramos': ['Alejandro Ramos'],
+    'Wallis Escobar': ['Wallis Escobar'],
+    'Laura Escobar': ['Laura Escobar', 'Dov Turner'],
+    'Maria Jose Ramos': ['Maria Jose Ramos'],
+    'Andrea Diaz': ['Andrea Diaz', 'Mikey Diaz'],
+    'Von Cannady': ['Von Cannady'],
+    'Guy Alteme': ['Guy Alteme', 'Albania Aquino'],
+    'Vadim Serebrinskiy': ['Vadim Serebrinskiy', 'Nicole Wojto'],
+    'Randell Pierre-Louis': ['Randell Pierre-Louis'],
+    'Nico Baldwin': ['Nico Baldwin', 'Ais Coffee'],
+    'Eduardo Hauser': ['Eduardo Hauser', 'María Inés Hauser'],
+    'José Aldeanueva': ['José Aldeanueva', 'Adriana Hauser'],
+    'Nicolás Aldeanueva': ['Nicolás Aldeanueva', 'Guest'],
+    'Cristina Aldeanueva': ['Cristina Aldeanueva', 'Guest'],
+    'Carlos Torrealba': ['Carlos Torrealba', 'Magdalena Zozaya', 'Isabella Torrealba', 'Magdalena Torrealba'],
+    'Carlos Edery': ['Carlos Edery'],
+    'Feliciano González': ['Feliciano González'],
+    'Elisa Elena Zozaya': ['Elisa Elena Zozaya'],
+    'Victor Enrique Padula': ['Victor Enrique Padula', 'Clara Herrero'],
+    'Juan Ignacio Padula': ['Juan Ignacio Padula', 'Guest'],
+    'Elisa Eugenia Padula': ['Elisa Eugenia Padula'],
+    'Elisa Basalo de Zozaya': ['Elisa Basalo de Zozaya'],
+    'José Antonio Zozaya': ['José Antonio Zozaya', 'Vanessa Trutschel', 'José Andres Zozaya', 'Julieta Zozaya'],
+    'Henry Alamo': ['Henry Alamo'],
+    'Ignacio Arcaya': ['Ignacio Arcaya', 'Susana Arcaya', 'Ignacio Luis Arcaya', 'Valentina Arcaya', 'Carolina Arcaya'],
+    'Francisco Arocha': ['Francisco Arocha', 'María Cecilia Arocha'],
+    'Uri Benhamron': ['Uri Benhamron', 'Vanessa Benhamron', 'Anabella Benhamron', 'Andrea Benhamron', 'David Benhamron'],
+    'Nelson Eduardo Bocaranda': ['Nelson Eduardo Bocaranda', 'Alejandra Machado'],
+    'Nelson Bocaranda Sardi': ['Nelson Bocaranda Sardi', 'Bolivia Bocaranda'],
+    'Alberto Capriles': ['Alberto Capriles', 'Evelyn Capriles'],
+    'Martín Capriles': ['Martín Capriles', 'Andreina Capriles'],
+    'Mariana Carnevali': ['Mariana Carnevali'],
+    'Gilberto Carrasquero': ['Gilberto Carrasquero', 'Guest'],
+    'Mario Ciaffi': ['Mario Ciaffi', 'Ana María Pinedo'],
+    'Luis De Armas': ['Luis De Armas', 'Gloria De Armas'],
+    'Diego Domínguez': ['Diego Domínguez', 'Valentina Domínguez'],
+    'Alí Domínguez': ['Alí Domínguez', 'Alejandra Arrieta de Domínguez'],
+    'Carlos E. Domínguez': ['Carlos E. Domínguez', 'María Altagracia Domínguez'],
+    'Elisabeth Eljuri': ['Elisabeth Eljuri', 'Gustavo Prévide'],
+    'Ana Teresa Fabregas': ['Ana Teresa Fabregas', 'Guest'],
+    'Diego Fernández': ['Diego Fernández', 'Alexandra Padrón de Fernandéz'],
+    'Luis Eduardo Ferreira': ['Luis Eduardo Ferreira', 'Claudia Pagazani'],
+    'Eric Finkelberg': ['Eric Finkelberg', 'Donna Zalter'],
+    'Juan Carlos García': ['Juan Carlos García', 'Alejandra García', 'Juanita García', 'Emilia García'],
+    'Daniel García': ['Daniel García', 'Mary Angulo de García'],
+    'Luis Emilio Gómez': ['Luis Emilio Gómez', 'Alicia Pantin'],
+    'Klaus Grau': ['Klaus Grau', 'Catalina Grau', 'Stefy Grau', 'Sophia Grau', 'Isabella Grau', 'Nikky Grau'],
+    'Alejandro Grisanti': ['Alejandro Grisanti', 'Cristina Bocaranda'],
+    'Fernando Guardazzi': ['Fernando Guardazzi', 'Lorena Guardazzi'],
+    'Erik Halvorssen': ['Erik Halvorssen', 'Alejandra Halvorssen'],
+    'Juan Pablo Larrazabal': ['Juan Pablo Larrazabal', 'Anabel Simón'],
+    'Adriana López': ['Adriana López', 'Luis Eduardo Paúl'],
+    'Andreina Massó': ['Andreina Massó'],
+    'James Mathison': ['James Mathison', 'Beatriz Alemán'],
+    'Luis Matos': ['Luis Matos', 'Francis Pimentel de Matos'],
+    'Kevin Merrigan': ['Kevin Merrigan', 'Mariette Merrigan'],
+    'Iván Morales': ['Iván Morales', 'María Corina Cornago'],
+    'Randolph Morrison': ['Randolph Morrison', 'Elisa Bazó de Morrison'],
+    'Norman Morrison': ['Norman Morrison', 'Gloriana Castro de Morrison'],
+    'Athina Morrison': ['Athina Morrison', 'Guest'],
+    'Andrés Mujica': ['Andrés Mujica', 'Mariana Frías de Mujica'],
+    'Diana Mundlak': ['Diana Mundlak', 'Daniel Mundlak'],
+    'Gerardo Pacanins': ['Gerardo Pacanins', 'Carolina Pacanins'],
+    'Gonzalo Parra': ['Gonzalo Parra', 'Vanessa Parra'],
+    'Robert Pearl': ['Robert Pearl', 'Leoni Pearl'],
+    'Nicolás Pereira': ['Nicolás Pereira', 'María Fernanda De Armas'],
+    'Marco Petrica': ['Marco Petrica', 'Anelisse Petrica'],
+    'Alberto Poleo': ['Alberto Poleo', 'Beatriz Poleo'],
+    'Julio Riquezes': ['Julio Riquezes', 'Amaya Aristoy'],
+    'Francisco Rodríguez': ['Francisco Rodríguez', 'Helena De Castro', 'Juan Andrés Rodríguez'],
+    'Carlos Enrique Rodríguez': ['Carlos Enrique Rodríguez', 'Estefanía Velazco de Rodríguez'],
+    'Francisco Eduardo Rodríguez': ['Francisco Eduardo Rodríguez'],
+    'Ricardo Rodríguez': ['Ricardo Rodríguez', 'Ana Cecilia Morales'],
+    'Tony Roye': ['Tony Roye', 'Anabella Alamo'],
+    'Juan Sabater': ['Juan Sabater', 'Mariana Sabater'],
+    'Leonardo Simón': ['Leonardo Simón', 'Clementina Simón', 'Nicolas Simón', 'Leonardo Simón Jr.'],
+    'Ana Elena Simón': ['Ana Elena Simón', 'Matt Beninati'],
+    'Eduardo Simón': ['Eduardo Simón', 'María Eugenia Simón'],
+    'Carlos Enrique Simón': ['Carlos Enrique Simón', 'Daniela Weffer de Simón'],
+    'Ana María Sosa': ['Ana María Sosa', 'Rodrigo Aguiar', 'Alonso Aguiar', 'Ana Federica Aguiar'],
+    'Jose Luis Suárez': ['Jose Luis Suárez', 'Maribel Suárez'],
+    'Juan Manuel Sucre': ['Juan Manuel Sucre', 'Cielo Sucre'],
+    'Alejandro Tabosky': ['Alejandro Tabosky', 'Guest'],
+    'Rafael Torrealba': ['Rafael Torrealba', 'Ariana Benítez'],
+    'María José Torrealba': ['María José Torrealba'],
+    'Roberto Trutschel': ['Roberto Trutschel', 'Elsa Trutschel'],
+    'Daniel Vielleville': ['Daniel Vielleville', 'Guest'],
+    'Marisela Vizcarrondo': ['Marisela Vizcarrondo', 'Guest'],
+    'David Weisinger': ['David Weisinger', 'Galit Weisinger'],
+    'Enrique Weisson': ['Enrique Weisson', 'Marité Suárez de Weisson'],
+    'Luisa Helena Wilson': ['Luisa Helena Wilson'],
+    'Peter Wittich': ['Peter Wittich', 'Denise Wittich'],
+    'Alejandro Yanes': ['Alejandro Yanes', 'María Fernanda de Yanes'],
+    'Leonardo Zingg': ['Leonardo Zingg', 'Irene Zingg'],
+    'Simon Zisman': ['Simon Zisman', 'Carolina Zisman', 'Isabella Zisman', 'Clarissa Zisman'],
+    'Woods Staton': ['Woods Staton', 'Erica Staton'],
 };
 
 /**
  * Funciones principales del RSVP
  */
 export function initRSVPForm() {
-    console.log('🎉 Inicializando formulario RSVP');
     
     // Elementos DOM
     const rsvpContainer = document.getElementById('rsvp-form-container');
@@ -158,6 +214,8 @@ export function initRSVPForm() {
     const searchResults = document.getElementById('search-results');
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
+    const phoneInput = document.getElementById('guest-phone');
+    const dateInput = document.getElementById('guest-date');
     const closeButton = document.querySelector('.rsvp-form-close');
     
     if (!rsvpContainer) {
@@ -174,8 +232,6 @@ export function initRSVPForm() {
             e.stopPropagation();
             closeRSVPForm();
         });
-    } else {
-        console.warn('⚠️ Botón de cerrar no encontrado');
     }
     
     // Búsqueda automática al escribir y con Enter
@@ -260,7 +316,6 @@ function closeRSVPForm() {
     const rsvpContainer = document.getElementById('rsvp-form-container');
     
     if (!rsvpContainer) {
-        console.error('❌ No se encontró el contenedor RSVP');
         return;
     }
     
@@ -286,9 +341,9 @@ function resetForm() {
     rsvpState.selectedGuest = '';
     rsvpState.guestList = [];
     rsvpState.rsvpData = {
+        welcome: {},
         ceremony: {},
         reception: {},
-        welcome: {},
         brunch: {}
     };
     
@@ -296,6 +351,8 @@ function resetForm() {
     const searchResults = document.getElementById('search-results');
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
+    const phoneInput = document.getElementById('guest-phone');
+    const dateInput = document.getElementById('guest-date');
     
     if (searchInput) searchInput.value = '';
     if (searchResults) {
@@ -304,6 +361,8 @@ function resetForm() {
     }
     if (allergyInput) allergyInput.value = '';
     if (emailInput) emailInput.value = '';
+    if (phoneInput) phoneInput.value = '';
+    if (dateInput) dateInput.value = '';
 }
 
 // Mostrar paso específico
@@ -489,9 +548,9 @@ window.selectGuest = function(guestName) {
     
     // Inicializar datos RSVP para cada evento
     rsvpState.guestList.forEach(guest => {
+        rsvpState.rsvpData.welcome[guest] = 'pending';
         rsvpState.rsvpData.ceremony[guest] = 'pending';
         rsvpState.rsvpData.reception[guest] = 'pending';
-        rsvpState.rsvpData.welcome[guest] = 'pending';
         rsvpState.rsvpData.brunch[guest] = 'pending';
     });
     
@@ -509,17 +568,17 @@ function setupEventStep(eventId) {
         html += `
             <div class="rsvp-guest-item" data-guest-index="${index}">
                 <div class="row">
-                    <div class="col-12 col-xl-5">
-                        <div class="rsvp-guest-name fs-xl-7 font-secondary fs-3">${guest}</div>
+                    <div class="d-flex align-items-center col-12 col-xl-5">
+                        <div class="rsvp-guest-name fs-5 font-base">${guest}</div>
                     </div>
                     <div class="col-12 col-xl-7">
                         <div class="mb-2">
                             <div class="row">
                                 <div class="col-12 col-xl-6 mb-xl-0 mb-2">
-                                    <button type="button" class="rsvp-btn w-100 border-1 font-secondary py-2 px-2" data-guest-name="${guest}" data-response="accept" data-event="${eventId}">Accept</button>
+                                    <button type="button" class="rsvp-btn w-100 border-1 font-base py-2 px-2 fs-6" data-guest-name="${guest}" data-response="accept" data-event="${eventId}">Accept</button>
                                 </div>
                                 <div class="col-12 col-xl-6">
-                                    <button type="button" class="rsvp-btn rsvp-btn-outline rsvp-btn w-100 border-1 font-secondary bg-white-100 py-2 px-2" data-guest-name="${guest}" data-response="decline" data-event="${eventId}">Decline</button>
+                                    <button type="button" class="rsvp-btn rsvp-btn-outline rsvp-btn w-100 border-1 font-base fs-6 py-2 px-2" data-guest-name="${guest}" data-response="decline" data-event="${eventId}">Decline</button>
                                 </div>
                             </div>
                         </div>
@@ -549,10 +608,14 @@ function setupEventStep(eventId) {
 function setupAdditionalInfoStep() {
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
+    const phoneInput = document.getElementById('guest-phone');
+    const dateInput = document.getElementById('guest-date');
     
     // Solo necesita asegurar que los elementos existen
     if (allergyInput) allergyInput.value = allergyInput.value || '';
     if (emailInput) emailInput.value = emailInput.value || '';
+    if (phoneInput) phoneInput.value = phoneInput.value || '';
+    if (dateInput) dateInput.value = dateInput.value || '';
 }
 
 // Establecer respuesta del invitado
@@ -573,16 +636,22 @@ function updateEventButtons(eventId) {
         btn.classList.remove('active');
         btn.style.backgroundColor = '';
         btn.style.color = '';
+        btn.style.borderColor = '';
+        btn.style.opacity = '';
         
-        // Restaurar estilos por defecto
-        if (btn.classList.contains('rsvp-btn-outline')) {
+        // Restaurar estilos por defecto según el tipo de botón
+        const isDeclineBtn = btn.getAttribute('data-response') === 'decline';
+        
+        if (isDeclineBtn) {
+            // Botones "Decline" - estilo outline por defecto
             btn.style.backgroundColor = 'transparent';
-            btn.style.color = '#8B9B68';
-            btn.style.borderColor = '#8B9B68';
+            btn.style.color = '#B8724C';
+            btn.style.borderColor = '#B8724C';
         } else {
-            btn.style.backgroundColor = '#8B9B68';
+            // Botones "Accept" - estilo filled por defecto
+            btn.style.backgroundColor = '#B8724C';
             btn.style.color = '#fff';
-            btn.style.borderColor = '#8B9B68';
+            btn.style.borderColor = '#B8724C';
         }
     });
     
@@ -597,19 +666,39 @@ function updateEventButtons(eventId) {
         buttons.forEach(btn => {
             const btnResponse = btn.getAttribute('data-response');
             
+            const isDeclineBtn = btnResponse === 'decline';
+            
             if (btnResponse === response) {
-                // Marcar como activo
+                // Marcar como activo/seleccionado
                 btn.classList.add('active');
-                btn.style.backgroundColor = '#fff';
-                btn.style.color = '#8B9B68';
-                btn.style.borderColor = '#8B9B68';
+                
+                if (isDeclineBtn) {
+                    // Decline seleccionado - fondo rojo
+                    btn.style.backgroundColor = '#858B70';
+                    btn.style.color = '#fff';
+                    btn.style.borderColor = '#858B70';
+                } else {
+                    // Accept seleccionado - fondo verde
+                    btn.style.backgroundColor = '#B8724C';
+                    btn.style.color = '#fff';
+                    btn.style.borderColor = '#B8724C';
+                }
                 btn.style.opacity = '1';
             } else {
-                // Marcar como inactivo
-                btn.style.backgroundColor = '#fff';
-                btn.style.color = '#8B9B68';
-                btn.style.borderColor = '#8B9B68';
-                btn.style.opacity = '0.7';
+                // Marcar como inactivo/no seleccionado
+                btn.style.opacity = '0.4';
+                
+                if (isDeclineBtn) {
+                    // Decline no seleccionado
+                    btn.style.backgroundColor = 'transparent';
+                    btn.style.color = '#B8724C';
+                    btn.style.borderColor = '#B8724C';
+                } else {
+                    // Accept no seleccionado
+                    btn.style.backgroundColor = '#B8724C';
+                    btn.style.color = '#fff';
+                    btn.style.borderColor = '#B8724C';
+                }
             }
         });
     });
@@ -621,10 +710,12 @@ function canContinue() {
     if (rsvpState.currentStep >= 2 && rsvpState.currentStep <= 5) {
         return true;
     }
-    // Para información adicional: Solo email es obligatorio
+    // Para información adicional: Email y teléfono son obligatorios
     if (rsvpState.currentStep === 6) {
         const emailInput = document.getElementById('guest-email');
-        return emailInput && emailInput.value.trim() !== '';
+        const phoneInput = document.getElementById('guest-phone');
+        return emailInput && emailInput.value.trim() !== '' && 
+               phoneInput && phoneInput.value.trim() !== '';
     }
     return true;
 }
@@ -654,6 +745,8 @@ function previousStep() {
 function submitRSVP() {
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
+    const phoneInput = document.getElementById('guest-phone');
+    const dateInput = document.getElementById('guest-date');
     
     // Procesar respuestas finales (pending = accept por defecto)
     const processedData = {};
@@ -670,7 +763,9 @@ function submitRSVP() {
         guest_name: rsvpState.selectedGuest,
         guests: processedData,
         allergies: allergyInput.value.trim(),
-        email: emailInput.value.trim()
+        email: emailInput.value.trim(),
+        phone: phoneInput.value.trim(),
+        arrival_date: dateInput.value.trim()
     };
     
     // Mostrar loading
@@ -681,12 +776,14 @@ function submitRSVP() {
     formData.append('action', 'submit_rsvp');
     formData.append('guest_name', rsvpState.selectedGuest);
     formData.append('email', emailInput.value.trim());
+    formData.append('phone', phoneInput.value.trim());
+    formData.append('arrival_date', dateInput.value.trim());
     formData.append('allergies', allergyInput.value.trim());
     formData.append('guests', JSON.stringify(processedData));
     
     // Debug: Mostrar lo que se va a enviar
     // for (let [key, value] of formData.entries()) {
-    //     console.log(key + ':', value);
+    //     // Log entries
     // }
     
     // Debug: Verificar JSON antes de enviar
@@ -707,7 +804,6 @@ function submitRSVP() {
         if (data.success) {
             showStep(7);
         } else {
-            console.error('❌ Error al enviar RSVP:', data.message);
             alert('Error al enviar RSVP: ' + data.message);
             // Regenerar el paso 6 sin el loading
             showStep(6);
@@ -715,7 +811,6 @@ function submitRSVP() {
         }
     })
     .catch(error => {
-        console.error('❌ Error de conexión:', error);
         // En local, simular éxito para testing
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
             alert('MODO LOCAL: RSVP procesado (revisa la consola para ver los datos)');
@@ -725,4 +820,6 @@ function submitRSVP() {
             showStep(6);
         }
     });
-} 
+}
+
+ 

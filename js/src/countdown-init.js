@@ -4,7 +4,6 @@ export const initCountdown = (targetDate, containerId) => {
     const container = document.getElementById(containerId);
     
     if (!container) {
-        console.error('Contenedor no encontrado:', containerId);
         return;
     }
 

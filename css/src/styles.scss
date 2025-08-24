@@ -173,6 +173,7 @@ table {
 
     --bs-border-radius: 40px;
     --bs-border-radius-xl: 40px;
+    --bs-border-radius-lg: 20px;
 
 
     --bs-border-width: 1px !important;
@@ -308,8 +309,7 @@ header {
             background-image: url(../../images/box.webp);
             background-repeat: repeat;
             box-shadow: 0px 0px 15px 0px rgba(255, 255, 255, 0.15);
-
-
+            background-size: 60px;
 
             .start {
                 display: block;
@@ -475,6 +475,10 @@ header {
     &--full {
         width: 100%;
         border-bottom: 1px solid var(--bs-secondary);
+
+        &-primary {
+            border-bottom: 1px solid var(--bs-primary);
+        }
     }
 
     &--medium {
@@ -569,7 +573,7 @@ iframe {
 }
 
 .rsvp-form-modal {
-    max-width: 580px;
+    max-width: 700px;
     width: 90%;
     max-height: 90vh;
     overflow-y: auto;
@@ -583,10 +587,34 @@ iframe {
     display: block;
 }
 
-.rsvp-btn.active {
-    // background: var(--bs-primary) !important;
-    // color: var(--bs-white-100) !important;
-    opacity: 1 !important;
+.rsvp-btn {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    
+    &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
+    
+    &.active {
+        opacity: 1 !important;
+        transform: scale(1.05);
+        box-shadow: 0 3px 12px rgba(0, 0, 0, 0.2);
+    }
+    
+    // Estados específicos para mejor UX
+    &[data-response="accept"] {
+        &:hover:not(.active) {
+            background-color: lighten(#B8724C, 10%) !important;
+        }
+    }
+    
+    &[data-response="decline"] {
+        &:hover:not(.active) {
+            background-color: rgba(#B8724C, 0.1) !important;
+            color: darken(#B8724C, 10%) !important;
+        }
+    }
 }
 
 .rsvp-loading {
@@ -685,9 +713,15 @@ input[type="tel"],
 textarea {
     font-family: var(--bs-font-family-base);
     font-size: 16px;
-    color: var(--bs-secondary);
-    border: 1px solid;
-    ;
+    border: 1px solid var(--bs-primary);
+}
+
+input[type="text"] {
+    border-radius: 12px;
+}
+
+.rsvp-find-btn {
+    border-radius: 12px !important;
 }
 
 /* Radio */
@@ -808,5 +842,27 @@ textarea {
     &-active {
         background-color: #fff;
         color: var(--bs-primary);
+    }
+}
+
+.rounded-3 {
+    border-radius: var(--bs-border-radius-lg) !important;
+}
+
+@media only screen and (min-width: 1200px) {
+    .rounded-lg-4 {
+        border-radius: var(--bs-border-radius-xl) !important;
+    }
+}
+
+.rsvp {
+    &-back-btn {
+        border-radius: 14px;
+        background: transparent;
+        border: 1px solid var(--bs-primary);
+    }
+
+    &-next-btn {
+        border-radius: 14px;
     }
 }

@@ -221,7 +221,7 @@ get_header();
                             <p class="fs-xl-5 fs-p-xxl text-secondary line-height-0 mb-4 letter-xl-spacing-22">Please kindly respond by <br class="d-xl-none"> October 27th, 2025</p>
                             <p class="fs-xl-4 text-secondary mb-4">Please confirm your attendance by <br class="d-block"> completing the following form using <br class="d-block"> the button below.</p>
 
-                            <button type="button" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5 mb-4">R.S.V.P.</button>
+                            <button type="button" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5 mb-4 rsvp-open-btn">R.S.V.P.</button>
 
                             <div class="py-xl-3"></div>
                             <p class="fs-xl-6 fs-p-xxl text-secondary">More Information:</p>
@@ -377,6 +377,7 @@ get_header();
 
     <?php echo get_template_part('template-parts/components/component-map'); ?>
     <?php get_template_part('template-parts/components/component-modal'); ?>
+    <?php get_template_part('template-parts/components/component-step-rsvp'); ?>
 </main>
 
 <?php 
