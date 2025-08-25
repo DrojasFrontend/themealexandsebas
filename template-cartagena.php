@@ -61,15 +61,6 @@ $places = [
             "link" => "https://www.sofitellegendsantaclara.com/es/",
             "image" => THEME_IMG . 'places-cartagena/hoteles-1.png',
         ],
-        [
-            "name" => "Hotel San <br> Agustín",
-            "address" => "Calle de la Universidad # 36 - 44",
-            "city" => "Cartagena, Colombia",
-            "phone" => "+57 (605) 6810000",
-            "link" => "https://hotelcasasanagustin.com",
-            "image" => THEME_IMG . 'places-cartagena/hoteles-7.png',
-        ],
-       
     ],
   ],
   "restaurants" => [
@@ -544,7 +535,7 @@ $places = [
                                 <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Several major airlines such as Latam, Delta, American Airlines, United, Aeroméxico, Copa Airlines, and Avianca offer direct flights to Rafael Núñez International Airport in Cartagena, on Colombia’s Caribbean coast. The best way to get from the airport to the walled city is by taxi or Uber. The ride takes approximately 10 to 15 minutes.</p>
                                 <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">Authorized taxis are available 24 hours a day and operate with fixed fares, paid in cash: around 14,000 COP to Getsemaní, up to 18,000 COP to the hotel area in the historic center (Walled City), and approximately 30,000 COP to Bocagrande. In general, 1 USD equals about 4,100 COP. Since taxis do not always accept card payments, Uber is often a more convenient alternative</p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CURRENCY</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">The official currency in Colombia is the Colombian Peso (COP). At the moment, the average exchange rate is approximately 1 USD = 4,001 COP. To check the updated rate, you may <a href="https://wise.com/currency-converter" style="text-decoration: underline; color: #B8724C;" target="blank">Click here:</a></p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">The official currency in Colombia is the Colombian Peso (COP). At the moment, the average exchange rate is approximately 1 USD = 4,001 COP. To check the updated rate, you may <a href="https://wise.com/currency-converter" style="text-decoration: underline; color: #B8724C;" target="blank">Click here</a></p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">SAFETY IN CARTAGENA</h2>
                                 <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Cartagena is a vibrant and welcoming city, highly appreciated by travelers from around the world. The most visited areas, such as the Historic Center, Getsemaní, and Bocagrande, are perfect for walking, enjoying the architecture, and experiencing local life. To make your stay even more comfortable, we recommend using reliable transportation (such as taxis requested from your hotel or through apps), carrying only what is necessary for your outings, and choosing well-lit streets at night.</p>
                                 <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">With these simple suggestions, you can fully enjoy the charm and tranquility of this Caribbean destination.</p>
