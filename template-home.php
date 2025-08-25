@@ -17,9 +17,9 @@ get_header();
                     <?php if(wp_is_mobile()): ?>
                         <div class="py-4"></div>
                         <div class="pt-2"></div>
-                        <img class="w-100 d-block" src="<?php echo THEME_IMG; ?>hero-mobile.webp" alt="Hero Mobile">
+                        <img class="w-100 d-block" src="<?php echo THEME_IMG; ?>hero-mobile-new.webp" alt="Hero Mobile">
                     <?php else: ?>
-                        <img class="w-100 d-block" src="<?php echo THEME_IMG; ?>hero.webp" alt="Hero">
+                        <img class="w-100 d-block" src="<?php echo THEME_IMG; ?>hero-new.webp" alt="Hero">
                     <?php endif; ?>
 
                     <div class="position-absolute top-0 start-0 w-100">
