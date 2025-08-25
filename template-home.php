@@ -39,7 +39,16 @@ get_header();
                                 </span>
                                 SEBASTIAN
                             </h2>
-                            <p class="font-base fs-xl-lg-2 fs-4 text-center text-white letter-xl-spacing-96 fw-normal letter-xl-spacing-22 letter-spacing-8">03 | 27 | 2026</p>
+                            <!-- <p class="font-base fs-xl-lg-2 fs-4 text-center text-white letter-xl-spacing-96 fw-normal letter-xl-spacing-22 letter-spacing-8">
+                                03 | 27 | 2026
+                            </p> -->
+
+                            <?php if(wp_is_mobile()): ?>
+                                <img width="260" class="d-block mx-auto mb-2" src="<?php echo THEME_IMG; ?>text-date.svg" alt="Hero Mobile">
+                            <?php else: ?>
+                                <img width="400" class="d-block mx-auto mb-2" src="<?php echo THEME_IMG; ?>text-date.svg" alt="Hero Mobile">
+                            <?php endif; ?>
+
                             <p class="font-base fs-xl-6 fs-p-xxl text-center text-white fw-regular letter-xl-spacing-22 letter-spacing-2 ">CARTAGENA DE INDIAS, COLOMBIA</p>
                         </div>
                     </div>
@@ -66,7 +75,7 @@ get_header();
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 letter-spacing-2 uppercase stroke-1">Ceremony</h2>
                             <p class="fs-xl-3 text-secondary line-height-0">Iglesia</p>
-                            <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-3">Santo Toribio de Mogroviejo</p>
+                            <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-3">Santo Toribio de Mogrovejo</p>
                             <a href="https://maps.app.goo.gl/89yKaez3suxK9ZaFA" target="_blank" class="btn btn-primary mx-auto mb-xl-5 mb-4">Location</a>
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 uppercase stroke-1 letter-spacing-2">Reception to follow</h2>
