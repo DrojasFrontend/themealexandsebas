@@ -30,7 +30,7 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/hoteles-5.png',
         ],
         [
-            "name" => "NACAR HOTEL, <br> BY HILTON",
+            "name" => "<span class='text-secondary'>NACAR HOTEL, <br> BY HILTON</span>",
             "address" => "Calle Del Curato # 38 - 99",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 (605) 6517050",
@@ -38,7 +38,7 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/hoteles-14.png',
         ],
         [
-            "name" => "CINCO QUINTAS <br> BY SOHO",
+            "name" => "<span class='text-secondary'>CINCO QUINTAS <br> BY SOHO</span>",
             "address" => "Cra 6 # 35 - 69",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 322 5084897",
@@ -46,7 +46,7 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/hoteles-0.png',
         ],
         [
-            "name" => "Voila <br> By Huespedia",
+            "name" => "<span class='text-secondary'>Voila <br> By Huespedia</span>",
             "address" => "Calle de las Carretas # 34 - 85",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 300 9121453",
@@ -54,7 +54,7 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/hoteles-13.png',
         ],
         [
-            "name" => "Sofitel Legend <br> Santa Clara",
+            "name" => "<span class='text-secondary'>Sofitel Legend <br> Santa Clara</span>",
             "address" => "Calle Del Torno # 39 - 29",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 (605) 6504700",
@@ -537,22 +537,24 @@ $places = [
                             <!-- <div class="line line--full mb-4"></div> -->
                             <div class="bg-yellow-100 mb-xl-5">
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">Passports</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">Please do not forget your passports! <br class="d-none d-xl-block"> Make sure to carefully check the expiration date.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">Please do not forget your passports! <br class="d-none d-xl-block"> Make sure to carefully check the expiration date.</p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CheckMig</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">Please complete the migration registration form 48 hours before your trip, as the airline requires proof of completion in order to check in. Repeat this same step for your return <a href="https://apps.migracioncolombia.gov.co/pre-registro" style="text-decoration: underline;" target="blank">Click Here</a></p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">CheckMig is an online form provided by Migración Colombia, where travelers register their travel information prior to entering or leaving the country. It may be completed between 72 hours and 1 hour before your trip. While it is not mandatory, it is highly recommended, as it streamlines the immigration process and helps prevent delays at the airport.<a href="https://apps.migracioncolombia.gov.co/pre-registro" style="text-decoration: underline; color: #B8724C;" target="blank">Click Here</a></p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">INTERNATIONAL AIRPORT</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Several major airlines such as Latam, Delta, American Airlines, United, Aeroméxico, Copa Airlines, and Avianca offer direct flights to Rafael Núñez International Airport in Cartagena, on Colombia’s Caribbean coast. The best way to get from the airport to the walled city is by taxi or Uber. The ride takes approximately 10 to 15 minutes.</p>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">Authorized taxis are available 24 hours a day and operate with fixed fares, paid in cash: around 14,000 COP to Getsemaní, up to 18,000 COP to the hotel area in the historic center (Walled City), and approximately 30,000 COP to Bocagrande. In general, 1 USD equals about 4,100 COP. Since taxis do not always accept card payments, Uber is often a more convenient alternative</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Several major airlines such as Latam, Delta, American Airlines, United, Aeroméxico, Copa Airlines, and Avianca offer direct flights to Rafael Núñez International Airport in Cartagena, on Colombia’s Caribbean coast. The best way to get from the airport to the walled city is by taxi or Uber. The ride takes approximately 10 to 15 minutes.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">Authorized taxis are available 24 hours a day and operate with fixed fares, paid in cash: around 14,000 COP to Getsemaní, up to 18,000 COP to the hotel area in the historic center (Walled City), and approximately 30,000 COP to Bocagrande. In general, 1 USD equals about 4,100 COP. Since taxis do not always accept card payments, Uber is often a more convenient alternative</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CURRENCY</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">The official currency in Colombia is the Colombian Peso (COP). At the moment, the average exchange rate is approximately 1 USD = 4,001 COP. To check the updated rate, you may <a href="https://wise.com/currency-converter" style="text-decoration: underline; color: #B8724C;" target="blank">Click here:</a></p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">SAFETY IN CARTAGENA</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Cartagena is a vibrant and welcoming city, highly appreciated by travelers from around the world. The most visited areas, such as the Historic Center, Getsemaní, and Bocagrande, are perfect for walking, enjoying the architecture, and experiencing local life. To make your stay even more comfortable, we recommend using reliable transportation (such as taxis requested from your hotel or through apps), carrying only what is necessary for your outings, and choosing well-lit streets at night.</p>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary" style="line-height: 1.4">With these simple suggestions, you can fully enjoy the charm and tranquility of this Caribbean destination.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Cartagena is a vibrant and welcoming city, highly appreciated by travelers from around the world. The most visited areas, such as the Historic Center, Getsemaní, and Bocagrande, are perfect for walking, enjoying the architecture, and experiencing local life. To make your stay even more comfortable, we recommend using reliable transportation (such as taxis requested from your hotel or through apps), carrying only what is necessary for your outings, and choosing well-lit streets at night.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">With these simple suggestions, you can fully enjoy the charm and tranquility of this Caribbean destination.</p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">WEATHER</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">March in Cartagena offers warm and sunny days, with temperatures around 31 °C (88 °F) and pleasant evenings of about 26 °C (79 °F). Rainfall is minimal during this season, and the sea remains a delightful 27–28 °C (81–82 °F), perfect for enjoying both the city and the beach.</p>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary mb-3" style="line-height: 1.4">We recommend packing light and breathable clothing for exploring the city during the day, along with a hat, sunglasses, and sunscreen to protect yourself from the Caribbean sun. For events, light and elegant fabrics will be the best choice. Staying hydrated is essential in this warm climate, and for evenings outdoors, it may be comfortable to bring an additional light layer.</p>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 mb-4 text-secondary fw-bold" style="line-height: 1.4">Please note that the church and wedding venue are air-conditioned.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">March in Cartagena offers warm and sunny days, with temperatures around 31 °C (88 °F) and pleasant evenings of about 26 °C (79 °F). Rainfall is minimal during this season, and the sea remains a delightful 27–28 °C (81–82 °F), perfect for enjoying both the city and the beach.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">We recommend packing light and breathable clothing for exploring the city during the day, along with a hat, sunglasses, and sunscreen to protect yourself from the Caribbean sun. For events, light and elegant fabrics will be the best choice. Staying hydrated is essential in this warm climate, and for evenings outdoors, it may be comfortable to bring an additional light layer.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary fw-bold" style="line-height: 1.4">For your comfort, the church and the reception venue are air‑conditioned.</p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CARTAGENANNY</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 text-secondary" style="line-height: 1.4">For guests who may need it, we are pleased to share a trusted local nanny service to assist with childcare. Please feel free to get in touch to coordinate the service during the celebration. Special rates are available using the code “MARYCUETER.”</p>
-                                <p class="fs-xl-6 fs-p-xxl text-gray-200 text-secondary" style="line-height: 1.4">Contact: Lili Rueda — +57 318 6294974</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 text-secondary" style="line-height: 1.4">For guests who may need it, we are pleased to share a trusted local nanny service to assist with childcare. Please feel free to get in touch to coordinate the service during the celebration. Special rates are available using the code “MARYCUETER.”</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 text-secondary" style="line-height: 1.4">Contact: Lili Rueda — +57 318 6294974</p>
                             </div>
                         </div>
                     </div>
@@ -595,9 +597,9 @@ $places = [
                                 <h2 class="font-titulo fs-xl-md-1 fs-2-lg text-center mb-3 uppercase"><?php echo $category['title']; ?></h2>
                                 <?php if (!empty($category['info'])) : ?>
                                     <div class="row">
-                                        <div class="col-12 px-4">
-                                            <p class="fs-xl-p fs-p-xxl text-gray mb-3" style="line-height: 1.4">
-                                            We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. The bride and groom will be staying at Hotel Casa San Agustin, for those guests who wish to lodge there as well.
+                                        <div class="col-12 px-xl-5">
+                                            <p class="fs-xl-6 fs-p-xxl text-secondary mb-3 px-xl-4" style="line-height: 1.4">
+                                            We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. The bride and groom will be staying at <strong>Hotel Casa San Agustin</strong>, for those guests who wish to lodge there as well.
                                             </p>
                                             
                                         </div>
@@ -643,10 +645,10 @@ $places = [
                                             <div class="p-2">
                                                 <h2 class="fs-xl-5 uppercase" style="line-height: 1.2"><?php echo $place['name']; ?></h2>
                                                 <span class="line line--small m-0 mt-2 mb-3"></span>
-                                                <p class="fs-xl-6 text-gray" style="line-height: 1.2"><?php echo $place['address']; ?></p>
-                                                <p class="fs-xl-6 text-gray mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
-                                                <p class="fs-xl-6 text-gray mb-3" style="line-height: 1.2">Phone:<?php echo $place['phone']; ?></p>
-                                                <a class="btn btn-small rounded-0 text-gray" href="<?php echo $place['link']; ?>" target="_blank">
+                                                <p class="fs-xl-6 text-secondary" style="line-height: 1.2"><?php echo $place['address']; ?></p>
+                                                <p class="fs-xl-6 text-secondary mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
+                                                <p class="fs-xl-6 text-secondary mb-3" style="line-height: 1.2">Phone:<?php echo $place['phone']; ?></p>
+                                                <a class="btn btn-small rounded-0 text-secondary" href="<?php echo $place['link']; ?>" target="_blank">
                                                     Click here
                                                 </a>
                                             </div>

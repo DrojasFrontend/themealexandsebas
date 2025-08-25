@@ -569,7 +569,7 @@ function setupEventStep(eventId) {
             <div class="rsvp-guest-item" data-guest-index="${index}">
                 <div class="row">
                     <div class="d-flex align-items-center col-12 col-xl-5">
-                        <div class="rsvp-guest-name fs-5 font-base">${guest}</div>
+                        <div class="rsvp-guest-name fs-xl-3 fs-5 font-base">${guest}</div>
                     </div>
                     <div class="col-12 col-xl-7">
                         <div class="mb-2">
@@ -820,6 +820,4 @@ function submitRSVP() {
             showStep(6);
         }
     });
-}
-
- 
+} 

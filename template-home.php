@@ -64,12 +64,12 @@ get_header();
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Friday, March 27th, 2026</p>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-5 mb-4">7:00 p.m.</p>
 
-                            <h2 class="font-titulo fs-xl-md-2 fs-6 mb-xl-3 mb-2 letter-xl-spacing-4 letter-spacing-2 uppercase stroke-1">Ceremony</h2>
+                            <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 letter-spacing-2 uppercase stroke-1">Ceremony</h2>
                             <p class="fs-xl-3 text-secondary line-height-0">Iglesia</p>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-3">Santo Toribio de Mogroviejo</p>
                             <a href="https://maps.app.goo.gl/89yKaez3suxK9ZaFA" target="_blank" class="btn btn-primary mx-auto mb-xl-5 mb-4">Location</a>
 
-                            <h2 class="font-titulo fs-xl-md-2 fs-6 mb-xl-3 mb-2 letter-xl-spacing-4 uppercase stroke-1 letter-spacing-2">Reception to follow</h2>
+                            <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 uppercase stroke-1 letter-spacing-2">Reception to follow</h2>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-3">Casa 1537</p>
                             <a href="https://maps.app.goo.gl/zmWJUS3ccT6m8Frj8" target="_blank" class="btn btn-primary mx-auto">Location</a>
 
@@ -79,7 +79,7 @@ get_header();
                             <button type="button" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5 mb-4" data-bs-toggle="modal" data-bs-target="#tropicalBlackTie">Black Tie</button>
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 uppercase letter-xl-spacing-4 stroke-1">Registry</h2>
-                            <a href="https://www.zola.com/registry/aleysebas2026" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5" tsrget="_blank">Link Zola</a>
+                            <a href="https://www.zola.com/registry/aleysebas2026" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5" target="_blank">Link Zola</a>
                         </div>
                         <span class="start start__bottom"></span>
                         
@@ -151,8 +151,8 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
 
-                                    <p class="font-titulo fs-xl-3 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
-                                    <button type="button" class="btn btn-primary mx-auto border-0" data-bs-toggle="modal" data-bs-target="#cocktail">TDB</button>
+                                    <p class="font-titulo fs-xl-3 fs-4 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
+                                    <button type="button" class="btn btn-primary mx-auto border-0 mb-5" data-bs-toggle="modal" data-bs-target="#cocktail">TDB</button>
                                 </div>
                                 <div class="col-12 col-xl-6">
                                     <h2 class="font-titulo fs-xl-md-2 fs-4 mb-3 letter-xl-spacing-16 text-primary uppercase stroke-1">BEACH <br> DAY</h2>
@@ -162,7 +162,7 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
 
-                                    <p class="font-titulo fs-xl-3 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
+                                    <p class="font-titulo fs-xl-3 fs-4 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
                                     <button type="button" class="btn btn-primary mx-auto mb-xl-0 mb-3 border-0" data-bs-toggle="modal" data-bs-target="#casualBeachWear">TDB</button>
                                 </div>
                             </div>
@@ -289,35 +289,35 @@ get_header();
                             <span class="line line--full bg-secondary"></span>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-travel-info.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#travel-info">Travel Info</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#travel-info">Travel Info</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-hotel.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#hotels">Hotels</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#hotels">Hotels</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-restaurants.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#restaurants">Restaurants</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#restaurants">Restaurants</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-brunch.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#brunch">Brunch & Desserts</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#brunch">Brunch & Desserts</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-bars.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#bars">Bars & Pubs</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#bars">Bars & Pubs</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-beauty-salons.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#beauty">Beauty Salons</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#beauty">Beauty Salons</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
                                 <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-boutiques.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#boutiques">Boutiques</a>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#boutiques">Boutiques</a>
                             </li>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">
-                                <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-boutiques.svg" alt="Home 1"></span>
-                                <a class="font-titulo fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#things">Things to Do in the City</a>
+                                <span class="icono"><img class="d-block w-100" src="<?php echo THEME_IMG; ?>icons/icon-things.svg" alt="Home 1"></span>
+                                <a class="fs-xl-3 text-secondary letter-spacing-xl-3 letter-spacing-15" href="/cartagena#things">Things to Do in the City</a>
                             </li>
                         </ul>
                     </div>
