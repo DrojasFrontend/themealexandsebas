@@ -215,6 +215,8 @@ export function initRSVPForm() {
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
     const phoneInput = document.getElementById('guest-phone');
+    const codeInput = document.getElementById('guest-code');
+    const cityInput = document.getElementById('guest-city');
     const dateInput = document.getElementById('guest-date');
     const closeButton = document.querySelector('.rsvp-form-close');
     
@@ -352,6 +354,8 @@ function resetForm() {
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
     const phoneInput = document.getElementById('guest-phone');
+    const codeInput = document.getElementById('guest-code');
+    const cityInput = document.getElementById('guest-city');
     const dateInput = document.getElementById('guest-date');
     
     if (searchInput) searchInput.value = '';
@@ -362,6 +366,8 @@ function resetForm() {
     if (allergyInput) allergyInput.value = '';
     if (emailInput) emailInput.value = '';
     if (phoneInput) phoneInput.value = '';
+    if (codeInput) codeInput.value = '';
+    if (cityInput) cityInput.value = '';
     if (dateInput) dateInput.value = '';
 }
 
@@ -609,12 +615,16 @@ function setupAdditionalInfoStep() {
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
     const phoneInput = document.getElementById('guest-phone');
+    const codeInput = document.getElementById('guest-code');
+    const cityInput = document.getElementById('guest-city');
     const dateInput = document.getElementById('guest-date');
     
     // Solo necesita asegurar que los elementos existen
     if (allergyInput) allergyInput.value = allergyInput.value || '';
     if (emailInput) emailInput.value = emailInput.value || '';
     if (phoneInput) phoneInput.value = phoneInput.value || '';
+    if (codeInput) codeInput.value = codeInput.value || '';
+    if (cityInput) cityInput.value = cityInput.value || '';
     if (dateInput) dateInput.value = dateInput.value || '';
 }
 
@@ -714,8 +724,12 @@ function canContinue() {
     if (rsvpState.currentStep === 6) {
         const emailInput = document.getElementById('guest-email');
         const phoneInput = document.getElementById('guest-phone');
+        const codeInput = document.getElementById('guest-code');
+        const cityInput = document.getElementById('guest-city');
         return emailInput && emailInput.value.trim() !== '' && 
-               phoneInput && phoneInput.value.trim() !== '';
+               phoneInput && phoneInput.value.trim() !== '' &&
+               codeInput && codeInput.value.trim() !== '' &&
+               cityInput && cityInput.value.trim() !== '';
     }
     return true;
 }
@@ -746,6 +760,8 @@ function submitRSVP() {
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
     const phoneInput = document.getElementById('guest-phone');
+    const codeInput = document.getElementById('guest-code');
+    const cityInput = document.getElementById('guest-city');
     const dateInput = document.getElementById('guest-date');
     
     // Procesar respuestas finales (pending = accept por defecto)
@@ -765,6 +781,8 @@ function submitRSVP() {
         allergies: allergyInput.value.trim(),
         email: emailInput.value.trim(),
         phone: phoneInput.value.trim(),
+        code: codeInput.value.trim(),
+        city: cityInput.value.trim(),
         arrival_date: dateInput.value.trim()
     };
     
@@ -777,6 +795,8 @@ function submitRSVP() {
     formData.append('guest_name', rsvpState.selectedGuest);
     formData.append('email', emailInput.value.trim());
     formData.append('phone', phoneInput.value.trim());
+    formData.append('code', codeInput.value.trim());
+    formData.append('city', cityInput.value.trim());
     formData.append('arrival_date', dateInput.value.trim());
     formData.append('allergies', allergyInput.value.trim());
     formData.append('guests', JSON.stringify(processedData));

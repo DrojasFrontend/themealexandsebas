@@ -21,14 +21,14 @@
                     <p class="fs-xl-md-2 fs-4 font-base text-secondary">Wedding</p>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <p class="font-base fs-6-md text-gray mb-3">
-                        If you are responding for yourself and a guest (or your family), you will be able to RSVP for your entire group.
+                        You may respond individually or on behalf of your entire group.
                     </p>
                     <p class="font-base fs-6-md text-gray mb-3">
                         Please enter your First and Last Name below.
                     </p>
                     <input type="text" id="guest-search" class="w-100 border-1 bg-transparent p-2 mb-3" placeholder="Full name" autocomplete="off">
                     <div id="search-results" class="rsvp-search-item font-base cursor-pointer mb-2"></div>
-                    <button type="button" class="btn btn-secondary rsvp-find-btn w-100 border-0 fs-xl-5-medium fs-6">Find your invitation</button>
+                    <button type="button" class="btn btn-secondary rsvp-find-btn w-100 border-0 fs-xl-5-medium fs-6">Continue</button>
                 </div>
 
                 <!-- Paso 2: WELCOME PARTY -->
@@ -36,7 +36,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WELCOME PARTY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="font-base fs-3 text-secondary mb-1">March 26th, 2026</p>
+                        <p class="font-base fs-3 text-secondary mb-1">Thursday, March 26th, 2026</p>
                         <p class="font-base fs-3 text-secondary mb-1">5:00 - 8:00 p.m.</p>
                         <p class="font-base fs-3 text-secondary mb-4">Tbd</p>
                     </div>
@@ -60,7 +60,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WEDDING DAY - CEREMONY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">March 27th, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Friday, March 27th, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">7:00 p.m.</p>
                         <p class="fs-3 text-secondary font-base mb-1">Iglesia Santo Toribio de Mogrovejo</p>
                     </div>
@@ -84,7 +84,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WEDDING DAY - RECEPTION</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">March 27th, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Friday, March 27th, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">8:00 p.m.</p>
                         <p class="fs-3 text-secondary font-base">Casa 1537</p>
                     </div>
@@ -108,7 +108,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">BEACH DAY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">March 28th, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Saturday, March 28th, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">11:30 a.m.</p>
                         <p class="fs-3 text-secondary font-base">Tbd</p>
                     </div>
@@ -133,14 +133,20 @@
                     <span class="line line--full line--full-primary mb-3"></span>
                     <p class="fs-3 text-secondary font-base mb-1 fw-semibold">Food Allergies or Dietary Needs</p>
                     <p class="fs-3 text-secondary font-base mb-1">Do you or your guest have any food allergies or dietary restrictions?</p>
-                    <textarea id="allergies" class="p-3 font-base w-100 mb-3" placeholder="Food allergies or restrictions..."></textarea>
+                    <textarea id="allergies" class="p-3 font-base w-100 mb-3 bg-transparent" placeholder="Food allergies or restrictions..." style="border-radius: 12px"></textarea>
                     
                     <p class="fs-3 text-secondary font-base mb-1 fw-semibold">What date will you be arriving in Cartagena?</p>
-                    <input type="date" id="guest-date" class="w-100 font-base p-3 mb-3" required>
+                    <input type="date" id="guest-date" class="w-100 font-base p-3 mb-3 bg-transparent" required style="border-radius: 12px">
 
                     <p class="fs-3 text-secondary font-base mb-1 fw-semibold">Contact Information</p>
-                    <input type="tel" id="guest-phone" class="w-100 font-base p-3 mb-3" placeholder="Phone" required>
-                    <input type="email" id="guest-email" class="w-100 font-base p-3 mb-3" placeholder="Email" required>
+
+                    <div class="d-flex flex-xl-row flex-column gap-2">
+                        <input width="80" type="number" id="guest-code" class="font-base p-3 mb-3 bg-transparent" placeholder="+" required style="border-radius: 12px; width: 80px">
+                        <input type="tel" id="guest-phone" class="w-100 font-base p-3 mb-3 bg-transparent" placeholder="Phone" required style="border-radius: 12px">
+                        <input type="text" id="guest-city" class="w-100 font-base p-3 mb-3 bg-transparent" placeholder="City" required style="border-radius: 12px">
+                    </div>
+
+                    <input type="email" id="guest-email" class="w-100 font-base p-3 mb-3 bg-transparent" placeholder="Email" required style="border-radius: 12px">
                     <div class="rsvp-form-buttons">
                         <div class="row d-flex flex-xl-row flex-column-reverse">
                             <div class="col-12 col-xl-6">
@@ -157,8 +163,8 @@
                 <div id="step-7" class="rsvp-form-step">
                     <div class="rsvp-thank-you">
                         <h3 class="font-titulo fs-xl-2 fs-3 text-primary">THANKS</h3>
-                        <p class="fs-3 text-secondary font-base mb-1 col-xl-8 pe-xl-3">Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
-                        <button type="button" class="rsvp-btn rsvp-btn-primary rsvp-home-btn btn btn-primary w-100">BACK TO HOME</button>
+                        <p class="fs-3 text-secondary font-base mb-1 pe-xl-3">Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
+                        <button type="button" class="rsvp-btn rsvp-btn-primary rsvp-home-btn btn btn-primary w-100 border-0">Back to home</button>
                     </div>
                 </div>
             </form>

@@ -25,7 +25,7 @@ add_action('phpmailer_init', 'configurar_smtp');
 /**
  * Function to send email to administrator
  */
-function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone = '', $arrival_date = '') {
+function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date) {
     $admin_email = 'rsvp@aleysebas2026.com';
     $subject = '✉️ New RSVP - ' . $guest_name;
     
@@ -74,7 +74,9 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone = '', $
                 <h2>📋 Summary</h2>
                 <p><strong>Primary Guest:</strong> ' . $guest_name . '</p>
                 <p><strong>Email:</strong> ' . $email . '</p>
+                <p><strong>Code:</strong> ' . ($code ?: 'Not provided') . '</p>
                 <p><strong>Phone:</strong> ' . ($phone ?: 'Not provided') . '</p>
+                <p><strong>City:</strong> ' . ($city ?: 'Not provided') . '</p>
                 <p><strong>Arrival Date:</strong> ' . ($arrival_date ?: 'Not provided') . '</p>
                 <p><strong>Total Accepts:</strong> <span class="accept">' . $total_accepts . '</span></p>
                 <p><strong>Total Declines:</strong> <span class="decline">' . $total_declines . '</span></p>
@@ -102,7 +104,9 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone = '', $
                 <p>' . ($allergies ?: 'None reported') . '</p>
                 
                 <h3>📱 Contact Information</h3>
+                <p><strong>Code:</strong> ' . ($code ?: 'Not provided') . '</p>
                 <p><strong>Phone:</strong> ' . ($phone ?: 'Not provided') . '</p>
+                <p><strong>City:</strong> ' . ($city ?: 'Not provided') . '</p>
                 <p><strong>Email:</strong> ' . $email . '</p>
                 
                 <h3>📅 Arrival Information</h3>
@@ -129,7 +133,7 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone = '', $
 /**
  * Function to send email to guest
  */
-function sendGuestEmail($guest_name, $email, $phone = '', $arrival_date = '', $guests = []) {
+function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = '', $arrival_date = '', $guests = []) {
     // Verificar si todos los invitados han dado decline
     $all_declined = true;
     $has_any_response = false;
@@ -148,7 +152,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $arrival_date = '', $g
     
     // Si todos dieron decline, enviar mensaje especial
     if ($has_any_response && $all_declined) {
-        return sendDeclineEmail($guest_name, $email, $phone, $arrival_date);
+        return sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_date);
     }
     
     // Mensaje normal para accepts
@@ -248,7 +252,9 @@ function sendGuestEmail($guest_name, $email, $phone = '', $arrival_date = '', $g
                 <div class="contact-info" style="background: #f0f8ff; border: 1px solid #B8724C;">
                     <strong>📋 Your RSVP Information</strong><br>
                     <strong>Contact Email:</strong> ' . $email . '<br>
+                    ' . ($code ? '<strong>Code:</strong> ' . $code . '<br>' : '') . '
                     ' . ($phone ? '<strong>Phone:</strong> ' . $phone . '<br>' : '') . '
+                    ' . ($city ? '<strong>City:</strong> ' . $city . '<br>' : '') . '
                     ' . ($arrival_date ? '<strong>Arrival Date in Cartagena:</strong> ' . $arrival_date . '<br>' : '') . '
                     <em>Please keep this information for your records.</em>
                 </div>
@@ -278,7 +284,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $arrival_date = '', $g
 /**
  * Function to send special email when all guests decline
  */
-function sendDeclineEmail($guest_name, $email, $phone = '', $arrival_date = '') {
+function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_date) {
     $subject = 'RSVP Received – We\'ll Miss You! - Alexandra & Sebastian\'s Wedding';
     
     $message = '
@@ -324,7 +330,9 @@ function sendDeclineEmail($guest_name, $email, $phone = '', $arrival_date = '') 
                 <div class="contact-info">
                     <strong>📋 Your RSVP Information</strong><br>
                     <strong>Contact Email:</strong> ' . $email . '<br>
+                    ' . ($code ? '<strong>Code:</strong> ' . $code . '<br>' : '') . '
                     ' . ($phone ? '<strong>Phone:</strong> ' . $phone . '<br>' : '') . '
+                    ' . ($city ? '<strong>City:</strong> ' . $city . '<br>' : '') . '
                     ' . ($arrival_date ? '<strong>Arrival Date in Cartagena:</strong> ' . $arrival_date . '<br>' : '') . '
                 </div>
                 
@@ -373,7 +381,9 @@ function handle_rsvp_ajax() {
                 $guests_json = $_POST['guests'] ?? '{}';
                 $allergies = $_POST['allergies'] ?? '';
                 $email = $_POST['email'] ?? '';
+                $code = $_POST['code'] ?? '';
                 $phone = $_POST['phone'] ?? '';
+                $city = $_POST['city'] ?? '';
                 $arrival_date = $_POST['arrival_date'] ?? '';
                 
                 // Debug: Log received RAW data
@@ -421,8 +431,16 @@ function handle_rsvp_ajax() {
                     throw new Exception('Invalid email');
                 }
                 
+                if (empty($code)) {
+                    throw new Exception('Missing code');
+                }
+
                 if (empty($phone)) {
                     throw new Exception('Missing phone number');
+                }
+
+                if (empty($city)) {
+                    throw new Exception('Missing city');
                 }
                 
                 // Final validation
@@ -444,15 +462,17 @@ function handle_rsvp_ajax() {
                 error_log('RSVP processed successfully: ' . print_r([
                     'guest' => $guest_name,
                     'email' => $email,
+                    'code' => $code,
                     'phone' => $phone,
+                    'city' => $city,
                     'arrival_date' => $arrival_date,
                     'allergies' => $allergies,
                     'guests_count' => count($guests)
                 ], true));
                 
                 // Send actual emails
-                $admin_sent = sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $arrival_date);
-                $guest_sent = sendGuestEmail($guest_name, $email, $phone, $arrival_date, $guests);
+                $admin_sent = sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date);
+                $guest_sent = sendGuestEmail($guest_name, $email, $phone, $code, $city, $arrival_date, $guests);
                 
                 // Response with email status
                 header('Content-Type: application/json');
@@ -462,7 +482,9 @@ function handle_rsvp_ajax() {
                     'debug' => [
                         'guest_name' => $guest_name,
                         'email' => $email,
+                        'code' => $code,
                         'phone' => $phone,
+                        'city' => $city,
                         'arrival_date' => $arrival_date,
                         'guests_events' => array_keys($guests),
                         'admin_email_sent' => $admin_sent,
