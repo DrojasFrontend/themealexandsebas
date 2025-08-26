@@ -163,7 +163,7 @@
                 <div id="step-7" class="rsvp-form-step">
                     <div class="rsvp-thank-you">
                         <h3 class="font-titulo fs-xl-2 fs-3 text-primary">THANKS</h3>
-                        <p class="fs-5 text-secondary font-base mb-1 pe-xl-3 mb-3">Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
+                        <p class="fs-5 text-secondary font-base mb-1 pe-xl-3 mb-3">Thank you for confirming your attendance to our wedding. We are truly delighted to share this very special day with you. A copy of your confirmation will be sent to your email.                        </p>
                         <button type="button" class="rsvp-btn rsvp-btn-primary rsvp-home-btn btn btn-primary w-100 border-0">Back to home</button>
                     </div>
                 </div>
