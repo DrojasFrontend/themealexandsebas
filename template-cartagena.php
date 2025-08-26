@@ -481,7 +481,7 @@ $places = [
     ]
   ],
   "things_to_do" => [
-    "id" => "thins",
+    "id" => "things",
     "title" => "THINGS TO DO IN THE CITY",
     "title_es" => "Cosas que hacer",
     "img" => THEME_IMG . 'icons/icon-things-to-do.svg',
