@@ -230,3 +230,17 @@ if (isset($_POST['password_access'])) {
     // Usuario autenticado - no mostrar modal
   </script>
   <?php endif; ?>
+
+  <!-- TranslatePress Language Detection for RSVP -->
+  <script>
+    // Detectar idioma actual de TranslatePress
+    <?php 
+    global $TRP_LANGUAGE;
+    $current_language = $TRP_LANGUAGE ? $TRP_LANGUAGE : 'en_US'; // fallback a inglés
+    ?>
+    window.rsvpLanguageData = {
+      currentLanguage: '<?php echo $current_language; ?>',
+      isSpanish: <?php echo ($current_language === 'es_CO') ? 'true' : 'false'; ?>,
+      isEnglish: <?php echo ($current_language === 'en_US') ? 'true' : 'false'; ?>
+    };
+  </script>

@@ -12,6 +12,7 @@ $places = [
     "title_es" => "Hotels",
     "img" => THEME_IMG . 'icons/icon-hotel-2.svg',
     "info" => true,
+    "details" => "We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. Below, you will find a selection of recommended accommodations, some of which offer preferential rates. The bride and groom will be staying at <strong>Hotel Casa San Agustín</strong>, an ideal option for guests who wish to stay there as well.",
     "places" => [
         [
             "name" => "Hotel <br> CASA SAN AGUSTÍN",
@@ -478,7 +479,83 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/peluquerias-8.webp',
         ],
     ]
-  ]
+  ],
+  "things_to_do" => [
+    "id" => "thins",
+    "title" => "THINGS TO DO IN THE CITY",
+    "title_es" => "Cosas que hacer",
+    "img" => THEME_IMG . 'icons/icon-things-to-do.svg',
+    "info" => true,
+    "details" => "Discover the best of Cartagena with our recommended plans. We will soon confirm the details of the agency or tourist guide that could accompany you so that you can enjoy every experience to the fullest.",
+    "places" => [
+        [
+            "name" => "TMuseums, Churches, and Historical Heritage",
+            "address" => "Visit the main museums, churches, and historical sites of Cartagena, including the San Felipe de Barajas Castle, the Clock Tower, and the Cathedral of Santa Catalina. A fascinating way to combine history, art, and architecture in a single tour.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-1.webp',
+        ],
+        [
+            "name" => "Getsemaní Street Art Tour",
+            "address" => "Discover the colorful murals, graffiti, and urban art of the most vibrant neighborhood in Cartagena. It's a fun way to learn about the local culture, take incredible photos, and feel the city's creativity from a different perspective.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-2.webp',
+        ],
+        [
+            "name" => "Sunset Sailboat Ride",
+            "address" => "Enjoy a private or group tour of Cartagena Bay as the sun sets. Soft music, cocktails, and spectacular views make this a magical and romantic experience.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-3.webp',
+        ],
+        [
+            "name" => "Visit to Emerald Jewelers",
+            "address" => "Discover the famous Colombian emerald in specialized boutiques in Cartagena. Learn about its history and different cutting and carving styles, and purchase high-quality pieces. Ideal for those who appreciate jewelry and want to take home an elegant souvenir.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-4.webp',
+        ],
+        [
+            "name" => "Professional Photography Tour",
+            "address" => "Hire a local photographer or join a professional photo tour to capture the most colorful and secret corners of the city, from murals to hidden alleys. Perfect for those who want to take unforgettable memories home.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-5.webp',
+        ],
+        [
+            "name" => "Rum and Caribbean Cocktails Tasting",
+            "address" => "Visit specialized bars or local distilleries to learn about the history of Colombian rum and try typical cocktails like the 'Cartagena mojito' or the 'lemonada de coco.' A sophisticated and fun plan for adults.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-6.webp',
+        ],
+        [
+            "name" => "City Bike Tour",
+            "address" => "Rent a bike and explore Cartagena in an active and different way: the streets of the historic center, the city walls, and the Getsemaní areas, with stops for photos and small discoveries on every corner.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-7.webp',
+        ],
+        [
+            "name" => "Rosario Islands Excursion",
+            "address" => "Enjoy a day of sun, white sand beaches, and crystal-clear waters. You can snorkel, swim, or simply relax while discovering the incredible marine life of the Caribbean.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-8.webp',
+        ],
+        
+       
+    ]
+  ],
 ]
 ?>
 
@@ -517,7 +594,7 @@ $places = [
                 <div class="col-12 col-xl-9 mx-auto px-xl-0 px-3">
                     <div class="position-relative customSectionBox rounded-4 text-center py-5 shadow-1">
                         <div class="col-12 col-xl-9 mx-auto text-start px-xl-0 px-3">
-                            <h2 class="font-titulo fs-xl-md-1 fs-2-md text-center uppercase">Travel Info</h2>
+                            <h2 class="font-titulo fs-xl-sm-1 fs-2-md text-center uppercase">Travel Info</h2>
                             <div class="py-xl-3"></div>
                             <!-- <div class="d-flex align-items-center py-3 gap-3">
                                 <div class="icon">
@@ -585,12 +662,12 @@ $places = [
                             <div class="py-5"></div>
                             <div class="py-xl-5"></div>
                             <div class=" <?php echo !empty($category['info']) ? 'customSectionBox rounded-4 shadow-1 p-xl-5 px-3 py-5 mb-xl-0 mb-5' : ''; ?>">
-                                <h2 class="font-titulo fs-xl-md-1 fs-2-lg text-center mb-3 uppercase"><?php echo $category['title']; ?></h2>
+                                <h2 class="font-titulo fs-xl-sm-1 fs-2-lg text-center mb-3 uppercase"><?php echo $category['title']; ?></h2>
                                 <?php if (!empty($category['info'])) : ?>
                                     <div class="row">
                                         <div class="col-12 px-xl-5">
                                             <p class="fs-xl-6 fs-p-xxl text-secondary mb-3 px-xl-4" style="line-height: 1.4">
-                                            We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. The bride and groom will be staying at <strong>Hotel Casa San Agustin</strong>, for those guests who wish to lodge there as well.
+                                                <?php echo $category['details']; ?>
                                             </p>
                                             
                                         </div>
@@ -618,7 +695,7 @@ $places = [
                                     </div>
                                 <?php endfor; ?>
                             <?php endif; ?>
-                            <h2 class="position-absolute top-0 start-0 font-titulo fs-xl-md-1 fs-2-lg w-100 h-100 text-center d-flex justify-content-center align-items-center mb-3 z-1 uppercase"><?php echo $category['title']; ?></h2>
+                            <h2 class="position-absolute top-0 start-0 font-titulo fs-xl-sm-1 fs-2-lg w-100 h-100 text-center d-flex justify-content-center align-items-center mb-3 z-1 uppercase"><?php echo $category['title']; ?></h2>
                         </div>
                     </div>
                 </div>
@@ -636,12 +713,20 @@ $places = [
                                             <div class="p-2">
                                                 <h2 class="fs-xl-5 uppercase" style="line-height: 1.2"><?php echo $place['name']; ?></h2>
                                                 <span class="line line--small m-0 mt-2 mb-3"></span>
-                                                <p class="fs-xl-6 text-secondary" style="line-height: 1.2"><?php echo $place['address']; ?></p>
-                                                <p class="fs-xl-6 text-secondary mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
-                                                <p class="fs-xl-6 text-secondary mb-3" style="line-height: 1.2">Phone:<?php echo $place['phone']; ?></p>
-                                                <a class="btn btn-small rounded-0 text-secondary" href="<?php echo $place['link']; ?>" target="_blank">
-                                                    Click here
-                                                </a>
+                                                <?php if ($place['address']) : ?>
+                                                    <p class="fs-xl-6 text-secondary" style="line-height: 1.2"><?php echo $place['address']; ?></p>
+                                                <?php endif; ?>
+                                                <?php if ($place['city']) : ?>
+                                                    <p class="fs-xl-6 text-secondary mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
+                                                <?php endif; ?>
+                                                <?php if ($place['phone']) : ?>
+                                                    <p class="fs-xl-6 text-secondary mb-3" style="line-height: 1.2">Phone:<?php echo $place['phone']; ?></p>
+                                                <?php endif; ?>
+                                                <?php if ($place['link']) : ?>
+                                                    <a class="btn btn-small rounded-0 text-secondary" href="<?php echo $place['link']; ?>" target="_blank">
+                                                        Click here
+                                                    </a>
+                                                <?php endif; ?>
                                             </div>
                                         <?php endif?>
                                     </div>

@@ -25,7 +25,7 @@ add_action('phpmailer_init', 'configurar_smtp');
 /**
  * Function to send email to administrator
  */
-function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date) {
+function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date, $language = 'en_US') {
     $admin_email = 'rsvp@aleysebas2026.com';
     $subject = '✉️ New RSVP - ' . $guest_name;
     
@@ -133,7 +133,7 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code,
 /**
  * Function to send email to guest
  */
-function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = '', $arrival_date = '', $guests = []) {
+function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = '', $arrival_date = '', $guests = [], $language = 'en_US') {
     // Verificar si todos los invitados han dado decline
     $all_declined = true;
     $has_any_response = false;
@@ -152,13 +152,45 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
     
     // Si todos dieron decline, enviar mensaje especial
     if ($has_any_response && $all_declined) {
-        return sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_date);
+        return sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_date, $language);
     }
     
-    // Mensaje normal para accepts
-    $subject = '💌 RSVP Confirmation - Alexandra &  Sebastian\'s Wedding';
+    // Mensaje normal para accepts - bilingüe
+    $is_spanish = ($language === 'es_CO');
     
-    $message = '
+    if ($is_spanish) {
+        $subject = '💌 Confirmación RSVP - Boda de Alexandra y Sebastian';
+    } else {
+        $subject = '💌 RSVP Confirmation - Alexandra & Sebastian\'s Wedding';
+    }
+    
+    // Generar contenido del email según el idioma
+    $message = generateGuestEmailContent($guest_name, $email, $code, $phone, $city, $arrival_date, $is_spanish);
+    
+    $headers = [
+        'From: rsvp@aleysebas2026.com',
+        'Content-Type: text/html; charset=UTF-8'
+    ];
+    
+    return wp_mail($email, $subject, $message, $headers);
+}
+
+/**
+ * Generate guest email content based on language
+ */
+function generateGuestEmailContent($guest_name, $email, $code, $phone, $city, $arrival_date, $is_spanish = false) {
+    if ($is_spanish) {
+        return generateSpanishGuestEmail($guest_name, $email, $code, $phone, $city, $arrival_date);
+    } else {
+        return generateEnglishGuestEmail($guest_name, $email, $code, $phone, $city, $arrival_date);
+    }
+}
+
+/**
+ * Generate English guest email content
+ */
+function generateEnglishGuestEmail($guest_name, $email, $code, $phone, $city, $arrival_date) {
+    return '
     <!DOCTYPE html>
     <html>
     <head>
@@ -188,7 +220,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
         <div class="container">
             <div class="header">
                 <h1>🎉 Thank You for Your RSVP!</h1>
-                <p>Alexandra &  Sebastian\'s Wedding</p>
+                <p>Alexandra & Sebastian\'s Wedding</p>
             </div>
             
             <div class="content">
@@ -208,7 +240,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
                 <div class="event">
                     <div class="event-title">🍸 WELCOME PARTY</div>
                     <div class="event-details">
-                        <strong>Date:</strong> March 26th, 2026<br>
+                        <strong>Date:</strong> Thursday, March 26th, 2026<br>
                         <strong>Time:</strong> 5:00 - 8:00 p.m.<br>
                         <strong>Location:</strong> Tbd
                     </div>
@@ -218,7 +250,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
                     <div class="event">
                         <div class="event-title">💒 WEDDING DAY - CEREMONY</div>
                         <div class="event-details">
-                            <strong>Date:</strong> March 27th, 2026<br>
+                            <strong>Date:</strong> Friday, March 27th, 2026<br>
                             <strong>Time:</strong> 7:00 p.m.<br>
                             <strong>Location:</strong> Iglesia Santo Toribio de Mogrovejo
                         </div>
@@ -227,7 +259,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
                     <div class="event">
                         <div class="event-title">🎉 WEDDING DAY - RECEPTION</div>
                         <div class="event-details">
-                            <strong>Date:</strong> March 27th, 2026<br>
+                            <strong>Date:</strong> Friday, March 27th, 2026<br>
                             <strong>Time:</strong> 8:00 p.m.<br>
                             <strong>Location:</strong> Casa 1537
                          </div>
@@ -236,7 +268,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
                     <div class="event">
                         <div class="event-title">🥐 BEACH DAY</div>
                         <div class="event-details">
-                            <strong>Date:</strong> March 28th, 2026<br>
+                            <strong>Date:</strong> Saturday, March 28th, 2026<br>
                             <strong>Time:</strong> 11:30 a.m.<br>
                             <strong>Location:</strong> Tbd
                         </div>
@@ -244,7 +276,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
                 </div>
                 
                 <div class="contact-info">
-                    <strong>💡 ADITIONAL INFORMATION</strong><br>
+                    <strong>💡 ADDITIONAL INFORMATION</strong><br>
                     If you have any questions or need to make changes to your RSVP, <br> please don\'t hesitate to contact us.<br>
                     We\'re here to help!
                 </div>
@@ -263,7 +295,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
             <div class="footer">
                 <h3>See you in Cartagena! 🇨🇴</h3>
                 <p>With love,</p>
-                <p><strong>Alexandra &  Sebastian</strong></p>
+                <p><strong>Alexandra & Sebastian</strong></p>
                 <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
                     <p style="font-size: 12px;">March 27th, 2026 • Cartagena de Indias, Colombia</p>
                     <p style="font-size: 12px;">This is an automatic confirmation message</p>
@@ -272,9 +304,146 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
         </div>
     </body>
     </html>';
+}
+
+/**
+ * Generate Spanish guest email content
+ */
+function generateSpanishGuestEmail($guest_name, $email, $code, $phone, $city, $arrival_date) {
+    return '
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body { font-family: "Georgia", serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f5f5f5; }
+            .container { max-width: 600px; margin: 0 auto; background: white; }
+            .header { background: linear-gradient(135deg, #B8724C, #A5B375); color: white; padding: 40px 30px; text-align: center; }
+            .header h1 { margin: 0 0 10px 0; font-size: 28px; font-weight: normal; }
+            .header p { margin: 0; font-size: 16px; opacity: 0.9; }
+            .content { padding: 40px 30px; }
+            .greeting { font-size: 20px; color: #B8724C; margin-bottom: 20px; text-align: center; }
+            .message { font-size: 16px; line-height: 1.8; margin-bottom: 30px; text-align: center; }
+            .events-container { margin: 30px 0; }
+            .event { margin: 20px 0; padding: 20px; background: #f9f9f9; border-left: 4px solid #B8724C; }
+            .event-title { font-size: 18px; color: #B8724C; font-weight: bold; margin-bottom: 10px; }
+            .event-details { font-size: 14px; color: #666; line-height: 1.6; }
+            .event-details strong { color: #333; }
+            .footer { background: #B8724C; color: white; padding: 30px; text-align: center; }
+            .footer h3 { margin: 0 0 15px 0; font-size: 20px; }
+            .footer p { margin: 5px 0; font-size: 14px; opacity: 0.9; }
+            .divider { height: 2px; background: linear-gradient(to right, transparent, #B8724C, transparent); margin: 30px 0; }
+            .contact-info { background: #e8f5e8; padding: 20px; margin: 20px 0; text-align: center; font-size: 14px; border-radius: 5px; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🎉 ¡Gracias por tu RSVP!</h1>
+                <p>Boda de Alexandra y Sebastian</p>
+            </div>
+            
+            <div class="content">
+                <div class="greeting">
+                    Querido/a ' . $guest_name . ',
+                </div>
+                
+                <div class="message">
+                    Hemos recibido tu confirmación y estamos emocionados de compartir este día especial contigo!<br><br>
+                    Tu presencia hará que nuestra celebración sea aún más memorable.
+                </div>
+                
+                <div class="divider"></div>
+                
+                <h2 style="text-align: center; color: #B8724C; margin-bottom: 25px;">📅 Detalles de los Eventos</h2>
+
+                <div class="event">
+                    <div class="event-title">🍸 FIESTA DE BIENVENIDA</div>
+                    <div class="event-details">
+                        <strong>Fecha:</strong> Jueves, 26 de Marzo de 2026<br>
+                        <strong>Hora:</strong> 5:00 - 8:00 p.m.<br>
+                        <strong>Ubicación:</strong> Por confirmar
+                    </div>
+                </div>
+                
+                <div class="events-container">
+                    <div class="event">
+                        <div class="event-title">💒 DÍA DE LA BODA - CEREMONIA</div>
+                        <div class="event-details">
+                            <strong>Fecha:</strong> Viernes, 27 de Marzo de 2026<br>
+                            <strong>Hora:</strong> 7:00 p.m.<br>
+                            <strong>Ubicación:</strong> Iglesia Santo Toribio de Mogrovejo
+                        </div>
+                    </div>
+                    
+                    <div class="event">
+                        <div class="event-title">🎉 DÍA DE LA BODA - RECEPCIÓN</div>
+                        <div class="event-details">
+                            <strong>Fecha:</strong> Viernes, 27 de Marzo de 2026<br>
+                            <strong>Hora:</strong> 8:00 p.m.<br>
+                            <strong>Ubicación:</strong> Casa 1537
+                         </div>
+                    </div>
+                    
+                    <div class="event">
+                        <div class="event-title">🥐 DÍA DE PLAYA</div>
+                        <div class="event-details">
+                            <strong>Fecha:</strong> Sábado, 28 de Marzo de 2026<br>
+                            <strong>Hora:</strong> 11:30 a.m.<br>
+                            <strong>Ubicación:</strong> Por confirmar
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-info">
+                    <strong>💡 INFORMACIÓN ADICIONAL</strong><br>
+                    Si tienes alguna pregunta o necesitas hacer cambios a tu RSVP, <br> no dudes en contactarnos.<br>
+                    ¡Estamos aquí para ayudarte!
+                </div>
+                
+                <div class="contact-info" style="background: #f0f8ff; border: 1px solid #B8724C;">
+                    <strong>📋 Tu Información RSVP</strong><br>
+                    <strong>Email de Contacto:</strong> ' . $email . '<br>
+                    ' . ($code ? '<strong>Código:</strong> ' . $code . '<br>' : '') . '
+                    ' . ($phone ? '<strong>Teléfono:</strong> ' . $phone . '<br>' : '') . '
+                    ' . ($city ? '<strong>Ciudad:</strong> ' . $city . '<br>' : '') . '
+                    ' . ($arrival_date ? '<strong>Fecha de Llegada a Cartagena:</strong> ' . $arrival_date . '<br>' : '') . '
+                    <em>Por favor guarda esta información para tus registros.</em>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <h3>¡Nos vemos en Cartagena! 🇨🇴</h3>
+                <p>Con amor,</p>
+                <p><strong>Alexandra y Sebastian</strong></p>
+                <div style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.3);">
+                    <p style="font-size: 12px;">27 de Marzo de 2026 • Cartagena de Indias, Colombia</p>
+                    <p style="font-size: 12px;">Este es un mensaje de confirmación automático</p>
+                </div>
+            </div>
+        </div>
+    </body>
+    </html>';
+}
+
+/**
+ * Function to send special email when all guests decline
+ */
+function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_date, $language = 'en_US') {
+    $is_spanish = ($language === 'es_CO');
+    
+    if ($is_spanish) {
+        $subject = 'RSVP Recibido – ¡Te extrañaremos! - Boda de Alexandra y Sebastian';
+    } else {
+        $subject = 'RSVP Received – We\'ll Miss You! - Alexandra & Sebastian\'s Wedding';
+    }
+    
+    // Generar contenido del email según el idioma
+    $message = generateDeclineEmailContent($guest_name, $email, $code, $phone, $city, $arrival_date, $is_spanish);
     
     $headers = [
         'From: rsvp@aleysebas2026.com',
+        'Reply-To: rsvp@aleysebas2026.com',
         'Content-Type: text/html; charset=UTF-8'
     ];
     
@@ -282,12 +451,21 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
 }
 
 /**
- * Function to send special email when all guests decline
+ * Generate decline email content based on language
  */
-function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_date) {
-    $subject = 'RSVP Received – We\'ll Miss You! - Alexandra & Sebastian\'s Wedding';
-    
-    $message = '
+function generateDeclineEmailContent($guest_name, $email, $code, $phone, $city, $arrival_date, $is_spanish = false) {
+    if ($is_spanish) {
+        return generateSpanishDeclineEmail($guest_name, $email, $code, $phone, $city, $arrival_date);
+    } else {
+        return generateEnglishDeclineEmail($guest_name, $email, $code, $phone, $city, $arrival_date);
+    }
+}
+
+/**
+ * Generate English decline email content
+ */
+function generateEnglishDeclineEmail($guest_name, $email, $code, $phone, $city, $arrival_date) {
+    return '
     <!DOCTYPE html>
     <html>
     <head>
@@ -338,7 +516,7 @@ function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_da
                 
                 <div class="message">
                     With love,<br>
-                    <strong>Alexandra & Sebastian´s Wedding</strong>
+                    <strong>Alexandra & Sebastian</strong>
                 </div>
             </div>
             
@@ -350,14 +528,75 @@ function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_da
         </div>
     </body>
     </html>';
-    
-    $headers = [
-        'From: rsvp@aleysebas2026.com',
-        'Reply-To: rsvp@aleysebas2026.com',
-        'Content-Type: text/html; charset=UTF-8'
-    ];
-    
-    return wp_mail($email, $subject, $message, $headers);
+}
+
+/**
+ * Generate Spanish decline email content
+ */
+function generateSpanishDeclineEmail($guest_name, $email, $code, $phone, $city, $arrival_date) {
+    return '
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body { font-family: "Georgia", serif; line-height: 1.6; color: #333; margin: 0; padding: 0; background: #f5f5f5; }
+            .container { max-width: 600px; margin: 0 auto; background: white; }
+            .header { background: linear-gradient(135deg, #B8724C, #A5B375); color: white; padding: 40px 30px; text-align: center; }
+            .header h1 { margin: 0 0 10px 0; font-size: 28px; font-weight: normal; }
+            .header p { margin: 0; font-size: 16px; opacity: 0.9; }
+            .content { padding: 40px 30px; }
+            .greeting { font-size: 20px; color: #B8724C; margin-bottom: 20px; text-align: center; }
+            .message { font-size: 16px; line-height: 1.8; margin-bottom: 30px; text-align: center; }
+            .footer { background: #B8724C; color: white; padding: 30px; text-align: center; }
+            .footer h3 { margin: 0 0 15px 0; font-size: 20px; }
+            .footer p { margin: 5px 0; font-size: 14px; opacity: 0.9; }
+            .divider { height: 2px; background: linear-gradient(to right, transparent, #B8724C, transparent); margin: 30px 0; }
+            .contact-info { background: #f0f8ff; padding: 20px; margin: 20px 0; text-align: center; font-size: 14px; border-radius: 5px; border: 1px solid #B8724C; }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>💌 RSVP Recibido – ¡Te extrañaremos!</h1>
+                <p>Boda de Alexandra y Sebastian</p>
+            </div>
+            
+            <div class="content">
+                <div class="greeting">
+                    Querido/a ' . $guest_name . ',
+                </div>
+                
+                <div class="message">
+                    Gracias por hacernos saber.<br><br>
+                    Te extrañaremos en nuestro día especial, pero realmente apreciamos tus buenos deseos y pensamientos.
+                </div>
+                
+                <div class="divider"></div>
+                
+                <div class="contact-info">
+                    <strong>📋 Tu Información RSVP</strong><br>
+                    <strong>Email de Contacto:</strong> ' . $email . '<br>
+                    ' . ($code ? '<strong>Código:</strong> ' . $code . '<br>' : '') . '
+                    ' . ($phone ? '<strong>Teléfono:</strong> ' . $phone . '<br>' : '') . '
+                    ' . ($city ? '<strong>Ciudad:</strong> ' . $city . '<br>' : '') . '
+                    ' . ($arrival_date ? '<strong>Fecha de Llegada a Cartagena:</strong> ' . $arrival_date . '<br>' : '') . '
+                </div>
+                
+                <div class="message">
+                    Con amor,<br>
+                    <strong>Alexandra y Sebastian</strong>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <h3>💕 Gracias</h3>
+                <p>Aunque no puedas estar con nosotros, estás en nuestros corazones</p>
+                <p>Boda de Alexandra y Sebastian - 27 de Marzo de 2026 - Cartagena, Colombia</p>
+            </div>
+        </div>
+    </body>
+    </html>';
 }
 
 /**
@@ -385,6 +624,7 @@ function handle_rsvp_ajax() {
                 $phone = $_POST['phone'] ?? '';
                 $city = $_POST['city'] ?? '';
                 $arrival_date = $_POST['arrival_date'] ?? '';
+                $language = $_POST['language'] ?? 'en_US'; // Nuevo: idioma del usuario
                 
                 // Debug: Log received RAW data
                 error_log('RAW DATA: ' . print_r($_POST, true));
@@ -471,8 +711,8 @@ function handle_rsvp_ajax() {
                 ], true));
                 
                 // Send actual emails
-                $admin_sent = sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date);
-                $guest_sent = sendGuestEmail($guest_name, $email, $phone, $code, $city, $arrival_date, $guests);
+                $admin_sent = sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date, $language);
+                $guest_sent = sendGuestEmail($guest_name, $email, $phone, $code, $city, $arrival_date, $guests, $language);
                 
                 // Response with email status
                 header('Content-Type: application/json');

@@ -774,6 +774,9 @@ function submitRSVP() {
         });
     });
     
+    // Detectar idioma actual de TranslatePress
+    const currentLanguage = window.rsvpLanguageData?.currentLanguage || 'en_US';
+    
     const submitData = {
         action: 'submit_rsvp',
         guest_name: rsvpState.selectedGuest,
@@ -783,7 +786,8 @@ function submitRSVP() {
         phone: phoneInput.value.trim(),
         code: codeInput.value.trim(),
         city: cityInput.value.trim(),
-        arrival_date: dateInput.value.trim()
+        arrival_date: dateInput.value.trim(),
+        language: currentLanguage // Agregar idioma al envío
     };
     
     // Mostrar loading
@@ -799,6 +803,7 @@ function submitRSVP() {
     formData.append('city', cityInput.value.trim());
     formData.append('arrival_date', dateInput.value.trim());
     formData.append('allergies', allergyInput.value.trim());
+    formData.append('language', currentLanguage);
     formData.append('guests', JSON.stringify(processedData));
     
     // Debug: Mostrar lo que se va a enviar
