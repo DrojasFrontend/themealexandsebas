@@ -338,7 +338,7 @@ function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_da
                 
                 <div class="message">
                     With love,<br>
-                    <strong>Asil & Brenda</strong>
+                    <strong>Alexandra & Sebastian´s Wedding</strong>
                 </div>
             </div>
             

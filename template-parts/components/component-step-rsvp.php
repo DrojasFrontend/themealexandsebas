@@ -131,14 +131,14 @@
                 <div id="step-6" class="rsvp-form-step">
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">ADITIONAL INFORMATION</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
-                    <p class="fs-3 text-secondary font-base mb-1 fw-semibold">Food Allergies or Dietary Needs</p>
-                    <p class="fs-3 text-secondary font-base mb-1">Do you or your guest have any food allergies or dietary restrictions?</p>
+                    <p class="fs-5 text-secondary font-base mb-1 fw-semibold">Food Allergies or Dietary Needs</p>
+                    <p class="fs-5 text-secondary font-base mb-1">Do you or your guest have any food allergies or dietary restrictions?</p>
                     <textarea id="allergies" class="p-3 font-base w-100 mb-3 bg-transparent" placeholder="Food allergies or restrictions..." style="border-radius: 12px"></textarea>
                     
-                    <p class="fs-3 text-secondary font-base mb-1 fw-semibold">What date will you be arriving in Cartagena?</p>
+                    <p class="fs-5 text-secondary font-base mb-1 fw-semibold">What date will you be arriving in Cartagena?</p>
                     <input type="date" id="guest-date" class="w-100 font-base p-3 mb-3 bg-transparent" required style="border-radius: 12px">
 
-                    <p class="fs-3 text-secondary font-base mb-1 fw-semibold">Contact Information</p>
+                    <p class="fs-5 text-secondary font-base mb-1 fw-semibold">Contact Information</p>
 
                     <div class="d-flex flex-xl-row flex-column gap-2">
                         <input width="80" type="number" id="guest-code" class="font-base p-3 mb-3 bg-transparent" placeholder="+" required style="border-radius: 12px; width: 80px">
@@ -163,7 +163,7 @@
                 <div id="step-7" class="rsvp-form-step">
                     <div class="rsvp-thank-you">
                         <h3 class="font-titulo fs-xl-2 fs-3 text-primary">THANKS</h3>
-                        <p class="fs-3 text-secondary font-base mb-1 pe-xl-3">Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
+                        <p class="fs-5 text-secondary font-base mb-1 pe-xl-3">Thank you for confirming your attendance to our wedding. We are very happy to share this special day with you. We will send a copy of your RSVP to your email.</p>
                         <button type="button" class="rsvp-btn rsvp-btn-primary rsvp-home-btn btn btn-primary w-100 border-0">Back to home</button>
                     </div>
                 </div>
