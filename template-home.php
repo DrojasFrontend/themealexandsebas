@@ -70,7 +70,7 @@ get_header();
                             <div class="py-xl-4 py-2"></div>
                             <h2 class="font-titulo fs-xl-md-1 fs-2-md mb-xl-5 mb-2 uppercase stroke-1">Wedding</h2>
 
-                            <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Friday, March 27th, 2026</p>
+                            <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Friday, march 27, 2026</p>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-5 mb-4">7:00 p.m.</p>
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 letter-spacing-2 uppercase stroke-1">Ceremony</h2>
@@ -155,7 +155,7 @@ get_header();
                                 <div class="col-12 col-xl-6 position-relative custom-border-end">
                                     <h2 class="font-titulo fs-xl-md-2 fs-4 mb-3 letter-xl-spacing-16 text-primary uppercase stroke-1">Welcome <br> Party</h2>
                                     <p class="fs-xl-3 text-secondary line-height-0">Thursday,</p>
-                                    <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 26th, 2026,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 26, 2026</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">5:00 - 8:00 p.m.</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
@@ -166,7 +166,7 @@ get_header();
                                 <div class="col-12 col-xl-6">
                                     <h2 class="font-titulo fs-xl-md-2 fs-4 mb-3 letter-xl-spacing-16 text-primary uppercase stroke-1">BEACH <br> DAY</h2>
                                     <p class="fs-xl-3 text-secondary line-height-0">Saturday,</p>
-                                    <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 28th, 2026</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 28, 2026</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">11:30 a.m.</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>

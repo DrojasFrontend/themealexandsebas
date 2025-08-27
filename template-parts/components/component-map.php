@@ -1,7 +1,7 @@
 <section class="customSectionMap">
     <div class="position-relative">
     <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1T8DDFSnNCsvpGPgDLfsFpCh9-aVXg88&ehbc=2E312F&noprof=1" width="100%"></iframe>
-        <div class="position-xl-absolute top-0 start-0 w-100 h-100 d-flex align-items-end">
+        <div class="position-xl-absolute top-0 start-0 w-100 h-100 d-none align-items-end">
             <div class="d-block w-100 bg-secondary">
                 <div class="container-fluid gx-0">
                     <div class="container pt-xl-0 pt-4">

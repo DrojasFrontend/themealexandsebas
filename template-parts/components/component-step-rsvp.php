@@ -36,7 +36,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WELCOME PARTY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="font-base fs-3 text-secondary mb-1">Thursday, March 26th, 2026</p>
+                        <p class="font-base fs-3 text-secondary mb-1">Thursday, march 26, 2026</p>
                         <p class="font-base fs-3 text-secondary mb-1">5:00 - 8:00 p.m.</p>
                         <p class="font-base fs-3 text-secondary mb-4">Tbd</p>
                     </div>
@@ -60,7 +60,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WEDDING DAY - CEREMONY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">Friday, March 27th, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Friday, march 27, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">7:00 p.m.</p>
                         <p class="fs-3 text-secondary font-base mb-1">Iglesia Santo Toribio de Mogrovejo</p>
                     </div>
@@ -84,7 +84,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WEDDING DAY - RECEPTION</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">Friday, March 27th, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Friday, march 27, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">8:00 p.m.</p>
                         <p class="fs-3 text-secondary font-base">Casa 1537</p>
                     </div>
@@ -108,7 +108,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">BEACH DAY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">Saturday, March 28th, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Saturday, march 28, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">11:30 a.m.</p>
                         <p class="fs-3 text-secondary font-base">Tbd</p>
                     </div>
@@ -162,9 +162,13 @@
                 <!-- Paso 7: Agradecimiento -->
                 <div id="step-7" class="rsvp-form-step">
                     <div class="rsvp-thank-you">
-                        <h3 class="font-titulo fs-xl-2 fs-3 text-primary">THANKS</h3>
-                        <p class="fs-5 text-secondary font-base mb-1 pe-xl-3 mb-3">Thank you for confirming your attendance to our wedding. We are truly delighted to share this very special day with you. A copy of your confirmation will be sent to your email.                        </p>
-                        <button type="button" class="rsvp-btn rsvp-btn-primary rsvp-home-btn btn btn-primary w-100 border-0">Back to home</button>
+                        <div class="py-2"></div>
+                        <!-- <h3 class="font-titulo fs-xl-2 fs-3 text-primary">THANKS</h3> -->
+                         <div class="col-12 col-lg-8 mx-auto">
+                             <p class="fs-5 text-secondary font-base mb-1 mb-3 text-center">Thank you for confirming your attendance to our wedding. We are truly delighted to share this very special day with you. A copy of your confirmation will be sent to your email.                        </p>
+                             <button type="button" class="rsvp-btn rsvp-btn-primary rsvp-home-btn btn btn-primary w-100 border-0">Back to home</button>
+                         </div>
+                        <div class="py-2"></div>
                     </div>
                 </div>
             </form>

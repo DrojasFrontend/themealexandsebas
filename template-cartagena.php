@@ -12,7 +12,7 @@ $places = [
     "title_es" => "Hotels",
     "img" => THEME_IMG . 'icons/icon-hotel-2.svg',
     "info" => true,
-    "details" => "We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. Below, you will find a selection of recommended accommodations, some of which offer preferential rates. The bride and groom will be staying at <strong>Hotel Casa San Agustín</strong>, an ideal option for guests who wish to stay there as well.",
+    "details" => "We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. Below, you will find a selection of recommended accommodations, some of which offer preferential rates. <br> <br> The bride and groom will be staying at <strong>Hotel Casa San Agustín</strong>, an ideal option for guests",
     "places" => [
         [
             "name" => "Hotel <br> CASA SAN AGUSTÍN",
@@ -367,14 +367,6 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/boutiques-6.webp',
         ],
         [
-            "name" => "Goretty Medina",
-            "address" => "Calle La Mantilla # 3 - 44",
-            "city" => "Centro Histórico, Cartagena",
-            "phone" => "+57 317 4368144",
-            "link" => "https://co.gorettymedinac.com",
-            "image" => THEME_IMG . 'places-cartagena/boutiques-7.webp',
-        ],
-        [
             "name" => "Ketty Tinoco",
             "address" => "Calle Balocco # 33 - 01",
             "city" => "Centro Histórico, Cartagena",
@@ -489,8 +481,8 @@ $places = [
     "details" => "Discover the best of Cartagena with our recommended plans. We will soon confirm the details of the agency or tourist guide that could accompany you so that you can enjoy every experience to the fullest.",
     "places" => [
         [
-            "name" => "TMuseums, Churches, and Historical Heritage",
-            "address" => "Visit the main museums, churches, and historical sites of Cartagena, including the San Felipe de Barajas Castle, the Clock Tower, and the Cathedral of Santa Catalina. A fascinating way to combine history, art, and architecture in a single tour.",
+            "name" => "Museums, Churches, and Historical Heritage",
+            "address" => "Visit Cartagena’s most renowned museums, churches, and historic landmarks, including the Castillo de San Felipe de Barajas, the Torre del Reloj, and the Catedral de Santa Catalina. A fascinating way to experience history, art, and architecture in a single tour.",
             "city" => "",
             "phone" => "",
             "link" => "",

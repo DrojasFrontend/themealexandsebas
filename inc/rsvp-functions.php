@@ -31,10 +31,10 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code,
     
     // Generate detailed list by event
     $event_names = [
-        'welcome' => 'WELCOME PARTY (March 26th, 2026, 5:00 - 8:00 p.m.)',
-        'ceremony' => 'WEDDING DAY - CEREMONY (March 27th, 2026, 7:00 p.m., Iglesia Santo Toribio de Mogrovejo)',
-        'reception' => 'WEDDING DAY - RECEPTION (March 27th, 2026, 8:00 p.m., Casa 1537)',
-        'brunch' => 'BEACH DAY (March 28th, 2026, 11:30 a.m., Tbd)',
+        'welcome' => 'WELCOME PARTY (Thursday, march 26, 2026, 5:00 - 8:00 p.m.)',
+        'ceremony' => 'WEDDING DAY - CEREMONY (Friday, march 27, 2026, 7:00 p.m., Iglesia Santo Toribio de Mogrovejo)',
+        'reception' => 'WEDDING DAY - RECEPTION (Friday, march 27, 2026, 8:00 p.m., Casa 1537)',
+        'brunch' => 'BEACH DAY (Saturday, march 28, 2026, 11:30 a.m., Tbd)',
     ];
     
     $total_accepts = 0;
@@ -240,7 +240,7 @@ function generateEnglishGuestEmail($guest_name, $email, $code, $phone, $city, $a
                 <div class="event">
                     <div class="event-title">🍸 WELCOME PARTY</div>
                     <div class="event-details">
-                        <strong>Date:</strong> Thursday, March 26th, 2026<br>
+                        <strong>Date:</strong> Thursday, march 26, 2026<br>
                         <strong>Time:</strong> 5:00 - 8:00 p.m.<br>
                         <strong>Location:</strong> Tbd
                     </div>
@@ -250,7 +250,7 @@ function generateEnglishGuestEmail($guest_name, $email, $code, $phone, $city, $a
                     <div class="event">
                         <div class="event-title">💒 WEDDING DAY - CEREMONY</div>
                         <div class="event-details">
-                            <strong>Date:</strong> Friday, March 27th, 2026<br>
+                            <strong>Date:</strong> Friday, march 27, 2026<br>
                             <strong>Time:</strong> 7:00 p.m.<br>
                             <strong>Location:</strong> Iglesia Santo Toribio de Mogrovejo
                         </div>
@@ -259,7 +259,7 @@ function generateEnglishGuestEmail($guest_name, $email, $code, $phone, $city, $a
                     <div class="event">
                         <div class="event-title">🎉 WEDDING DAY - RECEPTION</div>
                         <div class="event-details">
-                            <strong>Date:</strong> Friday, March 27th, 2026<br>
+                            <strong>Date:</strong> Friday, march 27, 2026<br>
                             <strong>Time:</strong> 8:00 p.m.<br>
                             <strong>Location:</strong> Casa 1537
                          </div>
@@ -268,7 +268,7 @@ function generateEnglishGuestEmail($guest_name, $email, $code, $phone, $city, $a
                     <div class="event">
                         <div class="event-title">🥐 BEACH DAY</div>
                         <div class="event-details">
-                            <strong>Date:</strong> Saturday, March 28th, 2026<br>
+                            <strong>Date:</strong> Saturday, march 28, 2026<br>
                             <strong>Time:</strong> 11:30 a.m.<br>
                             <strong>Location:</strong> Tbd
                         </div>
