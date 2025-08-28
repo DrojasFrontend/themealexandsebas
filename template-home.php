@@ -227,8 +227,8 @@ get_header();
                             <h2 class="font-titulo fs-xl-md-1 fs-2-md mb-xl-5 mb-2">R.S.V.P.</h2>
 
                             <p class="fs-xl-3 text-secondary line-height-0 mb-3">Celebrate with us!</p>
-                            <p class="fs-xl-5 fs-p-xxl text-secondary line-height-0 mb-4 letter-xl-spacing-22">Please kindly respond by <br class="d-xl-none"> October 27th, 2025</p>
-                            <p class="fs-xl-4 text-secondary mb-4">Please confirm your attendance by <br class="d-block"> completing the following form using <br class="d-block"> the button below.</p>
+                            <p class="fs-xl-5 fs-p-xxl text-secondary line-height-0 mb-4 letter-xl-spacing-22">Please kindly respond by <br class="d-xl-none"> November 27, 2025</p>
+                            <p class="fs-xl-4 text-secondary mb-4">Please confirm your attendance <br> by clicking below and filling the forms.</p>
 
                             <button type="button" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5 mb-4 rsvp-open-btn">R.S.V.P.</button>
 

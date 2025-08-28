@@ -236,18 +236,21 @@ export function initRSVPForm() {
         });
     }
     
-    // Búsqueda automática al escribir y con Enter
+    // Solo búsqueda con Enter en el campo (sin búsqueda automática al escribir)
     if (searchInput) {
-        // Búsqueda automática al escribir (input event)
-        searchInput.addEventListener('input', function(e) {
-            searchGuests();
-        });
-        
         // Búsqueda con Enter en el campo
         searchInput.addEventListener('keypress', function(e) {
             if (e.key === 'Enter' || e.keyCode === 13) {
                 e.preventDefault();
                 findInvitation();
+            }
+        });
+        
+        // Ocultar resultados cuando el usuario está escribiendo
+        searchInput.addEventListener('input', function(e) {
+            const searchResults = document.getElementById('search-results');
+            if (searchResults) {
+                searchResults.style.display = 'none';
             }
         });
     }
@@ -395,79 +398,16 @@ function showStep(step) {
     }
 }
 
-// Búsqueda automática de invitados
-function searchGuests() {
-    const searchInput = document.getElementById('guest-search');
-    const searchResults = document.getElementById('search-results');
-    const query = searchInput.value.toLowerCase().trim();
-    
-    // Ocultar resultados si hay menos de 3 caracteres
-    if (query.length < 3) {
-        searchResults.style.display = 'none';
-        return;
-    }
-    
-    const allMainGuests = Object.keys(invitedGuests);
-    let foundMainGuests = new Set(); // Para evitar duplicados
-    
-    // Buscar coincidencias exactas en nombres principales
-    const exactMatches = allMainGuests.filter(name => {
-        if (name.toLowerCase() === query) {
-            foundMainGuests.add(name);
-            return true;
-        }
-        return false;
-    });
-    
-    // Buscar nombres que empiecen con la consulta
-    const startsWithMatches = allMainGuests.filter(name => {
-        if (!foundMainGuests.has(name) && name.toLowerCase().startsWith(query)) {
-            foundMainGuests.add(name);
-            return true;
-        }
-        return false;
-    });
-    
-    // Buscar nombres que contengan la consulta
-    const containsMatches = allMainGuests.filter(name => {
-        if (!foundMainGuests.has(name) && name.toLowerCase().includes(query)) {
-            foundMainGuests.add(name);
-            return true;
-        }
-        return false;
-    });
-    
-    // Buscar también en la lista de invitados de cada grupo
-    allMainGuests.forEach(mainGuest => {
-        if (!foundMainGuests.has(mainGuest)) {
-            const guestList = invitedGuests[mainGuest];
-            const hasMatchingGuest = guestList.some(guest => {
-                const guestName = guest.toLowerCase();
-                return guestName === query || 
-                       guestName.startsWith(query) || 
-                       guestName.includes(query);
-            });
-            if (hasMatchingGuest) {
-                foundMainGuests.add(mainGuest);
-                containsMatches.push(mainGuest);
-            }
-        }
-    });
-    
-    // Combinar resultados por prioridad y limitar a 6 resultados máximo
-    const matches = [...exactMatches, ...startsWithMatches, ...containsMatches].slice(0, 6);
-    
-    // Mostrar resultados automáticamente
-    if (matches.length > 0) {
-        searchResults.innerHTML = matches.map(name => 
-            `<div class="rsvp-search-item cursor-pointer" onclick="selectGuest('${name}')">${name}</div>`
-        ).join('');
-        searchResults.style.display = 'block';
-    } else {
-        searchResults.innerHTML = '<div class="rsvp-search-item">No guest found with that name</div>';
-        searchResults.style.display = 'block';
-    }
+// Función para normalizar texto (quitar tildes y caracteres especiales)
+function normalizeText(text) {
+    return text.toLowerCase()
+               .normalize('NFD')
+               .replace(/[\u0300-\u036f]/g, '') // Quitar tildes/acentos
+               .replace(/[^a-z0-9\s]/g, '') // Quitar caracteres especiales excepto espacios
+               .trim();
 }
+
+
 
 // Función para buscar invitación desde el botón
 function findInvitation() {
@@ -475,69 +415,51 @@ function findInvitation() {
     const searchResults = document.getElementById('search-results');
     const inputValue = searchInput.value.trim();
     
-    if (inputValue.length < 3) {
-        alert('Please enter at least 3 characters of your name');
+    if (inputValue.length < 5) {
+        alert('Please enter your full name / Por favor ingresa tu nombre completo');
         return;
     }
     
-    const query = inputValue.toLowerCase();
+    const normalizedQuery = normalizeText(inputValue);
     const allMainGuests = Object.keys(invitedGuests);
     let foundMainGuests = new Set(); // Para evitar duplicados
     
     // Buscar coincidencias exactas en nombres principales
     const exactMatches = allMainGuests.filter(name => {
-        if (name.toLowerCase() === query) {
+        const normalizedName = normalizeText(name);
+        if (normalizedName === normalizedQuery) {
             foundMainGuests.add(name);
             return true;
         }
         return false;
     });
     
-    // Buscar nombres que empiecen con la consulta
-    const startsWithMatches = allMainGuests.filter(name => {
-        if (!foundMainGuests.has(name) && name.toLowerCase().startsWith(query)) {
-            foundMainGuests.add(name);
-            return true;
-        }
-        return false;
-    });
-    
-    // Buscar nombres que contengan la consulta
-    const containsMatches = allMainGuests.filter(name => {
-        if (!foundMainGuests.has(name) && name.toLowerCase().includes(query)) {
-            foundMainGuests.add(name);
-            return true;
-        }
-        return false;
-    });
-    
-    // Buscar también en la lista de invitados de cada grupo
+    // Buscar también en la lista de invitados de cada grupo por coincidencia exacta
     allMainGuests.forEach(mainGuest => {
         if (!foundMainGuests.has(mainGuest)) {
             const guestList = invitedGuests[mainGuest];
-            const hasMatchingGuest = guestList.some(guest => {
-                const guestName = guest.toLowerCase();
-                return guestName === query || 
-                       guestName.startsWith(query) || 
-                       guestName.includes(query);
+            const hasExactMatch = guestList.some(guest => {
+                const normalizedGuestName = normalizeText(guest);
+                return normalizedGuestName === normalizedQuery;
             });
-            if (hasMatchingGuest) {
+            if (hasExactMatch) {
                 foundMainGuests.add(mainGuest);
-                containsMatches.push(mainGuest);
+                exactMatches.push(mainGuest);
             }
         }
     });
     
-    // Combinar resultados por prioridad y limitar a 6 resultados máximo
-    const matches = [...exactMatches, ...startsWithMatches, ...containsMatches].slice(0, 6);
-    
-    if (matches.length > 0) {
-        searchResults.innerHTML = matches.map(name => 
-            `<div class="rsvp-search-item cursor-pointer" onclick="selectGuest('${name}')">${name}</div>`
+    if (exactMatches.length > 0) {
+        // Mostrar el/los resultados encontrados para que el usuario haga clic
+        searchResults.innerHTML = exactMatches.map(name => 
+            `<div class="rsvp-search-item cursor-pointer" onclick="selectGuest('${name}')">
+                <strong>${name}</strong><br>
+                <small>Click to continue / Haz clic para continuar</small>
+            </div>`
         ).join('');
         searchResults.style.display = 'block';
     } else {
-        searchResults.innerHTML = '<div class="rsvp-search-item">No guest found with that name</div>';
+        searchResults.innerHTML = '<div class="rsvp-search-item">Please enter your full name / Por favor ingresa tu nombre completo</div>';
         searchResults.style.display = 'block';
     }
 }
