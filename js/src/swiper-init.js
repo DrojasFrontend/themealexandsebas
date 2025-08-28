@@ -93,13 +93,10 @@ export const initPlacesSwiper = () => {
 	
 	// Crear un swiper para cada elemento
 	swiperElements.forEach((element, index) => {
-		// Obtener el ID único del swiper
-		const swiperId = element.id;
-		const categoryId = swiperId.replace('swiper-', '');
-		
-		// Buscar los botones de navegación específicos usando los IDs únicos
-		const nextButton = document.getElementById(`next-${categoryId}`);
-		const prevButton = document.getElementById(`prev-${categoryId}`);
+		// Buscar los botones de navegación dentro del contenedor padre
+		const swiperContainer = element.closest('.px-xl-5') || element.parentElement;
+		const nextButton = swiperContainer?.querySelector(".swiper-button-next");
+		const prevButton = swiperContainer?.querySelector(".swiper-button-prev");
 		const pagination = element.querySelector(".swiper-pagination");
 		
 		const swiper = new Swiper(element, {
