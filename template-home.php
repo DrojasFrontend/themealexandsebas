@@ -70,7 +70,7 @@ get_header();
                             <div class="py-xl-4 py-2"></div>
                             <h2 class="font-titulo fs-xl-md-1 fs-2-md mb-xl-5 mb-2 uppercase stroke-1">Wedding</h2>
 
-                            <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Friday, march 27, 2026</p>
+                            <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Friday, March 27, 2026</p>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-5 mb-4">7:00 p.m.</p>
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 letter-spacing-2 uppercase stroke-1">Ceremony</h2>

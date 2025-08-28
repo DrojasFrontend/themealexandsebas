@@ -36,7 +36,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WELCOME PARTY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="font-base fs-3 text-secondary mb-1">Thursday, march 26, 2026</p>
+                        <p class="font-base fs-3 text-secondary mb-1">Thursday, March 26, 2026</p>
                         <p class="font-base fs-3 text-secondary mb-1">5:00 - 8:00 p.m.</p>
                         <p class="font-base fs-3 text-secondary mb-4">Tbd</p>
                     </div>
@@ -60,7 +60,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WEDDING DAY - CEREMONY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">Friday, march 27, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Friday, March 27, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">7:00 p.m.</p>
                         <p class="fs-3 text-secondary font-base mb-1">Iglesia Santo Toribio de Mogrovejo</p>
                     </div>
@@ -84,7 +84,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">WEDDING DAY - RECEPTION</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">Friday, march 27, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Friday, March 27, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">8:00 p.m.</p>
                         <p class="fs-3 text-secondary font-base">Casa 1537</p>
                     </div>
@@ -108,7 +108,7 @@
                     <h2 class="font-titulo fs-xl-2 fs-3 text-primary">BEACH DAY</h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
-                        <p class="fs-3 text-secondary font-base mb-1">Saturday, march 28, 2026</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Saturday, March 28, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">11:30 a.m.</p>
                         <p class="fs-3 text-secondary font-base">Tbd</p>
                     </div>
