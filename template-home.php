@@ -293,7 +293,7 @@ get_header();
                                 We recommend staying within the Walled City, where everything is just a short walk away. The constant sound of live music, along with excellent food and lively bars, brings every corner of this unique city to life.
                             </p>
                         </div>
-                        <h2 class="font-titulo fs-xl-md-2 fs-6 text-center stroke-1">Handpicked by Us</h2>
+                        <h2 class="font-titulo fs-xl-md-2 fs-6 text-center stroke-1">Trip Suggestions</h2>
                         <ul class="pt-xl-4 pt-3 px-xl-4">
                             <span class="line line--full bg-secondary"></span>
                             <li class="d-flex gap-3 align-items-center py-xl-3 px-xl-4 py-2 px-2 clickeable" style="cursor: pointer;">

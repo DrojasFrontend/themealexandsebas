@@ -12,7 +12,7 @@ $places = [
     "title_es" => "Hotels",
     "img" => THEME_IMG . 'icons/icon-hotel-2.svg',
     "info" => true,
-    "details" => "We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. Below, you will find a selection of recommended accommodations, some of which offer preferential rates. <br> <br> The bride and groom will be staying at <strong>Hotel Casa San Agustín</strong>, an ideal option for guests",
+    "details" => "We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. Below, you will find a selection of recommended accommodations, some of which offer preferential rates. <br> <br> The bride and groom will be staying at <strong>Hotel Casa San Agustín</strong>, an ideal option for guests.",
     "places" => [
         [
             "name" => "Hotel <br> CASA SAN AGUSTÍN",
@@ -24,7 +24,7 @@ $places = [
         ],
         [
             "name" => "Bastion Luxury <br> Hotel",
-            "address" => "Please use the code <strong>'AS2026'</strong> to receive a discount when booking. This code will be valid from March 25-29. <br><br> Calle del Sargento # 6 - 87",
+            "address" => "Please use the code <strong>AS2026</strong> to receive a discount when booking. This code will be valid from March 25-29. <br><br> Calle del Sargento # 6 - 87",
             "city" => "Cartagena, Colombia",
             "phone" => "+57 (605) 6424100",
             "link" => "https://en.bastionluxuryhotel.com",
@@ -596,10 +596,11 @@ $places = [
                             </div> -->
                             <!-- <div class="line line--full mb-4"></div> -->
                             <div class="bg-yellow-100 mb-xl-5">
-                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">Passports</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">Please do not forget your passports! <br class="d-none d-xl-block"> Make sure to carefully check the expiration date.</p>
+                                <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">PASSPORTS AND VISAS</h2>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 text-secondary" style="line-height: 1.4">Please do not forget your passports! <br class="d-none d-xl-block"> Make sure to carefully check the expiration date.</p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">To check if you need a visa to enter Colombia, <a href="https://apply.joinsherpa.com/travel-restrictions?language=en-US&originCountry=ESP&nationality=USA&travelPurposes=TOURISM&departureDate=2025-09-07&returnDate=2025-09-20&tripType=roundTrip&fullyVaccinated=true&affiliateId=sherpa" style="text-decoration: underline; color: #B8724C;" target="blank">you may review this free online service</a></p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">CheckMig</h2>
-                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">CheckMig is an online form provided by Migración Colombia, where travelers register their travel information prior to entering or leaving the country. It may be completed between 72 hours and 1 hour before your trip. While it is not mandatory, it is highly recommended, as it streamlines the immigration process and helps prevent delays at the airport.<a href="https://apps.migracioncolombia.gov.co/pre-registro" style="text-decoration: underline; color: #B8724C;" target="blank">Click Here</a></p>
+                                <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">CheckMig is an online form provided by Migración Colombia, where travelers register their travel information prior to entering or leaving the country. It may be completed between 72 hours and 1 hour before your trip. While it is not mandatory, it is highly recommended, as it streamlines the immigration process and helps prevent delays at the airport. <a href="https://apps.migracioncolombia.gov.co/pre-registro" style="text-decoration: underline; color: #B8724C;" target="blank">Click Here</a></p>
                                 <h2 class="font-titulo fs-xl-md-2 text-primary letter-xl-spacing-22 uppercase stroke-1">INTERNATIONAL AIRPORT</h2>
                                 <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary mb-3" style="line-height: 1.4">Several major airlines such as Latam, Delta, American Airlines, United, Aeroméxico, Copa Airlines, and Avianca offer direct flights to Rafael Núñez International Airport in Cartagena, on Colombia’s Caribbean coast. The best way to get from the airport to the walled city is by taxi or Uber. The ride takes approximately 10 to 15 minutes.</p>
                                 <p class="fs-xl-6 fs-p-xxl text-secondary-200 mb-4 text-secondary" style="line-height: 1.4">Authorized taxis are available 24 hours a day and operate with fixed fares, paid in cash: around 14,000 COP to Getsemaní, up to 18,000 COP to the hotel area in the historic center (Walled City), and approximately 30,000 COP to Bocagrande. In general, 1 USD equals about 4,100 COP. Since taxis do not always accept card payments, Uber is often a more convenient alternative</p>
