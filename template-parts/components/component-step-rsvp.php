@@ -121,7 +121,7 @@
                                 <button type="button" class="btn btn-transparent rsvp-back-btn font-base border-1 mx-auto w-100 fs-6-md text-primary">BACK</button>
                             </div>
                             <div class="col-12 col-xl-6 mb-xl-0 mb-2">
-                                <button type="button" class="btn btn-secondary rsvp-next-btn font-base border-0 mx-auto w-100 fs-6-md">CONTINUE</button>
+                                <button type="button" class="btn btn-secondary rsvp-next-btn font-base border-0 mx-auto w-100 fs-6-md" id="step-5-next-btn">CONTINUE</button>
                             </div>
                         </div>
                     </div>

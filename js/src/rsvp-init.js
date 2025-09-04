@@ -530,6 +530,19 @@ function setupEventStep(eventId) {
     });
     
     updateEventButtons(eventId);
+    
+    // Si estamos en el paso 5, actualizar el texto del botón según el estado
+    if (eventId === 'brunch') {
+        updateStep5Button();
+    }
+}
+
+// Función para actualizar el botón del paso 5
+function updateStep5Button() {
+    const step5Button = document.getElementById('step-5-next-btn');
+    if (step5Button) {
+        step5Button.textContent = 'CONTINUE';
+    }
 }
 
 // Configurar paso de información adicional
@@ -548,12 +561,107 @@ function setupAdditionalInfoStep() {
     if (codeInput) codeInput.value = codeInput.value || '';
     if (cityInput) cityInput.value = cityInput.value || '';
     if (dateInput) dateInput.value = dateInput.value || '';
+    
+    // Si todos los eventos fueron declined, ocultar campos no necesarios
+    if (allEventsDeclined()) {
+        hideNonEssentialFields();
+        updateStep6Title('CONFIRMATION');
+        updateStep6Button('SEND R.S.V.P.');
+    } else {
+        showAllFields();
+        updateStep6Title('ADITIONAL INFORMATION');
+        updateStep6Button('R.S.V.P.');
+    }
+}
+
+// Función para ocultar campos no esenciales cuando todos declined
+function hideNonEssentialFields() {
+    // Ocultar textarea de alergias
+    const allergyTextarea = document.getElementById('allergies');
+    if (allergyTextarea) allergyTextarea.style.display = 'none';
+    
+    // Ocultar input de fecha
+    const dateInput = document.getElementById('guest-date');
+    if (dateInput) dateInput.style.display = 'none';
+    
+    // Ocultar campos individuales de contacto
+    const phoneInput = document.getElementById('guest-phone');
+    const codeInput = document.getElementById('guest-code');
+    const cityInput = document.getElementById('guest-city');
+    
+    if (phoneInput) phoneInput.style.display = 'none';
+    if (codeInput) codeInput.style.display = 'none';
+    if (cityInput) cityInput.style.display = 'none';
+    
+    // Ocultar el div contenedor de contacto
+    const contactDiv = document.querySelector('.d-flex.flex-xl-row.flex-column.gap-2');
+    if (contactDiv) contactDiv.style.display = 'none';
+    
+    // Ocultar todos los párrafos/labels excepto los relacionados con email
+    const allParagraphs = document.querySelectorAll('#step-6 p');
+    allParagraphs.forEach(p => {
+        const text = p.textContent.toLowerCase();
+        if (text.includes('food allergies') || 
+            text.includes('date will you be arriving') ||
+            text.includes('contact information') ||
+            text.includes('dietary needs') ||
+            text.includes('restrictions')) {
+            p.style.display = 'none';
+        }
+    });
+    
+    // Agregar mensaje explicativo para declined
+    const emailInput = document.getElementById('guest-email');
+    if (emailInput && !document.getElementById('declined-message')) {
+        const message = document.createElement('p');
+        message.id = 'declined-message';
+        message.className = 'fs-6 text-secondary font-base mb-3 text-center';
+        message.style.fontStyle = 'italic';
+        message.textContent = 'Please provide your email to receive confirmation of your response.';
+        emailInput.parentNode.insertBefore(message, emailInput);
+    }
+}
+
+// Función para mostrar todos los campos
+function showAllFields() {
+    // Mostrar todos los elementos ocultos
+    const hiddenElements = document.querySelectorAll('#step-6 [style*="display: none"]');
+    hiddenElements.forEach(el => {
+        el.style.display = '';
+    });
+    
+    // Remover mensaje de declined si existe
+    const declinedMessage = document.getElementById('declined-message');
+    if (declinedMessage) {
+        declinedMessage.remove();
+    }
+}
+
+// Función para actualizar el título del paso 6
+function updateStep6Title(title) {
+    const titleElement = document.querySelector('#step-6 h2');
+    if (titleElement) {
+        titleElement.textContent = title;
+    }
+}
+
+// Función para actualizar el botón del paso 6
+function updateStep6Button(text) {
+    const buttonElement = document.querySelector('#step-6 .rsvp-next-btn');
+    if (buttonElement) {
+        buttonElement.textContent = text;
+    }
 }
 
 // Establecer respuesta del invitado
 function setGuestResponse(guestName, response, eventId) {
     rsvpState.rsvpData[eventId][guestName] = response;
     updateEventButtons(eventId);
+    
+    // Actualizar el botón del paso 5 si estamos en ese paso
+    if (rsvpState.currentStep === 5) {
+        updateStep5Button();
+    }
 }
 
 // Actualizar botones de evento específico
@@ -636,20 +744,58 @@ function updateEventButtons(eventId) {
     });
 }
 
+// Función para verificar si todos los eventos fueron declined
+function allEventsDeclined() {
+    const events = ['welcome', 'ceremony', 'reception', 'brunch'];
+    let hasAnyAccept = false;
+    let hasAnyResponse = false;
+    
+    for (const eventId of events) {
+        const eventData = rsvpState.rsvpData[eventId];
+        if (eventData) {
+            for (const guest in eventData) {
+                const response = eventData[guest];
+                if (response !== 'pending') {
+                    hasAnyResponse = true;
+                    if (response === 'accept') {
+                        hasAnyAccept = true;
+                        break;
+                    }
+                }
+            }
+            if (hasAnyAccept) break;
+        }
+    }
+    
+    // Solo retorna true si hay respuestas Y todas son decline
+    return hasAnyResponse && !hasAnyAccept;
+}
+
 // Validar si se puede continuar
 function canContinue() {
     // Para eventos (pasos 2-5): Siempre se puede continuar (no es obligatorio responder)
     if (rsvpState.currentStep >= 2 && rsvpState.currentStep <= 5) {
         return true;
     }
-    // Para información adicional: Email y teléfono son obligatorios
+    // Para información adicional: validación según el estado
     if (rsvpState.currentStep === 6) {
         const emailInput = document.getElementById('guest-email');
+        
+        // Email siempre es obligatorio
+        if (!emailInput || emailInput.value.trim() === '') {
+            return false;
+        }
+        
+        // Si todos declined, solo validar email
+        if (allEventsDeclined()) {
+            return true;
+        }
+        
+        // Si al menos uno accepted, validar todos los campos obligatorios
         const phoneInput = document.getElementById('guest-phone');
         const codeInput = document.getElementById('guest-code');
         const cityInput = document.getElementById('guest-city');
-        return emailInput && emailInput.value.trim() !== '' && 
-               phoneInput && phoneInput.value.trim() !== '' &&
+        return phoneInput && phoneInput.value.trim() !== '' &&
                codeInput && codeInput.value.trim() !== '' &&
                cityInput && cityInput.value.trim() !== '';
     }
@@ -686,6 +832,9 @@ function submitRSVP() {
     const cityInput = document.getElementById('guest-city');
     const dateInput = document.getElementById('guest-date');
     
+    // Si todos los eventos fueron declined, usar valores por defecto para campos no proporcionados
+    const allDeclined = allEventsDeclined();
+    
     // Procesar respuestas finales (pending = accept por defecto)
     const processedData = {};
     Object.keys(rsvpState.rsvpData).forEach(eventId => {
@@ -703,28 +852,28 @@ function submitRSVP() {
         action: 'submit_rsvp',
         guest_name: rsvpState.selectedGuest,
         guests: processedData,
-        allergies: allergyInput.value.trim(),
-        email: emailInput.value.trim(),
-        phone: phoneInput.value.trim(),
-        code: codeInput.value.trim(),
-        city: cityInput.value.trim(),
-        arrival_date: dateInput.value.trim(),
+        allergies: allDeclined ? '' : (allergyInput ? allergyInput.value.trim() : ''),
+        email: emailInput ? emailInput.value.trim() : '', // Siempre usar email real
+        phone: allDeclined ? '' : (phoneInput ? phoneInput.value.trim() : ''),
+        code: allDeclined ? '' : (codeInput ? codeInput.value.trim() : ''),
+        city: allDeclined ? '' : (cityInput ? cityInput.value.trim() : ''),
+        arrival_date: allDeclined ? '' : (dateInput ? dateInput.value.trim() : ''),
         language: currentLanguage // Agregar idioma al envío
     };
     
-    // Mostrar loading
+    // Mostrar loading en el paso 6
     document.getElementById('step-6').innerHTML = '<div class="rsvp-loading">Enviando...</div>';
     
     // Construir body correctamente
     const formData = new FormData();
     formData.append('action', 'submit_rsvp');
     formData.append('guest_name', rsvpState.selectedGuest);
-    formData.append('email', emailInput.value.trim());
-    formData.append('phone', phoneInput.value.trim());
-    formData.append('code', codeInput.value.trim());
-    formData.append('city', cityInput.value.trim());
-    formData.append('arrival_date', dateInput.value.trim());
-    formData.append('allergies', allergyInput.value.trim());
+    formData.append('email', emailInput ? emailInput.value.trim() : ''); // Siempre usar email real
+    formData.append('phone', allDeclined ? '' : (phoneInput ? phoneInput.value.trim() : ''));
+    formData.append('code', allDeclined ? '' : (codeInput ? codeInput.value.trim() : ''));
+    formData.append('city', allDeclined ? '' : (cityInput ? cityInput.value.trim() : ''));
+    formData.append('arrival_date', allDeclined ? '' : (dateInput ? dateInput.value.trim() : ''));
+    formData.append('allergies', allDeclined ? '' : (allergyInput ? allergyInput.value.trim() : ''));
     formData.append('language', currentLanguage);
     formData.append('guests', JSON.stringify(processedData));
     

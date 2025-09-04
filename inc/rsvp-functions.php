@@ -505,15 +505,6 @@ function generateEnglishDeclineEmail($guest_name, $email, $code, $phone, $city, 
                 
                 <div class="divider"></div>
                 
-                <div class="contact-info">
-                    <strong>📋 Your RSVP Information</strong><br>
-                    <strong>Contact Email:</strong> ' . $email . '<br>
-                    ' . ($code ? '<strong>Code:</strong> ' . $code . '<br>' : '') . '
-                    ' . ($phone ? '<strong>Phone:</strong> ' . $phone . '<br>' : '') . '
-                    ' . ($city ? '<strong>City:</strong> ' . $city . '<br>' : '') . '
-                    ' . ($arrival_date ? '<strong>Arrival Date in Cartagena:</strong> ' . $arrival_date . '<br>' : '') . '
-                </div>
-                
                 <div class="message">
                     With love,<br>
                     <strong>Alexandra & Sebastian</strong>
@@ -663,6 +654,23 @@ function handle_rsvp_ajax() {
                     throw new Exception('Missing primary guest name');
                 }
                 
+                // Verificar si todos los eventos fueron declined
+                $all_declined = true;
+                $has_any_response = false;
+                
+                foreach ($guests as $event_id => $event_guests) {
+                    foreach ($event_guests as $guest => $response) {
+                        if ($response !== 'pending') {
+                            $has_any_response = true;
+                            if ($response === 'accept') {
+                                $all_declined = false;
+                                break 2; // Salir de ambos loops
+                            }
+                        }
+                    }
+                }
+                
+                // Validar email siempre (obligatorio)
                 if (empty($email)) {
                     throw new Exception('Missing email');
                 }
@@ -671,16 +679,22 @@ function handle_rsvp_ajax() {
                     throw new Exception('Invalid email');
                 }
                 
-                if (empty($code)) {
-                    throw new Exception('Missing code');
-                }
+                // Si no todos declined, validar campos obligatorios adicionales
+                if (!($has_any_response && $all_declined)) {
+                    if (empty($code)) {
+                        throw new Exception('Missing code');
+                    }
 
-                if (empty($phone)) {
-                    throw new Exception('Missing phone number');
-                }
+                    if (empty($phone)) {
+                        throw new Exception('Missing phone number');
+                    }
 
-                if (empty($city)) {
-                    throw new Exception('Missing city');
+                    if (empty($city)) {
+                        throw new Exception('Missing city');
+                    }
+                } else {
+                    // Si todos declined, log para seguimiento
+                    error_log('All events declined for guest: ' . $guest_name . ' with email: ' . $email);
                 }
                 
                 // Final validation
