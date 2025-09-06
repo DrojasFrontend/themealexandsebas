@@ -25,7 +25,7 @@ const rsvpEvents = [
 
 // Datos de invitados (embebidos directamente)
 const invitedGuests = {
-    'Migue': ['Fanny', 'Daniel'],
+    'Migue': ['Migue', 'Fanny', 'Daniel'],
     'Jordyn Horwitz': ['Jordyn Horwitz', 'Jordan Cohen'],
     'Sabrina Zingg': ['Sabrina Zingg'],
     'Jenna Wittich': ['Jenna Wittich'],
@@ -415,51 +415,79 @@ function findInvitation() {
     const searchResults = document.getElementById('search-results');
     const inputValue = searchInput.value.trim();
     
-    if (inputValue.length < 5) {
-        alert('Please enter your full name / Por favor ingresa tu nombre completo');
+    if (inputValue.length < 3) {
+        alert('Please enter at least 3 characters / Por favor ingresa al menos 3 caracteres');
         return;
     }
     
     const normalizedQuery = normalizeText(inputValue);
+    const queryWords = normalizedQuery.split(/\s+/).filter(word => word.length > 0);
     const allMainGuests = Object.keys(invitedGuests);
-    let foundMainGuests = new Set(); // Para evitar duplicados
+    let foundMatches = [];
     
-    // Buscar coincidencias exactas en nombres principales
-    const exactMatches = allMainGuests.filter(name => {
-        const normalizedName = normalizeText(name);
-        if (normalizedName === normalizedQuery) {
-            foundMainGuests.add(name);
-            return true;
-        }
-        return false;
-    });
-    
-    // Buscar también en la lista de invitados de cada grupo por coincidencia exacta
+    // Buscar en todos los grupos - lógica simple y directa
     allMainGuests.forEach(mainGuest => {
-        if (!foundMainGuests.has(mainGuest)) {
-            const guestList = invitedGuests[mainGuest];
-            const hasExactMatch = guestList.some(guest => {
+        const guestList = invitedGuests[mainGuest];
+        
+        // Verificar si TODAS las palabras buscadas están en este grupo (coincidencias exactas)
+        let allWordsFound = true;
+        let bestMatchGuest = mainGuest;
+        
+        for (let queryWord of queryWords) {
+            let wordFoundInGroup = false;
+            
+            // Buscar esta palabra en todo el grupo
+            for (let guest of guestList) {
                 const normalizedGuestName = normalizeText(guest);
-                return normalizedGuestName === normalizedQuery;
-            });
-            if (hasExactMatch) {
-                foundMainGuests.add(mainGuest);
-                exactMatches.push(mainGuest);
+                const guestWords = normalizedGuestName.split(/\s+/);
+                
+                // Solo coincidencias exactas
+                if (guestWords.includes(queryWord)) {
+                    wordFoundInGroup = true;
+                    // Si no es el principal, usar el segundo de la lista para mostrar
+                    if (guest !== mainGuest && bestMatchGuest === mainGuest) {
+                        bestMatchGuest = guestList.length > 1 ? guestList[1] : guest;
+                    }
+                    break;
+                }
+            }
+            
+            if (!wordFoundInGroup) {
+                allWordsFound = false;
+                break;
             }
         }
+        
+        // Solo incluir si encontramos TODAS las palabras en el grupo
+        if (allWordsFound) {
+            const displayName = bestMatchGuest === mainGuest ? 
+                mainGuest : 
+                `${mainGuest} - ${bestMatchGuest}`;
+                
+            foundMatches.push({
+                mainGuest: mainGuest,
+                displayName: displayName,
+                matchedGuest: bestMatchGuest
+            });
+        }
     });
     
-    if (exactMatches.length > 0) {
-        // Mostrar el/los resultados encontrados para que el usuario haga clic
-        searchResults.innerHTML = exactMatches.map(name => 
-            `<div class="rsvp-search-item cursor-pointer" onclick="selectGuest('${name}')">
-                <strong>${name}</strong><br>
+    // Eliminar duplicados por mainGuest
+    const uniqueMatches = foundMatches.filter((match, index, self) => 
+        index === self.findIndex(m => m.mainGuest === match.mainGuest)
+    );
+    
+    if (uniqueMatches.length > 0) {
+        // Mostrar los resultados encontrados
+        searchResults.innerHTML = uniqueMatches.map(match => 
+            `<div class="rsvp-search-item cursor-pointer" onclick="selectGuest('${match.mainGuest}')">
+                <strong>${match.displayName}</strong><br>
                 <small>Click to continue / Haz clic para continuar</small>
             </div>`
         ).join('');
         searchResults.style.display = 'block';
     } else {
-        searchResults.innerHTML = '<div class="rsvp-search-item">Please enter your full name / Por favor ingresa tu nombre completo</div>';
+        searchResults.innerHTML = '<div class="rsvp-search-item">No matches found / No se encontraron coincidencias</div>';
         searchResults.style.display = 'block';
     }
 }
