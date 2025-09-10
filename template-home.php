@@ -88,7 +88,7 @@ get_header();
                             <button type="button" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5 mb-4" data-bs-toggle="modal" data-bs-target="#tropicalBlackTie">Black Tie</button>
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 uppercase letter-xl-spacing-4 stroke-1">Registry</h2>
-                            <a href="https://www.zola.com/registry/aleysebas2026" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-3" target="_blank">Link Zola</a>
+                            <a href="https://www.zola.com/registry/aleysebas2026" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-3" target="_blank">Zola & Honeymoon</a>
                             <a href="https://www.bloomingdales.com/registry/Alexandra-Hauser-Sebastian-Escobar/1161176" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5" target="_blank">Bloomingdale's
                             </a>
                         </div>
