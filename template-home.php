@@ -230,7 +230,7 @@ get_header();
 
                             <p class="fs-xl-3 text-secondary line-height-0 mb-3">Celebrate with us!</p>
                             <p class="fs-xl-5 fs-p-xxl text-secondary line-height-0 mb-4 letter-xl-spacing-22">Please kindly respond by <br class="d-xl-none"> December 15, 2025</p>
-                            <p class="fs-xl-4 text-secondary mb-4">Please confirm your attendance <br> by clicking the link below</p>
+                            <p class="fs-xl-4 text-secondary mb-4 d-none">Please confirm your attendance <br> by clicking the link below</p>
 
                             <button type="button" class="btn btn-primary btn-primary-lg mx-auto border-0 mb-xl-5 mb-4 rsvp-open-btn">R.S.V.P.</button>
 
