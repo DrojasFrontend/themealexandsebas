@@ -159,7 +159,12 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0">Thursday,</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 26, 2026</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">5:00 - 8:00 p.m.</p>
-                                    <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Mirador Gastro Bar</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Cra. 7 #32-77,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">El Centro,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Cartagena de Indias,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Provincia de Cartagena,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Bolívar, Colombia</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
 
                                     <p class="font-titulo fs-xl-3 fs-4 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
@@ -170,7 +175,10 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0">Saturday,</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 28, 2026</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">11:30 a.m.</p>
-                                    <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-2">Tbd</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Eteka Beach</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Isla de Tierrabomba,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Provincia de Cartagena,</p>
+                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Bolívar, Colombia</p>
                                     <a href="#" target="_blank" class="btn btn-primary mx-auto mb-5">Location</a>
 
                                     <p class="font-titulo fs-xl-3 fs-4 text-primary line-height-0 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4">DRESS CODE</p>
