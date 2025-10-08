@@ -28,7 +28,7 @@
             </div>
             <div class="modal-body text-center position-relative overflow-hidden p-0">
                 <div class="">
-                    <img class="w-100" src="<?php echo THEME_IMG; ?>cocktail.webp" alt="Tropical Black Tie" class="mb-4">
+                    <img class="w-100" src="<?php echo THEME_IMG; ?>cocktail.webp?v=1" alt="Tropical Black Tie" class="mb-4">
                 </div>
             </div>
         </div>
