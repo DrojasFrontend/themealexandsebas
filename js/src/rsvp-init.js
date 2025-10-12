@@ -201,6 +201,12 @@ const invitedGuests = {
     'Leonardo Zingg': ['Leonardo Zingg', 'Irene Zingg'],
     'Simón Zisman': ['Simón Zisman', 'Carolina Zisman', 'Isabella Zisman', 'Clarissa Zisman'],
     'Woods Staton': ['Woods Staton', 'Erica Staton'],
+    'Federico Aguerrevere': ['Federico Aguerrevere', 'Ana Andrea Toro'],
+    'Emilio Vilela': ['Emilio Vilela', 'Beatriz Ravell'],
+    'Carlos Morales': ['Carlos Morales', 'Celina Morales'],
+    'Juan Carlos Vidal': ['Juan Carlos Vidal', 'Adriana Vidal'],
+    'Natalia Hauser': ['Natalia Hauser'],
+    'Eduardo José Hauser': ['Eduardo José Hauser',],
 };
 
 /**
