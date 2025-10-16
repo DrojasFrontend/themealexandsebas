@@ -65,9 +65,8 @@
             <div class="modal-body text-center position-relative overflow-hidden p-0 customSectionBox p-lg-5 p-4 rounded-4">
                 <div class="">
                     <h2 class="font-titulo fs-xl-3 fs-4 text-primary mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4 mb-3" style="line-height: 1.2;">
-                        ADITIONAL
-                        <br>
-                        NOTES
+                        MORE
+                        INFO
                     </h2>
                     <p class="font-titulo fs-xl-3 fs-4 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4 text-secondary">We will be serving light bites and drinks</p>
                 </div>
@@ -88,9 +87,8 @@
             <div class="modal-body text-center position-relative overflow-hidden p-0 customSectionBox p-lg-5 p-3 rounded-4">
                 <div class="">
                     <h2 class="font-titulo fs-xl-3 fs-4 text-primary mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4 mb-3" style="line-height: 1.2;">
-                        ADITIONAL
-                        <br>
-                        NOTES
+                        MORE
+                        INFO
                     </h2>
                     <p class="font-titulo fs-xl-3 fs-4 mb-xl-4 mb-2 stroke-1 letter-xl-spacing-4 text-secondary">
                         Please check back in closer to the wedding for more information on transportation to the beach, which is located on an island off of Cartagena. We will be organizing transportation.

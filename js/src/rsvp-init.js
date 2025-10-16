@@ -205,7 +205,7 @@ const invitedGuests = {
     'Emilio Vilela': ['Emilio Vilela', 'Beatriz Ravell'],
     'Carlos Morales': ['Carlos Morales', 'Celina Morales'],
     'Juan Carlos Vidal': ['Juan Carlos Vidal', 'Adriana Vidal'],
-    'Natalia Hauser': ['Natalia Hauser'],
+    'Natalia Elena Hauser': ['Natalia Elena Hauser'],
     'Eduardo José Hauser': ['Eduardo José Hauser',],
 };
 
