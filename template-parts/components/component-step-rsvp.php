@@ -38,8 +38,8 @@
                     <div class="rsvp-form-event-details">
                         <p class="font-base fs-3 text-secondary mb-1">Thursday, March 26, 2026</p>
                         <p class="font-base fs-3 text-secondary mb-1">5:00 - 8:00 p.m.</p>
-                        <p class="font-base fs-3 text-secondary mb-1">Mirador Gastro Bar</p>
-                        <p class="font-base fs-3 text-secondary mb-4">Cra. 7 #32-77</p>
+                        <p class="font-base fs-3 text-secondary mb-4">Mirador Gastro Bar</p>
+                        <!-- <p class="font-base fs-3 text-secondary mb-4">Cra. 7 #32-77</p> -->
                     </div>
                     <div id="guest-list-welcome" class="rsvp-guest-list mt-3 mb-5">
                         <!-- Se llena dinámicamente con JavaScript -->

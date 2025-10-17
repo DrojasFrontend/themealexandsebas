@@ -160,7 +160,7 @@ get_header();
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">March 26, 2026</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-4">5:00 - 8:00 p.m.</p>
                                     <p class="fs-xl-3 text-secondary line-height-0 mb-2">Mirador Gastro Bar</p>
-                                    <p class="fs-xl-3 text-secondary line-height-0 mb-2">Cra. 7 #32-77,</p>
+                                    <!-- <p class="fs-xl-3 text-secondary line-height-0 mb-2 d-none">Cra. 7 #32-77,</p> -->
                                     <a href="https://maps.app.goo.gl/tfF9hKdkEJQiP2Mp7" target="_blank" class="btn btn-primary mx-auto mb-3">Location</a>
                                     <button type="button" class="btn btn-primary mx-auto border-0 mb-5" data-bs-toggle="modal" data-bs-target="#more">More Info</button>
 
