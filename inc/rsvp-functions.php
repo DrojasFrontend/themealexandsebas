@@ -34,7 +34,7 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code,
         'welcome' => 'WELCOME PARTY (Thursday, march 26, 2026, 5:00 - 8:00 p.m.)',
         'ceremony' => 'WEDDING DAY - CEREMONY (Friday, march 27, 2026, 7:00 p.m., Iglesia de Santo Toribio)',
         'reception' => 'WEDDING DAY - RECEPTION (Friday, march 27, 2026, 8:00 p.m., Casa 1537)',
-        'brunch' => 'BEACH DAY (Saturday, march 28, 2026, 11:30 a.m., Tbd)',
+        'brunch' => 'BEACH DAY (Saturday, march 28, 2026, 11:30 a.m., Eteka Beach)',
     ];
     
     $total_accepts = 0;
