@@ -215,11 +215,11 @@ $places = [
             "image" => THEME_IMG . 'places-cartagena/bares-3.webp',
         ],
         [
-            "name" => "La Jugada",
-            "address" => "Cra. 6 # 34 - 25",
+            "name" => "MONDO COCKTAIL BAR",
+            "address" => "Cl. del Colegio #34 - 66",
             "city" => "Centro Histórico, Cartagena",
-            "phone" => "+57 316 3194481",
-            "link" => "https://la-jugada.cluvi.co",
+            "phone" => "+57 301 6672728",
+            "link" => "https://www.instagram.com/mondoctg/",
             "image" => THEME_IMG . 'places-cartagena/bares-4.webp',
         ],
         [
@@ -454,7 +454,7 @@ $places = [
     "title_es" => "Cosas que hacer",
     "img" => THEME_IMG . 'icons/icon-things-to-do.svg',
     "info" => true,
-    "details" => "Discover the best of Cartagena with our recommended plans. We will soon confirm the details of the agency or tourist guide that could accompany you so that you can enjoy every experience to the fullest.",
+    "details" => "Discover the best of Cartagena with our recommended plans. We will soon confirm the details of the agency or tourist guide that could accompany you so that you can enjoy every experience to the fullest. <br> <br> Make the most of your visit by discovering the best of Cartagena! If you’d like to plan an activity or explore the city with a guide, we recommend reaching out to Rosaura Gordon from Emporia DMC via WhatsApp at <a href='tel:573145886374' target='blank' style='text-decoration: underline; color: #B8724C;'>+57 314 588 6374</a>. Just mention in your message that you’re part of the March 27, 2026 wedding.",
     "places" => [
         [
             "name" => "Museums, Churches, and Historical Heritage",
@@ -519,6 +519,14 @@ $places = [
             "phone" => "",
             "link" => "",
             "image" => THEME_IMG . 'places-cartagena/things-8.webp',
+        ],
+        [
+            "name" => "Explore the <br> Walled City",
+            "address" => "Let yourself be charmed by Cartagena as you wander through its cobblestone streets, lively squares, and flower-filled balconies. Wear something comfortable and take your time to discover the beauty of this colonial gem, where history, color, and the Caribbean breeze come together in perfect harmony.",
+            "city" => "",
+            "phone" => "",
+            "link" => "",
+            "image" => THEME_IMG . 'places-cartagena/things-9.webp',
         ],
         
        

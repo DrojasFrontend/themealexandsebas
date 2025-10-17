@@ -38,7 +38,8 @@
                     <div class="rsvp-form-event-details">
                         <p class="font-base fs-3 text-secondary mb-1">Thursday, March 26, 2026</p>
                         <p class="font-base fs-3 text-secondary mb-1">5:00 - 8:00 p.m.</p>
-                        <p class="font-base fs-3 text-secondary mb-4">Tbd</p>
+                        <p class="font-base fs-3 text-secondary mb-1">Mirador Gastro Bar</p>
+                        <p class="font-base fs-3 text-secondary mb-4">Cra. 7 #32-77</p>
                     </div>
                     <div id="guest-list-welcome" class="rsvp-guest-list mt-3 mb-5">
                         <!-- Se llena dinámicamente con JavaScript -->
@@ -62,7 +63,7 @@
                     <div class="rsvp-form-event-details">
                         <p class="fs-3 text-secondary font-base mb-1">Friday, March 27, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">7:00 p.m.</p>
-                        <p class="fs-3 text-secondary font-base mb-1">Iglesia Santo Toribio de Mogrovejo</p>
+                        <p class="fs-3 text-secondary font-base mb-1">Iglesia de Santo Toribio</p>
                     </div>
                     <div id="guest-list-ceremony" class="rsvp-guest-list mt-3 mb-5">
                         <!-- Se llena dinámicamente con JavaScript -->
@@ -105,12 +106,12 @@
 
                 <!-- Paso 5: BEACH DAY -->
                 <div id="step-5" class="rsvp-form-step">
-                    <h2 class="font-titulo fs-xl-2 fs-3 text-primary">BEACH DAY</h2>
+                    <h2 class="font-titulo fs-xl-2 fs-3 text-primary"> <span>BEACH DAY</span> </h2>
                     <span class="line line--full line--full-primary mb-3"></span>
                     <div class="rsvp-form-event-details">
                         <p class="fs-3 text-secondary font-base mb-1">Saturday, March 28, 2026</p>
                         <p class="fs-3 text-secondary font-base mb-1">11:30 a.m.</p>
-                        <p class="fs-3 text-secondary font-base">Tbd</p>
+                        <p class="fs-3 text-secondary font-base">Eteka Beach</p>
                     </div>
                     <div id="guest-list-brunch" class="rsvp-guest-list mt-3 mb-5">
                         <!-- Se llena dinámicamente con JavaScript -->
