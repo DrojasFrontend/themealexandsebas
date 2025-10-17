@@ -454,7 +454,7 @@ $places = [
     "title_es" => "Cosas que hacer",
     "img" => THEME_IMG . 'icons/icon-things-to-do.svg',
     "info" => true,
-    "details" => "Discover the best of Cartagena with our recommended plans. We will soon confirm the details of the agency or tourist guide that could accompany you so that you can enjoy every experience to the fullest. <br> <br> Make the most of your visit by discovering the best of Cartagena! If you’d like to plan an activity or explore the city with a guide, we recommend reaching out to Rosaura Gordon from Emporia DMC via WhatsApp at <a href='tel:573145886374' target='blank' style='text-decoration: underline; color: #B8724C;'>+57 314 588 6374</a>. Just mention in your message that you’re part of the March 27, 2026 wedding.",
+    "details" => "Make the most of your visit by discovering the best of Cartagena! If you’d like to plan an activity or explore the city with a guide, we recommend reaching out to Rosaura Gordon from Emporia DMC via WhatsApp at <a href='tel:573145886374' target='blank' style='text-decoration: underline; color: #B8724C;'>+57 314 588 6374</a>.  Just mention in your message that you’re part of the March 27, 2026 wedding.",
     "places" => [
         [
             "name" => "Museums, Churches, and Historical Heritage",
