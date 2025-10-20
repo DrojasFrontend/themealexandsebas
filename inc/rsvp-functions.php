@@ -12,10 +12,10 @@ function configurar_smtp($phpmailer) {
     $phpmailer->Host = 'smtp.hostinger.com';
     $phpmailer->SMTPAuth = true;
     $phpmailer->Port = 465;
-    $phpmailer->Username = 'rsvp@meliandjake.com';
+    $phpmailer->Username = 'rsvp@aleysebas2026.com';
     $phpmailer->Password = 'eoq}80xrhsT3';
     $phpmailer->SMTPSecure = 'ssl';
-    $phpmailer->From = 'rsvp@meliandjake.com';
+    $phpmailer->From = 'rsvp@aleysebas2026.com';
     $phpmailer->FromName = 'Alexandra &  Sebastian\'s Wedding';
 }
 
@@ -26,7 +26,7 @@ add_action('phpmailer_init', 'configurar_smtp');
  * Function to send email to administrator
  */
 function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code, $city, $arrival_date, $language = 'en_US') {
-    $admin_email = 'rsvp@meliandjake.com';
+    $admin_email = 'rsvp@aleysebas2026.com';
     $subject = '✉️ New RSVP - ' . $guest_name;
     
     // Generate detailed list by event
@@ -122,7 +122,7 @@ function sendAdminEmail($guest_name, $guests, $allergies, $email, $phone, $code,
     </html>';
     
     $headers = [
-        'From: rsvp@meliandjake.com',
+        'From: rsvp@aleysebas2026.com',
         'Reply-To: ' . $email,
         'Content-Type: text/html; charset=UTF-8'
     ];
@@ -168,7 +168,7 @@ function sendGuestEmail($guest_name, $email, $phone = '', $code = '', $city = ''
     $message = generateGuestEmailContent($guest_name, $email, $code, $phone, $city, $arrival_date, $is_spanish);
     
     $headers = [
-        'From: rsvp@meliandjake.com',
+        'From: rsvp@aleysebas2026.com',
         'Content-Type: text/html; charset=UTF-8'
     ];
     
@@ -362,7 +362,7 @@ function generateSpanishGuestEmail($guest_name, $email, $code, $phone, $city, $a
                     <div class="event-details">
                         <strong>Fecha:</strong> Jueves, 26 de Marzo de 2026<br>
                         <strong>Hora:</strong> 5:00 - 8:00 p.m.<br>
-                        <strong>Ubicación:</strong> Por confirmar
+                        <strong>Location:</strong> Mirador Gastro Bar
                     </div>
                 </div>
                 
@@ -390,7 +390,7 @@ function generateSpanishGuestEmail($guest_name, $email, $code, $phone, $city, $a
                         <div class="event-details">
                             <strong>Fecha:</strong> Sábado, 28 de Marzo de 2026<br>
                             <strong>Hora:</strong> 11:30 a.m.<br>
-                            <strong>Ubicación:</strong> Por confirmar
+                            <strong>Ubicación:</strong> Eteka Beach
                         </div>
                     </div>
                 </div>
@@ -442,8 +442,8 @@ function sendDeclineEmail($guest_name, $email, $phone, $code, $city, $arrival_da
     $message = generateDeclineEmailContent($guest_name, $email, $code, $phone, $city, $arrival_date, $is_spanish);
     
     $headers = [
-        'From: rsvp@meliandjake.com',
-        'Reply-To: rsvp@meliandjake.com',
+        'From: rsvp@aleysebas2026.com',
+        'Reply-To: rsvp@aleysebas2026.com',
         'Content-Type: text/html; charset=UTF-8'
     ];
     
