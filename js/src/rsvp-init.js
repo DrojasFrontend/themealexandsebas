@@ -886,6 +886,20 @@ function previousStep() {
     }
 }
 
+// Actualizar mensaje del paso 7 según si todos declinaron
+function updateStep7Message() {
+    const step7Message = document.querySelector('#step-7 p');
+    if (!step7Message) return;
+    
+    if (allEventsDeclined()) {
+        // Mensaje cuando todos declinaron
+        step7Message.innerHTML = `We'll miss you on our special day, but we truly appreciate your kind wishes and thoughts. A copy of your response will be sent to your email.`;
+    } else {
+        // Mensaje cuando al menos uno aceptó
+        step7Message.innerHTML = `Thank you for confirming your attendance to our wedding. We are truly delighted to share this very special day with you. A copy of your confirmation will be sent to your email.`;
+    }
+}
+
 // Enviar RSVP
 function submitRSVP() {
     const allergyInput = document.getElementById('allergies');
@@ -961,6 +975,8 @@ function submitRSVP() {
     .then(text => {
         const data = JSON.parse(text);
         if (data.success) {
+            // Actualizar el mensaje del paso 7 según si todos declinaron
+            updateStep7Message();
             showStep(7);
         } else {
             alert('Error al enviar RSVP: ' + data.message);
@@ -973,6 +989,7 @@ function submitRSVP() {
         // En local, simular éxito para testing
         if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
             alert('MODO LOCAL: RSVP procesado (revisa la consola para ver los datos)');
+            updateStep7Message();
             showStep(7);
         } else {
             alert('Error al enviar RSVP');
