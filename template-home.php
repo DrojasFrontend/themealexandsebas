@@ -76,7 +76,7 @@ get_header();
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 letter-spacing-2 uppercase stroke-1">Ceremony</h2>
                             <p class="fs-xl-3 text-secondary line-height-0">Iglesia de</p>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-3">Santo Toribio</p>
-                            <a href="https://maps.app.goo.gl/89yKaez3suxK9ZaFA" target="_blank" class="btn btn-primary mx-auto mb-xl-5 mb-4">Location</a>
+                            <a href="https://www.google.com/maps?q=Iglesia+de+Santo+Toribio,+Cra.+7+%2338-15,+El+Centro,+Cartagena+de+Indias,+Provincia+de+Cartagena,+Bol%C3%ADvar,+Colombia&ftid=0x8ef62f9f2606eaf7:0x6a4a3a5e073acaee&entry=gps&lucs=,94224825,94227247,94227248,94231188,94280568,47071704,47069508,94218641,94282134,94203019,47084304&g_ep=CAISEjI1LjQxLjEuODE1Njg1NjM1MBgAIIgnKmMsOTQyMjQ4MjUsOTQyMjcyNDcsOTQyMjcyNDgsOTQyMzExODgsOTQyODA1NjgsNDcwNzE3MDQsNDcwNjk1MDgsOTQyMTg2NDEsOTQyODIxMzQsOTQyMDMwMTksNDcwODQzMDRCAlVT&skid=371accb9-b04d-4be4-b8ae-34f673b301b9&g_st=ipc" target="_blank" class="btn btn-primary mx-auto mb-xl-5 mb-4">Location</a>
 
                             <h2 class="font-titulo fs-xl-md-2 fs-4 mb-xl-3 mb-2 letter-xl-spacing-4 uppercase stroke-1 letter-spacing-2">Reception to follow</h2>
                             <p class="fs-xl-3 text-secondary line-height-0 mb-xl-4 mb-3">Casa 1537</p>

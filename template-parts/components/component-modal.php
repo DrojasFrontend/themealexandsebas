@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body text-center position-relative overflow-hidden p-0">
                 <div class="">
-                    <img class="w-100" src="<?php echo THEME_IMG; ?>tropicalblacktie.webp" alt="Tropical Black Tie" class="mb-4">
+                    <img class="w-100" src="<?php echo THEME_IMG; ?>tropicalblacktie-2.webp" alt="Tropical Black Tie" class="mb-4">
                 </div>
             </div>
         </div>

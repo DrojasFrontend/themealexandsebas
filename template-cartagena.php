@@ -396,7 +396,7 @@ $places = [
             "city" => "C.C. La Serrezuela - Cartagena",
             "phone" => "+57 316 5294386",
             "link" => "https://www.instagram.com/franklinramossalon.ctg/",
-            "image" => THEME_IMG . 'places-cartagena/peluquerias-2.webp',
+            "image" => THEME_IMG . 'places-cartagena/peluquerias-3.webp',
         ],
         // [
         //     "name" => "Portada Peluqueria",
