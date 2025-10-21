@@ -255,8 +255,13 @@ export function initRSVPForm() {
         // Ocultar resultados cuando el usuario está escribiendo
         searchInput.addEventListener('input', function(e) {
             const searchResults = document.getElementById('search-results');
+            const searchButton = document.querySelector('.rsvp-find-btn');
             if (searchResults) {
                 searchResults.style.display = 'none';
+            }
+            // Mostrar botón de nuevo cuando el usuario escribe
+            if (searchButton) {
+                searchButton.style.display = 'block';
             }
         });
     }
@@ -360,6 +365,7 @@ function resetForm() {
     
     const searchInput = document.getElementById('guest-search');
     const searchResults = document.getElementById('search-results');
+    const searchButton = document.querySelector('.rsvp-find-btn');
     const allergyInput = document.getElementById('allergies');
     const emailInput = document.getElementById('guest-email');
     const phoneInput = document.getElementById('guest-phone');
@@ -372,6 +378,7 @@ function resetForm() {
         searchResults.style.display = 'none';
         searchResults.innerHTML = '';
     }
+    if (searchButton) searchButton.style.display = 'block'; // Mostrar botón al resetear
     if (allergyInput) allergyInput.value = '';
     if (emailInput) emailInput.value = '';
     if (phoneInput) phoneInput.value = '';
@@ -419,6 +426,7 @@ function normalizeText(text) {
 function findInvitation() {
     const searchInput = document.getElementById('guest-search');
     const searchResults = document.getElementById('search-results');
+    const searchButton = document.querySelector('.rsvp-find-btn');
     const inputValue = searchInput.value.trim();
     
     if (inputValue.length < 3) {
@@ -433,6 +441,10 @@ function findInvitation() {
     if (queryWords.length < 2) {
         searchResults.innerHTML = '<div class="rsvp-search-item text-danger"><strong>Please enter First Name and Last Name</strong><br><small>Por favor ingresa Nombre y Apellido</small></div>';
         searchResults.style.display = 'block';
+        // Mostrar botón cuando hay error
+        if (searchButton) {
+            searchButton.style.display = 'block';
+        }
         return;
     }
     const allMainGuests = Object.keys(invitedGuests);
@@ -499,9 +511,19 @@ function findInvitation() {
             </div>`
         ).join('');
         searchResults.style.display = 'block';
+        
+        // OCULTAR botón cuando hay resultados válidos
+        if (searchButton) {
+            searchButton.style.display = 'none';
+        }
     } else {
         searchResults.innerHTML = '<div class="rsvp-search-item">No matches found / No se encontraron coincidencias</div>';
         searchResults.style.display = 'block';
+        
+        // MOSTRAR botón cuando no hay resultados
+        if (searchButton) {
+            searchButton.style.display = 'block';
+        }
     }
 }
 
