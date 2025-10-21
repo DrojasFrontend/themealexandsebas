@@ -25,7 +25,7 @@ const rsvpEvents = [
 
 // Datos de invitados (embebidos directamente)
 const invitedGuests = {
-    'Migue': ['Migue', 'Fanny', 'Daniel'],
+    'Daniel rojas': ['Daniel rojas', 'Migue', 'Fanny'],
     'Jordyn Horwitz': ['Jordyn Horwitz', 'Jordan Cohen'],
     'Sabrina Zingg': ['Sabrina Zingg'],
     'Jenna Wittich': ['Jenna Wittich'],
