@@ -428,6 +428,13 @@ function findInvitation() {
     
     const normalizedQuery = normalizeText(inputValue);
     const queryWords = normalizedQuery.split(/\s+/).filter(word => word.length > 0);
+    
+    // NUEVO: Validar que se ingresen al menos 2 palabras (nombre Y apellido)
+    if (queryWords.length < 2) {
+        searchResults.innerHTML = '<div class="rsvp-search-item text-danger"><strong>Please enter First Name and Last Name</strong><br><small>Por favor ingresa Nombre Y Apellido</small></div>';
+        searchResults.style.display = 'block';
+        return;
+    }
     const allMainGuests = Object.keys(invitedGuests);
     let foundMatches = [];
     
