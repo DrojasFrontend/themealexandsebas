@@ -84,7 +84,7 @@ const invitedGuests = {
     'Jeeva Vankatesh': ['Jeeva Vankatesh'],
     'Jeremy Koch': ['Jeremy Koch'],
     'Aaron Bennett': ['Aaron Bennett', 'Corin Bennett'],
-    'Luke Sikinyi': ['Luke Sikinyi', 'Iman Ahmad'],
+    'Luke Sikinyi': ['Luke Sikinyi'],
     'Riley Baker': ['Riley Baker'],
     'Paco Rubio': ['Paco Rubio', 'Olivia Tully'],
     'Ahmad Usmani': ['Ahmad Usmani'],
