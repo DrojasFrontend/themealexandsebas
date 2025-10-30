@@ -15,6 +15,14 @@ $places = [
     "details" => "We invite you to experience the magic of Cartagena by staying in one of its charming hotels or colonial houses in the Historic Center. Below, you will find a selection of recommended accommodations, some of which offer preferential rates. <br> <br> The bride and groom will be staying at <strong>Hotel Casa San Agustín</strong>, an ideal option for guests.",
     "places" => [
         [
+            "name" => "MOVICH HOTEL",
+            "address" => "Please send an email to <a href='mailto:info@movichhotels.com' target='_blank'><strong>info@movichhotels.com</strong></a> your desired dates and any special requests, or contact us at <a href='tel:+573162893777'><strong>+57 316 289 3777</strong></a>.  You may also book directly through our official website. <br> Use the code <strong>A41</strong> to receive a discount when booking. <br><br> Calle de Vélez Danies # 4 – 39 <br>",
+            "city" => "Centro Histórico, Cartagena",
+            "phone" => "+57 (605) 6545276",
+            "link" => "https://www.movichhotels.com/cartagena/?gad_source=1&gad_campaignid=23093221372&gbraid=0AAAABBrO9Flr9oyoQgBJpR2_1Ei-TaeGX&gclid=Cj0KCQjw9obIBhCAARIsAGHm1mSrgWOzmAevfdLAmUiLas0MsXF5fPBjDXiaE-Q1NgQSgVrVVGV3hqQaAkNuEALw_wcB",
+            "image" => THEME_IMG . 'places-cartagena/hoteles-007.png',
+        ],
+        [
             "name" => "Hotel <br> CASA SAN AGUSTÍN",
             "address" => "Please use the code <strong>GMARHAU</strong> under 'Promo Code' to reserve within our room block. This code will be valid from March 26-29. <br> <br> Calle de la Univ. # 36 - 44",
             "city" => "Cartagena, Colombia",
@@ -319,6 +327,22 @@ $places = [
     "img" => THEME_IMG . 'icons/icon-boutiques-2.svg',
     "places" => [
         [
+            "name" => "SERGIO PIZARRO <br> <span style='font-size: 14px;text-transform: none;'>Tuxedo and Suit Rentals for Men</span>",
+            "address" => "Calle 38 # 6 - 107 Claustro Santo Toribio Local 302",
+            "city" => "Centro Histórico, Cartagena",
+            "phone" => "+57 313 2766336",
+            "link" => "https://www.instagram.com/sergio_pizarro_novios_esmoquin/",
+            "image" => THEME_IMG . 'places-cartagena/boutiques-0001.png',
+        ],
+        [
+            "name" => "BOUTIQUE GABRIEL <br> <span style='font-size: 14px;text-transform: none;'>Tuxedo and Suit Rentals for Men</span>",
+            "address" => "Avenida San Martin # 9 - 148 local 5",
+            "city" => "Bocagrande, Cartagena",
+            "phone" => " +57 301 6737696",
+            "link" => "https://www.instagram.com/boutiquegabriel/?hl=es",
+            "image" => THEME_IMG . 'places-cartagena/boutiques-0002.png',
+        ],
+        [
             "name" => "JOHANNA ORTIZ",
             "address" => "Calle 35 # 3 - 16",
             "city" => "Cartagena, Colombia",
@@ -384,17 +408,17 @@ $places = [
         // ],
         [
             "name" => "JESÚS DIAZ <br> MAKEUP STUDIO",
-            "address" => "Calle 30 # 57 - 116",
+            "address" => "",
             "city" => "Cartagena, Colombia",
-            "phone" => "+57 314 5499850",
+            "phone" => " +57 304 5311505",
             "link" => "https://www.instagram.com/jesusdiazz/?hl=en",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-2.webp',
         ],
         [
             "name" => "Franklin Ramos",
-            "address" => "Cra. 11 # 39 - 21 L. S23",
+            "address" => "",
             "city" => "C.C. La Serrezuela - Cartagena",
-            "phone" => "+57 316 5294386",
+            "phone" => "+57 300 5131391",
             "link" => "https://www.instagram.com/franklinramossalon.ctg/",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-3.webp',
         ],
@@ -416,8 +440,8 @@ $places = [
         // ],
         [
             "name" => "Diego Moya",
-            "address" => "Calle de la Serrezuela # 39 - 02",
-            "city" => "Cartagena, Colombia",
+            "address" => "Calle Gastelbondo # 2 - 124",
+            "city" => "Centro Histórico, Cartagena",
             "phone" => "+57 (605) 6685291",
             "link" => "https://www.instagram.com/diegomoyasalon/",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-5.webp',
@@ -440,9 +464,9 @@ $places = [
         // ],
         [
             "name" => "Karla B. López",
-            "address" => "Calle de Ayos # 4 - 46",
+            "address" => "",
             "city" => "Centro Histórico, Cartagena",
-            "phone" => "+57 315 2780517",
+            "phone" => "+57 301 5246810",
             "link" => "https://www.instagram.com/karlabrigittemakeup/",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-8.webp',
         ],
