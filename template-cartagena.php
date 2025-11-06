@@ -409,7 +409,7 @@ $places = [
         [
             "name" => "JESÚS DIAZ <br> MAKEUP STUDIO",
             "address" => "",
-            "city" => "Cartagena, Colombia",
+            "city" => "",
             "phone" => " +57 304 5311505",
             "link" => "https://www.instagram.com/jesusdiazz/?hl=en",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-2.webp',
@@ -417,7 +417,7 @@ $places = [
         [
             "name" => "Franklin Ramos",
             "address" => "",
-            "city" => "C.C. La Serrezuela - Cartagena",
+            "city" => "",
             "phone" => "+57 300 5131391",
             "link" => "https://www.instagram.com/franklinramossalon.ctg/",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-3.webp',
@@ -465,7 +465,7 @@ $places = [
         [
             "name" => "Karla B. López",
             "address" => "",
-            "city" => "Centro Histórico, Cartagena",
+            "city" => "",
             "phone" => "+57 301 5246810",
             "link" => "https://www.instagram.com/karlabrigittemakeup/",
             "image" => THEME_IMG . 'places-cartagena/peluquerias-8.webp',
@@ -722,7 +722,7 @@ $places = [
                                                     <p class="fs-xl-6 text-secondary mb-2" style="line-height: 1.2"><?php echo $place['city']; ?></p>
                                                 <?php endif; ?>
                                                 <?php if ($place['phone']) : ?>
-                                                    <p class="fs-xl-6 text-secondary mb-3" style="line-height: 1.2">Phone:<?php echo $place['phone']; ?></p>
+                                                    <p class="fs-xl-6 text-secondary mb-3" style="line-height: 1.2"><span>Phone:</span> <?php echo $place['phone']; ?></p>
                                                 <?php endif; ?>
                                                 <?php if ($place['link']) : ?>
                                                     <a class="btn btn-small rounded-0 text-secondary" href="<?php echo $place['link']; ?>" target="_blank">
